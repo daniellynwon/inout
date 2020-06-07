@@ -30,6 +30,14 @@ ol, ul, li {
 	list-style: none;
 }
 
+dl {
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+
 dt {
 	float: left;
 }
@@ -65,6 +73,24 @@ dd {
 	background: #fff;
 	float: left;
 	min-width: 800px;
+}
+
+.jview .btn_jview {
+	display: inline-block;
+	padding: 0 9px 3px;
+	height: 28px;
+	border: 1px solid #e4e4e4;
+	box-sizing: border-box;
+	font-size: 0;
+	vertical-align: top;
+	background-color: #fff;
+}
+
+.jview .btn_jview span {
+	color: #666;
+	font-size: 13px;
+	font-weight: normal;
+	letter-spacing: -1px;
 }
 
 .jv_header {
@@ -114,6 +140,8 @@ dd {
 	border-top: 1px solid #e5e6eb;
 	font-size: 14px;
 	letter-spacing: -0.5px;
+	margin-left: -5px;
+	box-sizing: unset;
 }
 
 #col2 {
@@ -175,6 +203,68 @@ dd {
 	letter-spacing: -1px;
 }
 
+.jv_company>.box {
+	padding: 24px 14px;
+}
+
+.jv_company .logo {
+	overflow: hidden;
+	float: left;
+	width: 260px;
+	height: 155px;
+	line-height: 155px;
+	text-align: center;
+}
+
+.jv_company .logo+.wrap_info {
+	padding: 0 15px 0 290px;
+	width: 535px;
+}
+
+.jv_company .wrap_info .title {
+	margin-bottom: 15px;
+	height: 28px;
+	font-size: 0;
+}
+
+.jv_company .wrap_info .company_name {
+	display: inline-block;
+	overflow: hidden;
+	margin-right: 5px;
+	padding-right: 2px;
+	max-width: 540px;
+	color: #222;
+	font-size: 18px;
+	line-height: 25px;
+	text-overflow: ellipsis;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.jv_company .logo+.wrap_info .company_name {
+	max-width: 238px;
+}
+
+.jv_company .wrap_info .title .btn_link {
+	margin-left: 4px;
+}
+
+.jv_company .info {
+	margin-left: -15px;
+}
+
+.jview a.btn_jview {
+	line-height: 23px;
+}
+
+.jview .sri_btn_lg span {
+	width: 183px;
+}
+
+.sri_btn_lg span.sri_btn_immediately {
+	position: relative;
+}
+
 .jv_header .btn_apply .sri_btn_lg span.sri_btn_immediately, .jv_howto .cont.box .sri_btn_lg span.sri_btn_immediately
 	{
 	border: 1px solid #ff8d5a;
@@ -199,6 +289,16 @@ dd {
 	line-height: 22px;
 }
 
+.jv_howto .info_timer {
+	padding-top: 5px;
+	height: 56px;
+	color: #4876ef;
+	font-size: 0;
+	font-weight: bold;
+	line-height: 36px;
+	text-align: center;
+}
+
 .jv_howto .info_timer .txt {
 	display: block;
 	height: 20px;
@@ -207,10 +307,22 @@ dd {
 	line-height: 20px;
 }
 
+.jv_howto .info_timer .txt_day {
+	display: inline-block;
+	margin-right: 8px;
+	font-size: 20px;
+	vertical-align: bottom;
+}
+
 .jv_howto .info_timer .day, .jv_howto .info_timer .time {
 	display: inline-block;
 	font-size: 28px;
 	vertical-align: bottom;
+}
+
+.jv_howto .info_period {
+	padding: 13px 45px 0;
+	text-align: left;
 }
 
 .jv_howto .info_period dt {
@@ -282,12 +394,82 @@ dd {
 	line-height: 28px;
 }
 
+.jv_company .info dl {
+	display: block;
+	float: left;
+	position: relative;
+	margin-left: 15px;
+	padding-left: 70px;
+	width: 190px;
+	min-height: 28px;
+	line-height: 28px;
+}
+
+.jv_company .info dl dt {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70px;
+	color: #888;
+	font-size: 14px;
+	line-height: 28px;
+}
+
+.jv_company .info dl dd {
+	overflow: hidden;
+	width: 100%;
+	color: #444;
+	font-size: 14px;
+	line-height: 28px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.jv_company .info dl.wide {
+	width: 465px;
+}
+
+.jv_company .info dl.wide dd {
+	padding-top: 5px;
+	line-height: 18px;
+}
+
+.jv_company .noti {
+	margin: 16px 10px 0 0;
+	color: #adadad;
+	font-size: 13px;
+	line-height: 28px;
+	text-align: right;
+}
+
+.jv_footer {
+	margin-top: 41px;
+}
+
+.jv_footer .cont {
+	padding-top: 90px;
+}
+
+.jv_footer .utils {
+	height: 28px;
+	line-height: 28px;
+	text-align: right;
+}
+
+.jv_footer .utils .copy {
+	float: left;
+	position: relative;
+	padding-left: 20px;
+	color: #444;
+	font-size: 13px;
+}
+
 button {
 	border: 0;
 	background: transparent;
 }
 
-body {
+body, div, dl, dt, dd, ul, ol, li, p, button {
 	font-family: "나눔스퀘어";
 }
 </style>
@@ -431,6 +613,81 @@ body {
 								<dd class="template">inOut 이력서 양식</dd>
 							</dl>
 							<p class="noti">마감일은 기업의 사정, 조기마감 등으로 변경될 수 있습니다.</p>
+						</div>
+					</div>
+					
+					
+					<!-- 지원자 통계 -->
+					<div class="jv_cont jv_statics">
+					
+					</div>
+					
+					<div class="jv_cont jv_company">
+						<div class="jv_title">기업정보</div>
+						<div class="cont box">
+							<div class="logo"><img src="" alt="회사 로고" /></div>
+							<div class="wrap_info">
+								<div class="title">
+									<span class="company_name">회사 이름</span>
+									<button type="button"title="관심기업 등록" class="btn_jview spr_jview btn_interest" onclick="try{Saramin.btnJob('favor', this, '', 'quick_login');}catch(e){}"
+										onmousedown="try {n_trackEvent('relay_view', 'title', 'favor', '');}catch(e){}" ><span>관심기업 등록</span></button>
+									<a href="#" title="기업정보로 이동" class="spr_jview btn_jview btn_link" onclick="window.open(this.href, ''); return false;"
+										onmousedown="try{n_trackEvent('relay_view', 'companyinfo', 'company_more', '');}catch(e){}"><strong>기업정보</strong></a>
+								</div>
+								
+								<div class="info">
+									<dl>
+										<dt>기업형태</dt>
+										<dd>@@@@@</dd>
+									</dl>
+									<dl>
+										<dt>업종</dt>
+										<dd>@@@@@</dd>
+									</dl>
+									<dl>
+										<dt>매출액</dt>
+										<dd>@@@@@</dd>
+									</dl>
+									<dl>
+										<dt>홈페이지</dt>
+										<dd>@@@@@</dd>
+									</dl>
+									<dl>
+										<dt>사원수</dt>
+										<dd>@@@@@</dd>
+									</dl>
+									<dl>
+										<dt>설립일</dt>
+										<dd>@@@@@</dd>
+									</dl>
+									<dl>
+										<dt>대표자명</dt>
+										<dd>@@@@@</dd>
+									</dl>
+									<dl class="wide">
+										<dt>기업주소</dt>
+										<dd>**********************</dd>
+									</dl>
+								</div>
+							</div>
+							
+							<!-- notice -->
+							<p class="noti">
+								<sup>*</sup> 위 항목은 본사정보와 다를 수 있습니다.
+							</p>
+							
+						</div>
+					</div>
+					
+					
+					<!-- 채용 공고 안 footer -->
+					
+					<div class="jv_cont jv_footer">
+						<div class="cont">
+							<div class="utils">
+								<p class="copy">본 채용 정보에 불법·허위·과장 또는 잘못된 내용이 있을 경우 <a href="#" target="_blank">문의</a>해 주세요!</p>
+								<!-- 문의사항으로 이동 -->
+							</div>
 						</div>
 					</div>
 					

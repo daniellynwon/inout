@@ -10,12 +10,32 @@ body{
 	font-family: "나눔스퀘어";
 }
 
-div#content{
-	/* 가운데 정렬하기 */
-	position: absolute;
-	top: 50%;
-	left: 50%;
+
+.wrap_recruit_type {
+	width: 1260px;
+	padding: 140px 0;
+	margin: 0 auto;
+	background-color: #f2f6f9;
 }
+
+.tit {
+	display: block;
+	min-height: 120px;
+	font-size: 30px;
+	letter-spacing: -2px;
+	text-align: center;
+}
+
+.recruit_list {
+	text-align: center;
+}
+
+img {
+	border-radius: 6px;
+	box-shadow: 0 7px 17px 0 rgba(180, 180, 180, 0.2);
+	box-sizing: border-box;
+}
+
 </style>
 </head>
 <body>

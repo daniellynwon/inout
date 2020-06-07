@@ -58,11 +58,19 @@ body {
 	padding: 0;
 }
 
+.wrap_vix_info {
+	width: 950px;
+}
+
+.wrap_vix_info .vix_info {
+	width: 574px;
+}
+
 .allpost_list {
 	width: 80%;
 }
 
-#content{
+#content {
 	background: #f1f3f9;
 }
 
@@ -77,7 +85,33 @@ body {
 
 #content .main_content .item_list {
 	float: left;
-} 
+}
+
+.wrap_vix_info .area_title {
+	float: left;
+	position: relative;
+	width: 375px;
+}
+
+.wrap_vix_info .vix_info>li.vix_item1 {
+	left: 15px;
+	background-position: 50% 34px;
+}
+
+.wrap_vix_info .vix_info>li.vix_item2 {
+	left: 153px;
+	background-position: 50% 34px;
+}
+
+.wrap_vix_info .vix_info>li.vix_item3 {
+	left: 291px;
+	background-position: 50% 34px;
+}
+
+.wrap_vix_info .vix_info>li.vix_item4 {
+	left: 429px;
+	background-position: 50% 34px;
+}
 
 .allpost_list .post_list .row {
 	position: relative;
@@ -122,7 +156,10 @@ body {
 .allpost_list .area_status .onpost op_color {
 	color: #2365f2;
 	position: absolute;
-	top: 0; right : 187px; font-size : 15px; letter-spacing : -1px;
+	top: 0;
+	right: 187px;
+	font-size: 15px;
+	letter-spacing: -1px;
 	line-height: 19px;
 	right: 187px;
 	font-size: 15px;
@@ -218,6 +255,10 @@ body {
 	display: block;
 }
 
+.sub .menu_item .dept_menu {
+	padding-left: 0;
+}
+
 .hidden, .blind {
 	overflow: hidden;
 }
@@ -232,14 +273,17 @@ button {
 	<div class="wrap">
 		<div id="content">
 			<div class="main_content">
-				
-				<div class="area_title">
-					<a href="membership.jsp" class="link_product">지금 바로 구매하기</a>
-					<p class="title">
-						<strong>프리미엄 채용서비스</strong>로 <br /> 인재선발 한번에 해결하세요
-					</p>
+				<div class="wrap_vix_info">
+					<div class="area_title">
+						<div class="vix_state">
+							<a href="membership.jsp" class="link_product">지금 바로 구매하기</a>
+						</div>
+						<p class="title">
+							<strong>프리미엄 채용서비스</strong>로 <br /> 인재선발 한번에 해결하세요
+						</p>
+					</div>
 				</div>
-				<ul class="item_list">
+				<ul class="vix_info">
 					<li class="item1"><a href="../resources/images/blind.PNG"></a></li>
 					<li class="item2"><a href="../resources/images/cowork.PNG"></a></li>
 					<li class="item3"><a href="../resources/images/eval.PNG"></a></li>
