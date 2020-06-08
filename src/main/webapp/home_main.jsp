@@ -428,33 +428,37 @@ button {
 					<li class="menu_item">
 						<button class="btn" id="btn2">인재 추천</button>
 						<ul class="dept_menu" id="dmenu2" style="display: none;">
-							<li><a href="#">관심 인재</a></li>
-							<li><a href="#">오늘 본 인재</a></li>
-							<li><a href="#">연락처 확인 인재</a></li>
+							<li><a href="#">추천인재</a></li>
+							<li><a href="#">공고 기반 추천인재</a></li>
+							<li><a href="#">공고 스크랩 인재</a></li>
 						</ul>
 					</li>
 					<li class="menu_item">
 						<button class="btn" id="btn3">유료서비스 관리</button>
 						<ul class="dept_menu" id="dmenu3" style="display: none;">
-							<li><a href="#">관심 인재</a></li>
-							<li><a href="#">오늘 본 인재</a></li>
-							<li><a href="#">연락처 확인 인재</a></li>
+							<li><a href="#">인재 선발 솔루션 관리</a></li>
+							<li><a href="#">채용 공고 / 패키지 관리</a></li>
+							<li><a href="#">추천 히스토리</a></li>
+							<li><a href="#">검색 키워드 상품 관리</a></li>
 						</ul>
 					</li>
 					<li class="menu_item">
 						<button class="btn" id="btn4">인적성검사</button>
 						<ul class="dept_menu" id="dmenu4" style="display: none;">
-							<li><a href="#">관심 인재</a></li>
-							<li><a href="#">오늘 본 인재</a></li>
-							<li><a href="#">연락처 확인 인재</a></li>
+							<li><a href="#">검사 신청하기</a></li>
+							<li><a href="#">인적성 검사 신청/관리</a></li>
+							<li><a href="#">인적성 검사 사용 내역</a></li>
+							<li><a href="#">인적성 검사 활용법</a></li>
+							<li><a href="#">인적성 검사 이용절차</a></li>
 						</ul>
 					</li>
 					<li class="menu_item">
 						<button class="btn" id="btn5">결제내역</button>
 						<ul class="dept_menu" id="dmenu5" style="display: none;">
-							<li><a href="#">관심 인재</a></li>
-							<li><a href="#">오늘 본 인재</a></li>
-							<li><a href="#">연락처 확인 인재</a></li>
+							<li><a href="#">결제 내역 조회</a></li>
+							<li><a href="#">전자세금계산서 조회</a></li>
+							<li><a href="#">쿠폰 사용 내역 조회</a></li>
+							<li><a href="#">원클릭 결제 관리</a></li>
 						</ul>
 					</li>
 				</ul>
