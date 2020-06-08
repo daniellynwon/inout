@@ -13,19 +13,15 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		/* 
-		$('#irr').click(function(){
-			$('.age_limit').attr("disabled", "disabled");
-			$('.invisible').addClass("disabledbutton");
-		}); 
-		 */
+		
 
-		/* $(document).on('click','#lim',function(){
-			$(').removeAttr('disabled');
-		}); */
-
-		$('#lim').click(function() {
-			$('.age_limit').attr("disabled", false);
+	jQuery('#age_select').change(function() {
+			var state = jQuery('#age_select option:selected').val();
+			if (state == 'limit') {
+				jQuery('.age_limit').show();
+			} else {
+				jQuery('.age_limit').hide();
+			}
 		});
 
 		$('#btn_add').click(function() {
@@ -35,20 +31,21 @@
 		$('.btn_close').click(function() {
 			$('.wrap_layer').toggle();
 		});
-		
-		$('#btn_del').click(function(){
+
+		$('#btn_del').click(function() {
 			/* 키워드 삭제하기 */
 		});
-		
-		$('.btn_cat').click(function(){
+
+		$('.btn_cat').click(function() {
 			var cat = $(this).attr('value');
 			console.log(cat);
+			
 		});
 		
-		$('.btn_chk').click(function(){
-			/* btn_chk 누르면 cat 값 받아온 거를 textfield에 뜨게 하기 */
-			$('.wrap_layer').toggle();
+		$('#btn_cat_area').click(function(){
+			$('#industry_all_list').toggle();
 		});
+
 		
 
 	});
@@ -60,6 +57,10 @@
 	important min-height: 50px; !
 	important box-sizing: border-box;
 	vertical-align: top;
+}
+
+.age_limit, .job_cat_sec {
+	display: none;
 }
 
 .row form-group {
@@ -108,11 +109,90 @@
 	color: black;
 }
 
-
-/* .age_limit{
-	float: right;
+.wrap_layer .layer_frm .area_category_select {
+	display: table;
+	width: 100%;
+	font-size: 14px;
+	table-layout: fixed;
 }
- */
+
+.wrap_layer .layer_frm .area_category_select .depth1, .wrap_layer .layer_frm .area_category_select .depth2 {
+	display: table-cell;
+	width: 215px;
+	border-right: 1px solid #dfe1e5;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+
+.wrap_layer .layer_frm .area_category_select .area_scroll {
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 229px;
+	box-sizing: border-box;
+}
+
+.wrap_layer .layer_frm .area_category_select .list_category {
+	padding: 12px 0 9px;
+}
+
+.wrap_layer .layer_frm .area_category_select .depth1, .area_category_select .depth2 {
+	display: table-cell;
+	width: 215px;
+	border-right: 1px solid #dfe1e5;
+	box-sizing: border-box;
+	vertical-align: top;
+}
+
+.wrap_layer .layer_frm .area_category_select .area_scroll {
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 229px;
+	box-sizing: border-box;
+}
+
+.wrap_layer .layer_frm .area_category_select .list_category {
+	padding: 12px 0 9px;
+}
+
+.wrap_layer .layer_frm .area_category_select .depth_check {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.wrap_layer .layer_frm .area_category_select .area_scroll {
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 229px;
+	box-sizing: border-box;
+}
+
+.wrap_layer .layer_frm .area_category_select .list_check {
+	padding: 18px 0 4px 30px;
+}
+
+.wrap_layer .layer_frm .area_category_select .list_check li {
+	float: left;
+	margin-bottom: 14px;
+	width: 50%;
+}
+
+.form-group .col .area_btn {
+	padding: 19px 30px 20px 0;
+	border-top: 1px solid #dfe1e5;
+	text-align: right;
+}
+
+.ftco-section .wrap_layer .layer_frm {
+	display: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	border-radius: 5px;
+	box-sizing: border-box;
+	background: #fff;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.15);
+}
+
 body {
 	font-family: "나눔스퀘어";
 }
@@ -152,62 +232,39 @@ body {
 
 					<form action="#" class="p-5 bg-white">
 
-						<!-- 
-						<div class="row form-group">
-							membership category option
-							
-							<div class="col-md-12 mb-3 mb-md-0">
-								<label for="option-price-1"> <input type="checkbox"
-									id="option-price-1"> <span class="text-success">$500</span>
-									For 30 days
-								</label>
-							</div>
-							<div class="col-md-12 mb-3 mb-md-0">
-								<label for="option-price-2"> <input type="checkbox"
-									id="option-price-2"> <span class="text-success">$300</span>
-									/ Monthly Recurring
-								</label>
-							</div>
-						</div>
-					 -->
-
-
-
 						<section class="ftco-section">
 							<div class="row form-group">
-								<div class="col-xs-2">
-									<label class="font-weight-bold" for="fullname">담당자 이름</label> <input
-										type="text" id="fullname" class="form-control1"
-										placeholder="담당자명 입력" maxlength="15" size="15"> <input
-										type="text" id="available" class="form-control1"
-										placeholder="담당자 부서명 입력" size="15" />
+								<div class="col-md-12 mb-3 mb-md-0">
+									<label class="font-weight-bold" for="fullname">담당자 이름</label>
+									<input type="text" id="fullname" class="form-control1" placeholder="담당자명 입력" maxlength="15" size="15">
+									<input type="text" id="available" class="form-control1" placeholder="담당자 부서명 입력" size="15" />
 								</div>
 							</div>
 
 							<div class="row form-group">
 								<div class="col-md-12 mb-3 mb-md-0">
 									<label class="font-weight-bold" for="fullname">담당자 전화번호</label>
-									<span class="mng_phone"> <input type="text" id="tel1"
-										class="form-control1" placeholder="070" maxlength="3" size="3">
-									</span> <span class="mng_phone"> - <input type="text" id="tel2"
-										class="form-control1" placeholder="1234" maxlength="4"
-										size="5">
-									</span> <span class="mng_phone"> - <input type="text" id="tel3"
-										class="form-control1" placeholder="5678" maxlength="4"
-										size="5">
+									<span class="mng_phone">
+										<input type="text" id="tel1" class="form-control1" placeholder="070" maxlength="3" size="3">
+									</span>
+									<span class="mng_phone"> - 
+										<input type="text" id="tel2" class="form-control1" placeholder="1234" maxlength="4" size="5">
+									</span>
+									<span class="mng_phone"> - 
+										<input type="text" id="tel3" class="form-control1" placeholder="5678" maxlength="4" size="5">
 									</span>
 								</div>
+								
 								<div class="col-md-12 mb-3 mb-md-0">
-									<label class="font-weight-bold" for="fullname">담당자
-										휴대폰번호</label> <span class="mng_phone"> <input type="text"
-										id="cell1" class="form-control1" placeholder="010"
-										maxlength="3" size="3">
-									</span> <span class="mng_phone"> - <input type="text"
-										id="cell2" class="form-control1" placeholder="1234"
-										maxlength="4" size="5">
-									</span> <span class="mng_phone"> - <input type="text"
-										id="cell3" class="form-control1" placeholder="5678"
-										maxlength="4" size="5">
+									<label class="font-weight-bold" for="fullname">담당자 휴대폰번호</label>
+									<span class="mng_phone">
+										<input type="text" id="cell1" class="form-control1" placeholder="010" maxlength="3" size="3">
+									</span>
+									<span class="mng_phone"> - 
+										<input type="text" id="cell2" class="form-control1" placeholder="1234" maxlength="4" size="5">
+									</span>
+									<span class="mng_phone"> - 
+										<input type="text" id="cell3" class="form-control1" placeholder="5678" maxlength="4" size="5">
 									</span>
 								</div>
 							</div>
@@ -216,8 +273,7 @@ body {
 							<div class="row form-group">
 								<div class="col-md-12 mb-3 mb-md-0">
 									<label class="font-weight-bold" for="fullname">담당자 이메일</label>
-									<input type="text" id="fullname" class="form-control1"
-										placeholder="hong@naver.com">
+									<input type="text" id="fullname" class="form-control1" placeholder="hong@naver.com">
 								</div>
 							</div>
 
@@ -225,9 +281,156 @@ body {
 								<div class="col-md-12 mb-3 mb-md-0">
 									<label class="font-weight-bold" for="fullname">업종</label>
 									<!-- 업종은 txtfld에 업종 선택하면 그 값 보이게 하기 -->
-									input: <input type="checkbox" id="fullname" class="chkBox" />
+									<!-- 업종 선택하기 버튼 -->
+									<button type="button" class="btn btn-link" id="btn_cat_area">업종 선택하기</button>
 									<p class="txt_placeholder">업종은 최대 1개 선택할 수 있습니다.</p>
+									
 									<!-- ul>li 사용하여 업종 선택. -->
+									<!-- 업종 선택 -->
+									
+									<div class="wrap_layer">
+										<div class="layer_frm layer_add_industry" id="industry_all_list">
+											<div class="area_category_select">
+												<div class="depth1">
+													<div class="area_scroll category_step">
+														<ul class="list_category">
+															<li class="on" data-depth="0" data-mcode="1" data-bcode=""><button
+																	type="button">서비스업</button></li>
+		
+															<li class="" data-depth="0" data-mcode="2" data-bcode=""><button
+																	type="button">제조·화학</button></li>
+		
+															<li class="" data-depth="0" data-mcode="3" data-bcode=""><button
+																	type="button">IT·웹·통신</button></li>
+		
+															<li class="" data-depth="0" data-mcode="4" data-bcode=""><button
+																	type="button">은행·금융업</button></li>
+		
+															<li class="" data-depth="0" data-mcode="5" data-bcode=""><button
+																	type="button">미디어·디자인</button></li>
+		
+															<li class="" data-depth="0" data-mcode="6" data-bcode=""><button
+																	type="button">교육업</button></li>
+		
+															<li class="" data-depth="0" data-mcode="7" data-bcode=""><button
+																	type="button">의료·제약·복지</button></li>
+		
+															<li class="" data-depth="0" data-mcode="8" data-bcode=""><button
+																	type="button">판매·유통</button></li>
+		
+															<li class="" data-depth="0" data-mcode="9" data-bcode=""><button
+																	type="button">건설업</button></li>
+		
+															<li class="" data-depth="0" data-mcode="10" data-bcode=""><button
+																	type="button">기관·협회</button></li>
+														</ul>
+													</div>
+												</div>
+												<div class="depth2">
+													<div class="area_scroll category_step">
+														<ul class="list_category">
+															<li class="on" data-depth="1" data-mcode="1"
+																data-bcode="108"><button type="button">호텔·여행·항공</button></li>
+		
+															<li class="" data-depth="1" data-mcode="1" data-bcode="109"><button
+																	type="button">외식업·식음료</button></li>
+		
+															<li class="" data-depth="1" data-mcode="1" data-bcode="111"><button
+																	type="button">시설관리·경비·용역</button></li>
+		
+															<li class="" data-depth="1" data-mcode="1" data-bcode="115"><button
+																	type="button">레저·스포츠·여가</button></li>
+		
+															<li class="" data-depth="1" data-mcode="1" data-bcode="118"><button
+																	type="button">AS·카센터·주유</button></li>
+		
+															<li class="" data-depth="1" data-mcode="1" data-bcode="119"><button
+																	type="button">렌탈·임대</button></li>
+		
+															<li class="" data-depth="1" data-mcode="1" data-bcode="120"><button
+																	type="button">웨딩·장례·이벤트</button></li>
+		
+															<li class="" data-depth="1" data-mcode="1" data-bcode="121"><button
+																	type="button">기타서비스업</button></li>
+		
+															<li class="" data-depth="1" data-mcode="1" data-bcode="122"><button
+																	type="button">뷰티·미용</button></li>
+														</ul>
+													</div>
+												</div>
+												<div class="depth_check">
+													<div class="area_scroll category_step">
+														<p class="txt_noti no_industry_bcode" style="display: none;">←
+															업종을 선택해주세요</p>
+														<ul class="list_check industry_bcode"
+															style="display: block;">
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10803" data-depth="2"
+																	value="10803"><label class="lbl"
+																	for="i_keyword_10803">호텔</label>
+															</span></li>
+		
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10804" data-depth="2"
+																	value="10804"><label class="lbl"
+																	for="i_keyword_10804">콘도</label>
+															</span></li>
+		
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10805" data-depth="2"
+																	value="10805"><label class="lbl"
+																	for="i_keyword_10805">카지노</label>
+															</span></li>
+		
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10806" data-depth="2"
+																	value="10806"><label class="lbl"
+																	for="i_keyword_10806">여행사</label>
+															</span></li>
+		
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10807" data-depth="2"
+																	value="10807"><label class="lbl"
+																	for="i_keyword_10807">항공사</label>
+															</span></li>
+		
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10813" data-depth="2"
+																	value="10813"><label class="lbl"
+																	for="i_keyword_10813">관광</label>
+															</span></li>
+		
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10814" data-depth="2"
+																	value="10814"><label class="lbl"
+																	for="i_keyword_10814">관광통역</label>
+															</span></li>
+		
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10818" data-depth="2"
+																	value="10818"><label class="lbl"
+																	for="i_keyword_10818">면세점</label>
+															</span></li>
+		
+															<li><span class="inpChk sizeM"> <input
+																	type="checkbox" id="i_keyword_10819" data-depth="2"
+																	value="10819"><label class="lbl"
+																	for="i_keyword_10819">유학·이민</label>
+															</span></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+	
+											<div class="area_btn">
+												<button type="button" class="btnSizeL colorWhite close_layer">취소</button>
+												<button type="button" class="btnSizeL colorBlue confirm_layer">확인</button>
+											</div>
+										</div>
+									</div>
+
+
+
 
 								</div>
 							</div>
@@ -572,9 +775,9 @@ body {
 
 							<div class="row form-group mb-5">
 								<div class="col-md-12 mb-3 mb-md-0">
-									<label class="font-weight-bold" for="fullname">연령</label> <span
-										class="form-group" id="age" name="application_age"> <select
-										name="age" id="fullname" title="연령">
+									<label class="font-weight-bold" for="fullname">연령</label>
+									<span class="form-group" id="age" name="application_age">
+									<select name="age" id="age_select" title="연령">
 											<option value="irr" id="irr">연령무관</option>
 											<option value="limit" id="lim">연령제한</option>
 									</select>
@@ -582,14 +785,14 @@ body {
 									<!-- 연령제한 선택했을 때 뜨게하기 -->
 									<!-- 최소 나이 -->
 									<div class="age_limit">
-										<input type="text" class="age_limit" name="max_age"
+										<input type="text" class="max_age" name="max_age"
 											id="form-group" title="최소 나이"
-											placeholder="만나이로 작성하세요. 예) 만 20세" disabled="disabled" />
+											placeholder="만나이로 작성하세요. 예) 만 20세" />
 										<!-- style="display: none;"  -->
 										<!-- 최대 나이 -->
-										~ <input type="text" class="age_limit" name="min_age"
+										~ <input type="text" class="min_age" name="min_age"
 											id="form-group" title="최대 나이"
-											placeholder="만나이로 작성하세요. 예) 만 20세" disabled="disabled" />
+											placeholder="만나이로 작성하세요. 예) 만 20세" />
 									</div>
 								</div>
 
@@ -605,10 +808,8 @@ body {
 								<div class="col-md-12 mb-3 mb-md-0">
 									<label class="font-weight-bold" for="fullname">공고 대표 직무</label>
 									<!-- 이 버튼을 누르면 체크박스 리스트가 아래로 내려옴 -->
-									<input type="text" id="available"
-										class="form-control1 add-part" placeholder="대표 직종/직업을 선택하세요" />
-									<button type="button" id="btn_add"
-										class="form-control2 btn btn-primary">추가하기</button>
+									<input type="text" id="cat_add" class="form-control1 add-part" placeholder="대표 직종/직업을 선택하세요" />
+									<button type="button" id="btn_add" class="form-control2 btn btn-primary">추가하기</button>
 
 								</div>
 
@@ -616,6 +817,7 @@ body {
 
 								<div class="wrap_layer" style="display: none;">
 									<div class="layer_frm layer_add_job">
+									<!-- 
 										<div class="area_keyword">
 											<div class="wrap_search" id="job_category_search_list">
 												<input type="text" id="" class="inpTypo sizeL inp_keyword"
@@ -634,7 +836,8 @@ body {
 													</div>
 												</div>
 											</div>
-										</div>
+										</div> -->
+										
 										<div class="area_category_select" id="job_category_all_list">
 											<div class="depth1">
 												<div class="area_scroll">

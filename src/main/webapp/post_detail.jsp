@@ -341,7 +341,7 @@ dd {
 .jv_howto .info_period dd {
 	float: right;
 	padding: 1px 0;
-	width: 116px;
+	/* width: 116px; */
 	height: 26px;
 	box-sizing: border-box;
 	font-size: 15px;
@@ -363,7 +363,7 @@ dd {
 }
 
 .jv_howto .status {
-	display: table-cell;
+	/* display: table-cell; */
 	position: relative;
 	z-index: 2;
 	padding: 22px 0 30px;
@@ -499,13 +499,16 @@ body, div, dl, dt, dd, ul, ol, li, p, button {
 							
 							<div class="btn_apply"><span class="dday">D-50</span>
 							
-							<!-- onclick 안에
-							try{quickApplyForm('38217319','','t_category=relay_view&amp;t_content=relay_view_list&amp;t_ref=theme-samsung&amp;
-							t_ref_content=logo_recruit&amp;t_ref_scnid=&amp;dpId=&amp;inner_source=saramin&amp;inner_medium=pattern&amp;
-							inner_campaign=relay_view_apply_0&amp;inner_term=list', ''); return false;} catch (e) {}; return false; -->
-							
-							<button class="sri_btn_lg for_btn_event" title="클릭하면 입사지원할 수 있는 창이 뜹니다." onclick=""
-							onmousedown="try{n_trackEvent('relay_view','summary','quick_apply','');}catch(e){}"><span class="sri_btn_immediately">즉시지원</span></button></div>
+								<!-- onclick 안에
+								try{quickApplyForm('38217319','','t_category=relay_view&amp;t_content=relay_view_list&amp;t_ref=theme-samsung&amp;
+								t_ref_content=logo_recruit&amp;t_ref_scnid=&amp;dpId=&amp;inner_source=saramin&amp;inner_medium=pattern&amp;
+								inner_campaign=relay_view_apply_0&amp;inner_term=list', ''); return false;} catch (e) {}; return false; -->
+								
+								<button class="sri_btn_lg for_btn_event" title="클릭하면 입사지원할 수 있는 창이 뜹니다." onclick=""
+								onmousedown="try{n_trackEvent('relay_view','summary','quick_apply','');}catch(e){}" style="margin: auto; width: 50%;">
+									<span class="sri_btn_immediately">즉시지원</span>
+								</button>
+							</div>
 							
 						</div>
 					</div>
@@ -571,6 +574,75 @@ body, div, dl, dt, dd, ul, ol, li, p, button {
 								
 							</iframe> -->
 							
+							
+							<!-- 회사 정보 - 채용 공고 안 항목들 가져오기 -->
+							<div class="container">
+								<div class="frm_manager">
+									<div class="frm_header">
+										<h3 class="tit">담당자 정보</h3>
+									</div>
+									
+									
+									<!-- 담당자 정보 -->
+									<form action="" class="frm">
+										<section class="frm_manager">
+											<div class="row form-group">
+												<div class="col-md-12 mb-3 mb-md-0">
+													<label for="fullname" class="font-weight-bold">담당자 이름</label>
+													<!-- 담당자 이름 받아오기 -->
+													<span class="mng_name">(담당자 이름)</span>
+													<span class="mng_name" id="mng_part">(담당자 부서명)</span>
+												</div>
+											</div>
+											
+											<!-- 담당자 전화번호 -->
+											<div class="row form-group">
+												<div class="col-md-12 mb-3 mb-md-0">
+													<label class="font-weight-bold" for="fullname">담당자 전화번호</label>
+													<span class="mng_phone">
+														<span class="tel" id="tell1">(tell1)</span>
+													</span> <span class="mng_phone"> -
+														<span class="tel" id="tell2">(tell2)</span>
+													</span>
+													<span class="mng_phone"> - 
+														<span class="tel" id="tell3">(tell3)</span>
+													</span>
+												</div>
+											</div>
+											
+											<!-- 담당자 휴대전화 -->
+											<div class="row form-group">
+												<div class="col-md-12 mb-3 mb-md-0">
+													<label class="font-weight-bold" for="fullname">담당자 휴대폰번호</label>
+													<span class="mng_phone">
+														<span class="cell" id="cell1">(cell1)</span>
+													</span>
+													<span class="mng_phone"> - 
+														<span class="cell" id="cell2">(cell2)</span>
+													</span>
+													<span class="mng_phone"> - 
+														<span class="cell" id="cell3">(cell3)</span>
+													</span>
+												</div>
+											</div>
+											
+											<!-- 담당자 email -->
+											<div class="row form-group">
+												<div class="col-md-12 mb-3 mb-md-0">
+													<label class="font-weight-bold" for="fullname">담당자 이메일</label>
+													<span class="email">hong@naver.com</span>
+												</div>
+											</div>
+
+
+										</section>
+									</form>
+									
+									
+								</div>
+							</div>
+							
+							
 						</div>
 					</div>
 					
@@ -605,7 +677,7 @@ body, div, dl, dt, dd, ul, ol, li, p, button {
 								<dd class="method">
 									<button class="sri_btn_1 for_btn_event" title="클릭하면 입사지원할 수 있는 창이 뜹니다."
 										onclick="try{quickApplyForm('38217319','','t_category=relay_view&amp;t_content=relay_view_list&amp;t_ref=theme-samsung&amp;t_ref_content=logo_recruit&amp;t_ref_scnid=&amp;dpId=&amp;inner_source=saramin&amp;inner_medium=pattern&amp;inner_campaign=relay_view_apply_0&amp;inner_term=list', ''); return false;} catch (e) {}; return false;"
-										onmousedown="try{n_trackEvent('relay_view','contacts','quick_apply','');}catch(e){}">
+										onmousedown="try{n_trackEvent('relay_view','contacts','quick_apply','');}catch(e){}" style="margin: auto; width: 50%;">
 										<span class="sri_btn_immediately">inOut 즉시지원</span>
 									</button>
 								</dd>
@@ -625,7 +697,7 @@ body, div, dl, dt, dd, ul, ol, li, p, button {
 					<div class="jv_cont jv_company">
 						<div class="jv_title">기업정보</div>
 						<div class="cont box">
-							<div class="logo"><img src="" alt="회사 로고" /></div>
+							<div class="logo"><img src="../resources/images/logo.jpg" alt="회사 로고" width="260px" height="150px"/></div>
 							<div class="wrap_info">
 								<div class="title">
 									<span class="company_name">회사 이름</span>

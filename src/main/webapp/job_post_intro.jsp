@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="/main/mainPage/mp_naviBar.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +41,7 @@ img {
 </head>
 <body>
 
-	<div id="content">
+	<div id="content" style="margin: 15px;">
 		<div id="wrap_recruit_type">
 			<p class="tit">
 				<strong>{id }</strong>님, <br />
