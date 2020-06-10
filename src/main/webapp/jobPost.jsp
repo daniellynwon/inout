@@ -60,21 +60,9 @@
 		$('.on').click(function() { 
 			var state = this.value;
 			console.log('state', state);
-			if(state){
-				$('.depth2').hide(); // 켜져있는 모든 depth2를 닫기
-			}
-			if (state == '100') {
-				$('#100').show();
-			} else if (state == '200') {
-				$('#200').show();
-			} else if (state == '300'){
-				$('#300').show();
-			} else if (state == '400'){
-				$('#400').show();
-			} else if (state == '500'){
-				$('#500').show();
-			} else if (state == '1000'){
-				$('#1000').show();
+			if(state && $('#'+state).length > 0){	
+				$('.depth2').hide();
+				$('#'+state).show();
 			}
 		});
 		/* 공고 대표 직무 추가하기 */
