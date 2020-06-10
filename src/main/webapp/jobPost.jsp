@@ -56,23 +56,24 @@
 		$('.depth2').hide();
 		$('.depth3').hide();
 		
-		jQuery('.on').change(function() {
-			var state = jQuery('.on option:selected').val();
+		 
+		$('.on').click(function() { 
+			var state = this.value;
+			console.log('state', state);
 			if (state == '100') {
-				jQuery('#100').show();
+				$('#100').show();
 			} else if (state == '200') {
-				jQuery('#200').show();
+				$('#200').show();
 			} else if (state == '300'){
-				jQuery('#300').show();
+				$('#300').show();
 			} else if (state == '400'){
-				jQuery('#400').show();
+				$('#400').show();
 			} else if (state == '500'){
-				jQuery('#500').show();
+				$('#500').show();
 			} else if (state == '1000'){
-				jQuery('#1000').show();
+				$('#1000').show();
 			}
 		});
-		
 		/* 공고 대표 직무 추가하기 */
 		$('#btn_add').click(function() {
 			console.log("click");
@@ -814,22 +815,22 @@ body {
 										<div class="depth1">
 											<div class="area_scroll category_step">
 												<ul class="list_category">
-													<li class="on" data-depth="0" data-mcode="1" id="100" >
+													<li class="on" data-depth="0" data-mcode="1" value="100" >
 													<button type="button" class="btn btn-default">서비스업</button></li>
 
-													<li class="on" data-depth="0" data-mcode="2" id="200">
+													<li class="on" data-depth="0" data-mcode="2" value="200">
 													<button type="button" class="btn btn-default">제조·화학</button></li>
 
-													<li class="on" data-depth="0" data-mcode="3" id="300" >
+													<li class="on" data-depth="0" data-mcode="3" value="300" >
 													<button type="button" class="btn btn-default">IT·웹·통신</button></li>
 
-													<li class="on" data-depth="0" data-mcode="4" id="400" >
+													<li class="on" data-depth="0" data-mcode="4" value="400" >
 													<button type="button" class="btn btn-default">은행·금융업</button></li>
 
-													<li class="on" data-depth="0" data-mcode="5" id="500">
+													<li class="on" data-depth="0" data-mcode="5" value="500">
 													<button type="button" class="btn btn-default">미디어·디자인</button></li>
 													
-													<li class="on" data-depth="0" data-mcode="10" id="1000" >
+													<li class="on" data-depth="0" data-mcode="10" value="1000" >
 													<button type="button" class="btn btn-default">기관·협회</button></li>
 												</ul>
 											</div>
