@@ -60,6 +60,9 @@
 		$('.on').click(function() { 
 			var state = this.value;
 			console.log('state', state);
+			if(state){
+				$('.depth2').hide(); // 켜져있는 모든 depth2를 닫기
+			}
 			if (state == '100') {
 				$('#100').show();
 			} else if (state == '200') {
