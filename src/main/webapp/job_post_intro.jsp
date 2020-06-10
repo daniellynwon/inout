@@ -25,6 +25,7 @@ body{
 	font-size: 30px;
 	letter-spacing: -2px;
 	text-align: center;
+	margin-top: 80px;
 }
 
 .recruit_list {
