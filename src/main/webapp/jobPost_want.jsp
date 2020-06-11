@@ -7,7 +7,107 @@
 <title>Job Post New Last -2 </title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-	
+	$(function(){
+		
+
+		$('#career_prd1').hide();
+		$('#career_prd2').hide();
+		$('#career_prd3').hide();
+		$('#career_prd4').hide();
+		$('#career_prd1').hide();
+
+		/* 최소 최대 경력 보여주기 */
+		$('#career1').click(function(){
+			$('#career_prd1').show();
+		});
+		/* 신입 클릭시 경력 안보이기 */
+		$('#newbie1').click(function(){
+			$('#career_prd1').hide();
+		});
+
+		$('#career2').click(function(){
+			$('#career_prd2').show();
+		});
+		$('#newbie2').click(function(){
+			$('#career_prd2').hide();
+		});
+
+		$('#career3').click(function(){
+			$('#career_prd3').show();
+		});
+		$('#newbie3').click(function(){
+			$('#career_prd3').hide();
+		});
+
+		$('#career4').click(function(){
+			$('#career_prd4').show();
+		});
+		$('#newbie4').click(function(){
+			$('#career_prd4').hide();
+		});
+
+		$('#career5').click(function(){
+			$('#career_prd5').show();
+		});
+		$('#newbie5').click(function(){
+			$('#career_prd5').hide();
+		});
+
+		/* 최소 최대 경력 끝 */
+
+		
+		/* 체크박스 두번 누르면 선택 해제 */
+		$('.three_depth_preferential').is(':checked'){
+			
+		}
+
+		/* 취소버튼 누르면 체크박스 누른거 해제하기 */
+		$('#btn_canc').click(function(){
+			$('.three_depth_preferential').prop("checked",false);
+		});
+
+		
+
+		/* 필수 우대조건 값 가져오기 */
+
+		/* $('.three_depth_preferential').click(function(){
+			if($('input:checkbox[name=pre003]').is(':checked')==true){
+				$('.pre_output').val($('input:checkbox[name=pre003]').val());
+			}else if($('input:checkbox[name=pre004]').is(':checked')==true){
+				$('.pre_output').val($('input:checkbox[name=pre004]').val());
+			}else if($('input:checkbox[name=pre006]').is(':checked')==true){
+				$('.pre_output').val($('input:checkbox[name=pre006]').val());
+			}else if($('input:checkbox[name=pre035]').is(':checked')==true){
+				$('.pre_output').val($('input:checkbox[name=pre035]').val());
+			}else if($('input:checkbox[name=pre034]').is(':checked')==true){
+				$('.pre_output').val($('input:checkbox[name=pre034]').val());
+			}else if($('input:checkbox[name=pre030]').is(':checked')==true){
+				$('.pre_output').val($('input:checkbox[name=pre030]').val());
+			}else if($('input:checkbox[name=pre031]').is(':checked')==true){
+				$('.pre_output').val($('input:checkbox[name=pre031]').val());
+			}
+		}); */
+
+		/* 모집분야 레이어 추가하기 */
+		$('#extr_cat_layer1').hide();
+		$('#extr_cat_layer2').hide();
+		$('#extr_cat_layer3').hide();
+		$('#extr_cat_layer4').hide();
+
+		$('#add_cat_layer1').click(function(){
+			$('#extr_cat_layer1').toggle();
+		});
+		$('#add_cat_layer2').click(function(){
+			$('#extr_cat_layer2').toggle();
+		});
+		$('#add_cat_layer3').click(function(){
+			$('#extr_cat_layer3').toggle();
+		});
+		$('#add_cat_layer4').click(function(){
+			$('#extr_cat_layer4').toggle();
+		});
+
+	});
 </script>
 
 <style type="text/css">
@@ -182,7 +282,7 @@ input.inpTypo {
 
 .area_category_select .area_scroll {
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: hidden;
 	height: 229px;
 	box-sizing: border-box;
 }
@@ -204,12 +304,6 @@ input.inpTypo {
 	vertical-align: top;
 }
 
-.area_category_select .area_scroll {
-	overflow-x: hidden;
-	overflow-y: auto;
-	height: 229px;
-	box-sizing: border-box;
-}
 
 .area_category_select .depth_check {
 	display: table-cell;
@@ -234,11 +328,12 @@ span.inpRdo, span.inpChk {
 span.inpRdo>input, span.inpChk>input {
 	position: absolute;
 	top: 0;
-	width: 5px;
-	height: 5px;
+	width: 71px;
+	height: 15px;
 	outline-color: #7a7f82;
 	opacity: 0;
 	pointer-events: none;
+	height: 15px;
 }
 
 span[class^="inp"].sizeM>.lbl {
@@ -388,7 +483,7 @@ span.inpRdo>.lbl, span.inpChk>.lbl {
 
 .frm_division .list_division .selected_preference .area_bottom {
 	position: relative;
-	padding: 14px 0 6px 19px;
+	/* padding: 14px 0 6px 19px; */
 	min-height: 28px;
 }
 
@@ -413,6 +508,42 @@ span.inpRdo>.lbl, span.inpChk>.lbl {
 	background-position-x: -120px;
 }
 
+/* 필수 우대조건 */
+.modal_division .area_category_select .list_check {
+	padding: 10px 0 16px 20px;
+}
+
+.modal_division .area_category_select .list_check li .lbl {
+	overflow: hidden;
+	padding-right: 1px;
+	max-width: 99%;
+	white-space: nowrap;
+}
+
+/* 우대조건 버튼 */
+.modalWrap .modalBtn {
+	padding-top: 28px;
+	text-align: center;
+}
+
+/* 우대조건 체크박스 */
+.three_depth_preferential {
+	width: 100px;
+	height: 50px;
+	left: -10px;
+	top: -10px;
+}
+
+/* 정규직 전환 가능 체크했을 때 표시나게 해줌 */
+input[type=checkbox]+label {
+	border: 1px solid #bcbcbc;
+	border-radius: 5px;
+}
+
+input[type=checkbox]:checked+label {
+	background-color: #bcbcbc;
+}
+
 ol, ul, li {
 	list-style: none;
 }
@@ -431,49 +562,53 @@ body {
 <body>
 
 <!-- 두번째 section -->
-		<div class="step_recruit" id="frmDivision" style="float: left;">
+		<div class="step_recruit" id="frmDivision" style="float: left; padding-bottom: 50px;">
 			<div class="frm_header">
 				<h2 class="tit_step">모집분야</h2>
 				<p class="subhead">어떤일을 담당할 직원을 찾으시나요?</p>
 			</div>
-			
+
+			<form action="./newNoticeStep3.do" method="post">
 			<div class="frm_body frm_division">
 				<ul class="list_division list_recruit_frm" id="list_recruit_division">
 					<li class="recruit_division_line_detail expand" id="line_detail_0">
-						
+
 						<!-- 모집분야 -->
 						<div class="fulldata">
 							<div class="items">
 								<div class="area_tit"><strong class="tit">모집분야명</strong></div>
 								<div class="area_data">
 									<div class="division_name" id="division_name_area_0">
-										<input type="text" name="" id="recruitment_title_0" class="inpTypo sizeL recruitment_tite" placeholder="예) R&D, 경영지원" maxlength="30" />
+										<input type="text" name="notice_want_name" id="recruitment_title_0" class="inpTypo sizeL recruitment_tite" placeholder="예) R&D, 경영지원" maxlength="30" />
 									</div>
-									
+
 									<span class="division_collect" style="float: left;">
-										<input type="text" name="collect_cnt" id="collect_cnt_0" class="inpTypo sizeL collect_cnt _filter" maxlength="6" title="모집인원" placeholder="ex) 00명" />
+										<input type="text" name="notice_want_many" id="collect_cnt_0" class="inpTypo sizeL collect_cnt _filter" maxlength="6" title="모집인원" placeholder="ex) 00명" />
 									</span>
-									
+
 								</div>
 							</div>
 							<!-- 모집분야명 items end -->
-							
+
 							<div class="items">
 								<div class="area_tit"><strong class="tit">경력여부</strong></div>
 								<div class="area_data type_txt">
 									<span class="inpChk career_cd_0">
-										<input type="checkbox" value="0_1" id="career_cd_0_1" class="chkB" />
-										<label class="lbl" for="career_cd_0_1">신입</label>
+										<!-- <input type="checkbox" value="0_1" id="career_cd_0_1" class="chkB" /> -->
+										<button type="button" class="btnSizeL" id="newbie1">
+										<label class="lbl" for="career_cd_0_1">신입</label></button>
 									</span>
 									<span class="inpChk career_cd_0">
-										<input type="checkbox" id="career_cd_0_2" value="0_2">
-										<label class="lbl" for="career_cd_0_2">경력</label>
+										<!-- <input type="checkbox" id="career_cd_0_2" value="0_2"> -->
+										<button type="button" class="btnSizeL" id="career1">
+											<label class="lbl" for="career_cd_0_2">경력</label>
+										</button>
 									</span>
-									
+
 									<!-- 경력 체크시 노출되는 부분 -->
-									<div class="career_check career_cd_sub_2_0" data-sub-for="0_2" style="">
-										<div class="inpSel sizeL"> 
-											<select class="career_period" id="career_min_0" name="career_min_0" data-seq="0">
+									<div class="career_check career_cd_sub_2_0" id="career_prd1" data-sub-for="0_2" style="display: flex;">
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_min_0" name="notice_want_mincar" data-seq="0">
 												<option value="">선택</option>
 												<option value="1">1년 이상</option>
 												<option value="2">2년 이상</option>
@@ -497,9 +632,9 @@ body {
 												<option value="20">20년 이상</option>
 											</select>
 										</div>
-										~
+										<span>~</span>
 										<div class="inpSel sizeL">
-											<select class="career_period" id="career_max_0" name="career_max_0" data-seq="0" >
+											<select class="career_period" id="career_max_0" name="notice_want_maxcar" data-seq="0" >
 												<option value="">선택</option>
 												<option value="1">1년 이하</option>
 												<option value="2">2년 이하</option>
@@ -527,26 +662,27 @@ body {
 
 								</div>
 							</div>
-							
+
 							<div class="items">
 								<div class="area_tit"><strong class="tit">담당업무</strong></div>
 								<div class="area_data">
-									<input type="text" id="assign_task_nm_0" value="" class="inpTypo sizeL assign_task_nm" title="담당업무" placeholder="담당업무를 자세히 기재할수록 지원율이 높아집니다." maxlength="300">
+									<input type="text" id="assign_task_nm_0" value="" class="inpTypo sizeL assign_task_nm"
+										name="notice_want_task" title="담당업무" placeholder="담당업무를 자세히 기재할수록 지원율이 높아집니다." maxlength="300">
 								</div>
 							</div>
-							
+
 							<div class="subsection">
 								<div class="items">
 									<div class="area_tit">
 										<span class="inpChk">
-											<input type="checkbox" class="workpost_chk" id="workpost_chk_0" value="0">
-											<label class="lbl ga_data_layer" for="workpost_chk_0" >근무부서</label>
+											<!-- <input type="checkbox" class="workpost_chk" id="workpost_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="workpost_chk_0" >근무 부서</label>
 										</span>
 									</div>
 									<div class="area_data">
 										<!-- 근무부서 체크시 textfield 나오게 -->
-										<div class="detail_frm" id="workpost_detail_0" style="display: none;">
-											<input type="text" id="work_dept_nm_0" name="work_dept_nm" class="inpTypo sizeL work_dept_nm"
+										<div class="detail_frm" id="workpost_detail_0" style="">
+											<input type="text" id="work_dept_nm_0" name="notice_want_dept" class="inpTypo sizeL work_dept_nm"
 												title="근무부서" placeholder="근무하게 될 부서 또는 근무지를 입력해주세요." maxlength="60">
 										</div>
 									</div>
@@ -554,37 +690,1116 @@ body {
 								<div class="items">
 									<div class="area_tit">
 										<span class="inpChk">
-											<input type="checkbox" class="preferential_chk" id="preferential_chk_0" value="0">
+											<!-- <input type="checkbox" class="preferential_chk" id="preferential_chk_0" value="0"> -->
 											<label class="lbl ga_data_layer" for="preferential_chk_0">필수/우대조건</label>
 										</span>
 									</div>
-									<div class="area_data type_txt">
-										<!-- 필수/우대조건 체크시 노출 -->
-										<div id="preferential_detail_0" style="display: none;">
-											<div class="selected_preference" id="preference_summary_0">
-												<ul class="list_preference" id="require_preference_frm_box_list_0">
-													<!-- 필수 / 우대조건 list -->
-												</ul>
-												<div class="area_bottom">
-													<p class="txt_placeholder">보유역량, 자격증, 외국어, 전공학과 등 우대사항을 등록해보세요!</p>
-													<button type="button" class="btn_add btn_more_ly_essential_preference ga_data_layer"
-														data-seq="0" >선택하기</button>
+								<div class="area_data type_txt">
+									<!-- 필수/우대조건 체크시 노출 -->
+									<div id="preferential_detail_0" style="">
+										<div class="selected_preference" id="preference_summary_0">
+											<ul class="list_preference" id="require_preference_frm_box_list_0">
+												<!-- 필수 / 우대조건 list -->
+											</ul>
+											<div class="area_bottom">
+
+											<div class="modalWrap modal_division" id="lpop_essential_preference1" data-uilayer="recruit_division_preference"style="display: block;">
+
+											<!-- <h3 class="title" style="margin-left: 15px;">필수/우대조건</h3> -->
+												<div class="modalCont">
+													<div class="area_category_select">
+														<div class="depth1">
+															<div class="area_scroll one_depth_area">
+																<ul class="list_check list_three_depth" style="">
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre003" value="국가유공자"
+																		data-section="preferential" name="pre003" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre003">국가유공자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre004" value="보훈대상자"
+																		data-section="preferential" name="pre004" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre004">보훈대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre006" value="장애인우대"
+																			data-section="preferential" name="pre006" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre006">장애인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre035" value="외국인우대"
+																		data-section="preferential" name="pre035" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre035">외국인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre034" value="병역특례"
+																		data-section="preferential" name="pre034" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre034">병역특례</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre029" value="여성우대"
+																		data-section="preferential" name="pre029" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre029">여성우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre030" value="주부(전업주부)"
+																		data-section="preferential" name="pre030" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre030">주부(전업주부)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre031" value="고령자(55세이상)"
+																		data-section="preferential" name="pre031" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre031">고령자(55세이상)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre007" value="취업보호대상자"
+																		data-section="preferential" name="pre007" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre007">취업보호대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre005" value="고용촉진장려금 대상"
+																		data-section="preferential" name="pre005" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre005">고용촉진장려금 대상</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre061" value="특성화고/마이스터고"
+																		data-section="preferential" name="pre061" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre061">특성화고/마이스터고</label>
+																	</span></li>
+																</ul>
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
+
+												<div class="modalBtn">
+													<!-- <button type="button" id="btn_check" class="btnSizeL colorBlue btn_confirm" data-seq="0" data-uilayer-btn="recruit_division_preference">확인</button> -->
+													<button type="button" id="btn_canc" class="btnSizeL colorBlue colorInvert btn_close" 
+														style="float: right; margin-bottom: 10px;">취소</button>
+												</div>
+											</div>
+
 										</div>
 									</div>
-									<!-- 필수 우대조건 체크시 노출되는 div end -->
-									
 								</div>
-								<!-- 필수 우대조건 div end -->
-							</div>
-							<!-- div.subsection end -->
-							
-							
+								<!-- 필수 우대조건 체크시 노출되는 div end -->
+
+												</div>
+												<!-- 필수 우대조건 div end -->
+											</div>
+											<!-- div.subsection end -->
+
+
 						</div>
 						<!-- div.fulldata end -->
-						
+					</li></ul>
+
+				</div>
+
+				<!-- 두번째 모집분야 추가 -->
+
+				<!-- 추가하기 버튼 만들기 -->
+				<div class="add_layer">
+					<button type="button" class="btnSizeL" id="add_cat_layer1" value="모집분야 추가" style="width: 100%;">모집분야 추가</button>
+				</div>
+
+				<div class="frm_body frm_division" id="extr_cat_layer1" style="padding-bottom: 50px;">
+				<ul class="list_division list_recruit_frm" id="list_recruit_division">
+					<li class="recruit_division_line_detail expand" id="line_detail_0">
+
+						<!-- 모집분야 -->
+						<div class="fulldata">
+							<div class="items">
+								<div class="area_tit"><strong class="tit">모집분야명</strong></div>
+								<div class="area_data">
+									<div class="division_name" id="division_name_area_0">
+										<input type="text" name="notice_want_name" id="recruitment_title_0" class="inpTypo sizeL recruitment_tite" placeholder="예) R&D, 경영지원" maxlength="30" />
+									</div>
+
+									<span class="division_collect" style="float: left;">
+										<input type="text" name="notice_want_many" id="collect_cnt_0" class="inpTypo sizeL collect_cnt _filter" maxlength="6" title="모집인원" placeholder="ex) 00명" />
+									</span>
+
+								</div>
+							</div>
+							<!-- 모집분야명 items end -->
+
+							<div class="items">
+								<div class="area_tit"><strong class="tit">경력여부</strong></div>
+								<div class="area_data type_txt">
+									<span class="inpChk career_cd_0">
+										<!-- <input type="checkbox" value="0_1" id="career_cd_0_1" class="chkB" /> -->
+										<button type="button" class="btnSizeL" id="newbie2">
+										<label class="lbl" for="career_cd_0_1">신입</label></button>
+									</span>
+									<span class="inpChk career_cd_0">
+										<!-- <input type="checkbox" id="career_cd_0_2" value="0_2"> -->
+										<button type="button" class="btnSizeL" id="career2">
+										<label class="lbl" for="career_cd_0_2">경력</label></button>
+									</span>
+
+									<!-- 경력 체크시 노출되는 부분 -->
+									<div class="career_check career_cd_sub_2_0" id="career_prd2" data-sub-for="0_2" style="display: flex;">
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_min_0" name="notice_want_mincar" data-seq="0">
+												<option value="">선택</option>
+												<option value="1">1년 이상</option>
+												<option value="2">2년 이상</option>
+												<option value="3">3년 이상</option>
+												<option value="4">4년 이상</option>
+												<option value="5">5년 이상</option>
+												<option value="6">6년 이상</option>
+												<option value="7">7년 이상</option>
+												<option value="8">8년 이상</option>
+												<option value="9">9년 이상</option>
+												<option value="10">10년 이상</option>
+												<option value="11">11년 이상</option>
+												<option value="12">12년 이상</option>
+												<option value="13">13년 이상</option>
+												<option value="14">14년 이상</option>
+												<option value="15">15년 이상</option>
+												<option value="16">16년 이상</option>
+												<option value="17">17년 이상</option>
+												<option value="18">18년 이상</option>
+												<option value="19">19년 이상</option>
+												<option value="20">20년 이상</option>
+											</select>
+										</div>
+										<span>~</span>
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_max_0" name="notice_want_maxcar" data-seq="0" >
+												<option value="">선택</option>
+												<option value="1">1년 이하</option>
+												<option value="2">2년 이하</option>
+												<option value="3">3년 이하</option>
+												<option value="4">4년 이하</option>
+												<option value="5">5년 이하</option>
+												<option value="6">6년 이하</option>
+												<option value="7">7년 이하</option>
+												<option value="8">8년 이하</option>
+												<option value="9">9년 이하</option>
+												<option value="10">10년 이하</option>
+												<option value="11">11년 이하</option>
+												<option value="12">12년 이하</option>
+												<option value="13">13년 이하</option>
+												<option value="14">14년 이하</option>
+												<option value="15">15년 이하</option>
+												<option value="16">16년 이하</option>
+												<option value="17">17년 이하</option>
+												<option value="18">18년 이하</option>
+												<option value="19">19년 이하</option>
+												<option value="20">20년 이하</option>
+											</select>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="items">
+								<div class="area_tit"><strong class="tit">담당업무</strong></div>
+								<div class="area_data">
+									<input type="text" id="assign_task_nm_0" value="" class="inpTypo sizeL assign_task_nm"
+										name="notice_want_task" title="담당업무" placeholder="담당업무를 자세히 기재할수록 지원율이 높아집니다." maxlength="300">
+								</div>
+							</div>
+
+							<div class="subsection">
+								<div class="items">
+									<div class="area_tit">
+										<span class="inpChk">
+											<!-- <input type="checkbox" class="workpost_chk" id="workpost_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="workpost_chk_0" >근무 부서</label>
+										</span>
+									</div>
+									<div class="area_data">
+										<!-- 근무부서 체크시 textfield 나오게 -->
+										<div class="detail_frm" id="workpost_detail_0" style="">
+											<input type="text" id="work_dept_nm_0" name="notice_want_dept" class="inpTypo sizeL work_dept_nm"
+												title="근무부서" placeholder="근무하게 될 부서 또는 근무지를 입력해주세요." maxlength="60">
+										</div>
+									</div>
+								</div>
+								<div class="items">
+									<div class="area_tit">
+										<span class="inpChk">
+											<!-- <input type="checkbox" class="preferential_chk" id="preferential_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="preferential_chk_0">필수/우대조건</label>
+										</span>
+									</div>
+								<div class="area_data type_txt">
+									<!-- 필수/우대조건 체크시 노출 -->
+									<div id="preferential_detail_0" style="">
+										<div class="selected_preference" id="preference_summary_0">
+											<ul class="list_preference" id="require_preference_frm_box_list_0">
+												<!-- 필수 / 우대조건 list -->
+											</ul>
+											<div class="area_bottom">
+
+											<div class="modalWrap modal_division" id="lpop_essential_preference2" data-uilayer="recruit_division_preference"style="display: block;">
+
+											<!-- <h3 class="title" style="margin-left: 15px;">필수/우대조건</h3> -->
+												<div class="modalCont">
+													<div class="area_category_select">
+														<div class="depth1">
+															<div class="area_scroll one_depth_area">
+																<ul class="list_check list_three_depth" style="">
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre003" value="국가유공자"
+																	
+																		data-section="preferential" name="pre003" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre003">국가유공자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre004" value="보훈대상자"
+																		data-section="preferential" name="pre004" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre004">보훈대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre006" value="장애인우대"
+																			data-section="preferential" name="pre006" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre006">장애인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre035" value="외국인우대"
+																		data-section="preferential" name="pre035" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre035">외국인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre034" value="병역특례"
+																		data-section="preferential" name="pre034" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre034">병역특례</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre029" value="여성우대"
+																		data-section="preferential" name="pre029" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre029">여성우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre030" value="주부(전업주부)"
+																		data-section="preferential" name="pre030" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre030">주부(전업주부)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre031" value="고령자(55세이상)"
+																		data-section="preferential" name="pre031" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre031">고령자(55세이상)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre007" value="취업보호대상자"
+																		data-section="preferential" name="pre007" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre007">취업보호대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre005" value="고용촉진장려금 대상"
+																		data-section="preferential" name="pre005" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre005">고용촉진장려금 대상</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre061" value="특성화고/마이스터고"
+																		data-section="preferential" name="pre061" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre061">특성화고/마이스터고</label>
+																	</span></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+												<div class="modalBtn">
+													<!-- <button type="button" id="btn_check" class="btnSizeL colorBlue btn_confirm" data-seq="0" data-uilayer-btn="recruit_division_preference">확인</button> -->
+													<button type="button" id="btn_canc" class="btnSizeL colorBlue colorInvert btn_close" 
+														style="float: right; margin-bottom: 10px;">취소</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!-- 필수 우대조건 체크시 노출되는 div end -->
+
+												</div>
+												<!-- 필수 우대조건 div end -->
+											</div>
+											<!-- div.subsection end -->
+
+
+						</div>
+						<!-- div.fulldata end -->
+					</li></ul>
+
+
 			</div>
+
+			<!-- 세번째  -->
+
+			<div class="add_layer">
+					<button type="button" class="btnSizeL" id="add_cat_layer2" value="모집분야 추가" style="width: 100%;">모집분야 추가</button>
+			</div>
+
+			<div class="frm_body frm_division" id="extr_cat_layer2" style="padding-bottom: 50px;">
+				<ul class="list_division list_recruit_frm" id="list_recruit_division">
+					<li class="recruit_division_line_detail expand" id="line_detail_0">
+
+						<!-- 모집분야 -->
+						<div class="fulldata">
+							<div class="items">
+								<div class="area_tit"><strong class="tit">모집분야명</strong></div>
+								<div class="area_data">
+									<div class="division_name" id="division_name_area_0">
+										<input type="text" name="notice_want_name" id="recruitment_title_0" class="inpTypo sizeL recruitment_tite" placeholder="예) R&D, 경영지원" maxlength="30" />
+									</div>
+
+									<span class="division_collect" style="float: left;">
+										<input type="text" name="notice_want_many" id="collect_cnt_0" class="inpTypo sizeL collect_cnt _filter" maxlength="6" title="모집인원" placeholder="ex) 00명" />
+									</span>
+
+								</div>
+							</div>
+							<!-- 모집분야명 items end -->
+
+							<div class="items">
+								<div class="area_tit"><strong class="tit">경력여부</strong></div>
+								<div class="area_data type_txt">
+									<span class="inpChk career_cd_0">
+										<!-- <input type="checkbox" value="0_1" id="career_cd_0_1" class="chkB" /> -->
+										<button type="button" class="btnSizeL" id="newbie3">
+										<label class="lbl" for="career_cd_0_1">신입</label></button>
+									</span>
+									<span class="inpChk career_cd_0">
+										<!-- <input type="checkbox" id="career_cd_0_2" value="0_2"> -->
+										<button type="button" class="btnSizeL" id="career2">
+										<label class="lbl" for="career_cd_0_2">경력</label></button>
+									</span>
+
+									<!-- 경력 체크시 노출되는 부분 -->
+									<div class="career_check career_cd_sub_2_0" id="career_prd3" data-sub-for="0_2" style="display: flex;">
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_min_0" name="notice_want_mincar" data-seq="0">
+												<option value="">선택</option>
+												<option value="1">1년 이상</option>
+												<option value="2">2년 이상</option>
+												<option value="3">3년 이상</option>
+												<option value="4">4년 이상</option>
+												<option value="5">5년 이상</option>
+												<option value="6">6년 이상</option>
+												<option value="7">7년 이상</option>
+												<option value="8">8년 이상</option>
+												<option value="9">9년 이상</option>
+												<option value="10">10년 이상</option>
+												<option value="11">11년 이상</option>
+												<option value="12">12년 이상</option>
+												<option value="13">13년 이상</option>
+												<option value="14">14년 이상</option>
+												<option value="15">15년 이상</option>
+												<option value="16">16년 이상</option>
+												<option value="17">17년 이상</option>
+												<option value="18">18년 이상</option>
+												<option value="19">19년 이상</option>
+												<option value="20">20년 이상</option>
+											</select>
+										</div>
+										<span>~</span>
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_max_0" name="notice_want_maxcar" data-seq="0" >
+												<option value="">선택</option>
+												<option value="1">1년 이하</option>
+												<option value="2">2년 이하</option>
+												<option value="3">3년 이하</option>
+												<option value="4">4년 이하</option>
+												<option value="5">5년 이하</option>
+												<option value="6">6년 이하</option>
+												<option value="7">7년 이하</option>
+												<option value="8">8년 이하</option>
+												<option value="9">9년 이하</option>
+												<option value="10">10년 이하</option>
+												<option value="11">11년 이하</option>
+												<option value="12">12년 이하</option>
+												<option value="13">13년 이하</option>
+												<option value="14">14년 이하</option>
+												<option value="15">15년 이하</option>
+												<option value="16">16년 이하</option>
+												<option value="17">17년 이하</option>
+												<option value="18">18년 이하</option>
+												<option value="19">19년 이하</option>
+												<option value="20">20년 이하</option>
+											</select>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="items">
+								<div class="area_tit"><strong class="tit">담당업무</strong></div>
+								<div class="area_data">
+									<input type="text" id="assign_task_nm_0" value="" class="inpTypo sizeL assign_task_nm"
+										name="notice_want_task" title="담당업무" placeholder="담당업무를 자세히 기재할수록 지원율이 높아집니다." maxlength="300">
+								</div>
+							</div>
+
+							<div class="subsection">
+								<div class="items">
+									<div class="area_tit">
+										<span class="inpChk">
+											<!-- <input type="checkbox" class="workpost_chk" id="workpost_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="workpost_chk_0" >근무 부서</label>
+										</span>
+									</div>
+									<div class="area_data">
+										<!-- 근무부서 체크시 textfield 나오게 -->
+										<div class="detail_frm" id="workpost_detail_0" style="">
+											<input type="text" id="work_dept_nm_0" name="notice_want_dept" class="inpTypo sizeL work_dept_nm"
+												title="근무부서" placeholder="근무하게 될 부서 또는 근무지를 입력해주세요." maxlength="60">
+										</div>
+									</div>
+								</div>
+								<div class="items">
+									<div class="area_tit">
+										<span class="inpChk">
+											<!-- <input type="checkbox" class="preferential_chk" id="preferential_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="preferential_chk_0">필수/우대조건</label>
+										</span>
+									</div>
+								<div class="area_data type_txt">
+									<!-- 필수/우대조건 체크시 노출 -->
+									<div id="preferential_detail_0" style="">
+										<div class="selected_preference" id="preference_summary_0">
+											<ul class="list_preference" id="require_preference_frm_box_list_0">
+												<!-- 필수 / 우대조건 list -->
+											</ul>
+											<div class="area_bottom">
+
+											<div class="modalWrap modal_division" id="lpop_essential_preference3" data-uilayer="recruit_division_preference"style="display: block;">
+
+											<!-- <h3 class="title" style="margin-left: 15px;">필수/우대조건</h3> -->
+												<div class="modalCont">
+													<div class="area_category_select">
+														<div class="depth1">
+															<div class="area_scroll one_depth_area">
+																<ul class="list_check list_three_depth" style="">
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre003" value="국가유공자"
+																	
+																		data-section="preferential" name="pre003" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre003">국가유공자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre004" value="보훈대상자"
+																		data-section="preferential" name="pre004" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre004">보훈대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre006" value="장애인우대"
+																			data-section="preferential" name="pre006" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre006">장애인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre035" value="외국인우대"
+																		data-section="preferential" name="pre035" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre035">외국인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre034" value="병역특례"
+																		data-section="preferential" name="pre034" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre034">병역특례</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre029" value="여성우대"
+																		data-section="preferential" name="pre029" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre029">여성우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre030" value="주부(전업주부)"
+																		data-section="preferential" name="pre030" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre030">주부(전업주부)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre031" value="고령자(55세이상)"
+																		data-section="preferential" name="pre031" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre031">고령자(55세이상)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre007" value="취업보호대상자"
+																		data-section="preferential" name="pre007" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre007">취업보호대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre005" value="고용촉진장려금 대상"
+																		data-section="preferential" name="pre005" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre005">고용촉진장려금 대상</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre061" value="특성화고/마이스터고"
+																		data-section="preferential" name="pre061" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre061">특성화고/마이스터고</label>
+																	</span></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+												<div class="modalBtn">
+													<!-- <button type="button" id="btn_check" class="btnSizeL colorBlue btn_confirm" data-seq="0" data-uilayer-btn="recruit_division_preference">확인</button> -->
+													<button type="button" id="btn_canc" class="btnSizeL colorBlue colorInvert btn_close" 
+														style="float: right; margin-bottom: 10px;">취소</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!-- 필수 우대조건 체크시 노출되는 div end -->
+
+												</div>
+												<!-- 필수 우대조건 div end -->
+											</div>
+											<!-- div.subsection end -->
+
+
+						</div>
+						<!-- div.fulldata end -->
+					</li></ul>
+
+
+			</div>
+
+
+			<!-- 네번째 -->
+
+
+			<div class="add_layer">
+					<button type="button" class="btnSizeL" id="add_cat_layer3" value="모집분야 추가" style="width: 100%;">모집분야 추가</button>
+			</div>
+
+			<div class="frm_body frm_division" id="extr_cat_layer3" style="padding-bottom: 50px;">
+				<ul class="list_division list_recruit_frm" id="list_recruit_division">
+					<li class="recruit_division_line_detail expand" id="line_detail_0">
+
+						<!-- 모집분야 -->
+						<div class="fulldata">
+							<div class="items">
+								<div class="area_tit"><strong class="tit">모집분야명</strong></div>
+								<div class="area_data">
+									<div class="division_name" id="division_name_area_0">
+										<input type="text" name="notice_want_name" id="recruitment_title_0" class="inpTypo sizeL recruitment_tite" placeholder="예) R&D, 경영지원" maxlength="30" />
+									</div>
+
+									<span class="division_collect" style="float: left;">
+										<input type="text" name="notice_want_many" id="collect_cnt_0" class="inpTypo sizeL collect_cnt _filter" maxlength="6" title="모집인원" placeholder="ex) 00명" />
+									</span>
+
+								</div>
+							</div>
+							<!-- 모집분야명 items end -->
+
+							<div class="items">
+								<div class="area_tit"><strong class="tit">경력여부</strong></div>
+								<div class="area_data type_txt">
+									<span class="inpChk career_cd_0">
+										<!-- <input type="checkbox" value="0_1" id="career_cd_0_1" class="chkB" /> -->
+										<button type="button" class="btnSizeL" id="newbie4">
+										<label class="lbl" for="career_cd_0_1">신입</label></button>
+									</span>
+									<span class="inpChk career_cd_0">
+										<!-- <input type="checkbox" id="career_cd_0_2" value="0_2"> -->
+										<button type="button" class="btnSizeL" id="career4">
+										<label class="lbl" for="career_cd_0_2">경력</label></button>
+									</span>
+
+									<!-- 경력 체크시 노출되는 부분 -->
+									<div class="career_check career_cd_sub_2_0" id="career_prd4" data-sub-for="0_2" style="display: flex;">
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_min_0" name="notice_want_mincar" data-seq="0">
+												<option value="">선택</option>
+												<option value="1">1년 이상</option>
+												<option value="2">2년 이상</option>
+												<option value="3">3년 이상</option>
+												<option value="4">4년 이상</option>
+												<option value="5">5년 이상</option>
+												<option value="6">6년 이상</option>
+												<option value="7">7년 이상</option>
+												<option value="8">8년 이상</option>
+												<option value="9">9년 이상</option>
+												<option value="10">10년 이상</option>
+												<option value="11">11년 이상</option>
+												<option value="12">12년 이상</option>
+												<option value="13">13년 이상</option>
+												<option value="14">14년 이상</option>
+												<option value="15">15년 이상</option>
+												<option value="16">16년 이상</option>
+												<option value="17">17년 이상</option>
+												<option value="18">18년 이상</option>
+												<option value="19">19년 이상</option>
+												<option value="20">20년 이상</option>
+											</select>
+										</div>
+										<span>~</span>
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_max_0" name="notice_want_maxcar" data-seq="0" >
+												<option value="">선택</option>
+												<option value="1">1년 이하</option>
+												<option value="2">2년 이하</option>
+												<option value="3">3년 이하</option>
+												<option value="4">4년 이하</option>
+												<option value="5">5년 이하</option>
+												<option value="6">6년 이하</option>
+												<option value="7">7년 이하</option>
+												<option value="8">8년 이하</option>
+												<option value="9">9년 이하</option>
+												<option value="10">10년 이하</option>
+												<option value="11">11년 이하</option>
+												<option value="12">12년 이하</option>
+												<option value="13">13년 이하</option>
+												<option value="14">14년 이하</option>
+												<option value="15">15년 이하</option>
+												<option value="16">16년 이하</option>
+												<option value="17">17년 이하</option>
+												<option value="18">18년 이하</option>
+												<option value="19">19년 이하</option>
+												<option value="20">20년 이하</option>
+											</select>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="items">
+								<div class="area_tit"><strong class="tit">담당업무</strong></div>
+								<div class="area_data">
+									<input type="text" id="assign_task_nm_0" value="" class="inpTypo sizeL assign_task_nm"
+										name="notice_want_task" title="담당업무" placeholder="담당업무를 자세히 기재할수록 지원율이 높아집니다." maxlength="300">
+								</div>
+							</div>
+
+							<div class="subsection">
+								<div class="items">
+									<div class="area_tit">
+										<span class="inpChk">
+											<!-- <input type="checkbox" class="workpost_chk" id="workpost_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="workpost_chk_0" >근무 부서</label>
+										</span>
+									</div>
+									<div class="area_data">
+										<!-- 근무부서 체크시 textfield 나오게 -->
+										<div class="detail_frm" id="workpost_detail_0" style="">
+											<input type="text" id="work_dept_nm_0" name="notice_want_dept" class="inpTypo sizeL work_dept_nm"
+												title="근무부서" placeholder="근무하게 될 부서 또는 근무지를 입력해주세요." maxlength="60">
+										</div>
+									</div>
+								</div>
+								<div class="items">
+									<div class="area_tit">
+										<span class="inpChk">
+											<!-- <input type="checkbox" class="preferential_chk" id="preferential_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="preferential_chk_0">필수/우대조건</label>
+										</span>
+									</div>
+								<div class="area_data type_txt">
+									<!-- 필수/우대조건 체크시 노출 -->
+									<div id="preferential_detail_0" style="">
+										<div class="selected_preference" id="preference_summary_0">
+											<ul class="list_preference" id="require_preference_frm_box_list_0">
+												<!-- 필수 / 우대조건 list -->
+											</ul>
+											<div class="area_bottom">
+
+											<div class="modalWrap modal_division" id="lpop_essential_preference4" data-uilayer="recruit_division_preference"style="display: block;">
+
+											<!-- <h3 class="title" style="margin-left: 15px;">필수/우대조건</h3> -->
+												<div class="modalCont">
+													<div class="area_category_select">
+														<div class="depth1">
+															<div class="area_scroll one_depth_area">
+																<ul class="list_check list_three_depth" style="">
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre003" value="국가유공자"
+																	
+																		data-section="preferential" name="pre003" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre003">국가유공자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre004" value="보훈대상자"
+																		data-section="preferential" name="pre004" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre004">보훈대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre006" value="장애인우대"
+																			data-section="preferential" name="pre006" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre006">장애인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre035" value="외국인우대"
+																		data-section="preferential" name="pre035" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre035">외국인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre034" value="병역특례"
+																		data-section="preferential" name="pre034" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre034">병역특례</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre029" value="여성우대"
+																		data-section="preferential" name="pre029" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre029">여성우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre030" value="주부(전업주부)"
+																		data-section="preferential" name="pre030" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre030">주부(전업주부)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre031" value="고령자(55세이상)"
+																		data-section="preferential" name="pre031" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre031">고령자(55세이상)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre007" value="취업보호대상자"
+																		data-section="preferential" name="pre007" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre007">취업보호대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre005" value="고용촉진장려금 대상"
+																		data-section="preferential" name="pre005" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre005">고용촉진장려금 대상</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre061" value="특성화고/마이스터고"
+																		data-section="preferential" name="pre061" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre061">특성화고/마이스터고</label>
+																	</span></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+												<div class="modalBtn">
+													<!-- <button type="button" id="btn_check" class="btnSizeL colorBlue btn_confirm" data-seq="0" data-uilayer-btn="recruit_division_preference">확인</button> -->
+													<button type="button" id="btn_canc" class="btnSizeL colorBlue colorInvert btn_close" 
+														style="float: right; margin-bottom: 10px;">취소</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!-- 필수 우대조건 체크시 노출되는 div end -->
+
+												</div>
+												<!-- 필수 우대조건 div end -->
+											</div>
+											<!-- div.subsection end -->
+
+
+						</div>
+						<!-- div.fulldata end -->
+					</li></ul>
+
+
+			</div>
+
+
+			<!-- 다섯번째 -->
+
+
+			<div class="add_layer">
+					<button type="button" class="btnSizeL" id="add_cat_layer4" value="모집분야 추가" style="width: 100%;">모집분야 추가</button>
+			</div>
+
+			<div class="frm_body frm_division" id="extr_cat_layer4" style="padding-bottom: 50px;">
+				<ul class="list_division list_recruit_frm" id="list_recruit_division">
+					<li class="recruit_division_line_detail expand" id="line_detail_0">
+
+						<!-- 모집분야 -->
+						<div class="fulldata">
+							<div class="items">
+								<div class="area_tit"><strong class="tit">모집분야명</strong></div>
+								<div class="area_data">
+									<div class="division_name" id="division_name_area_0">
+										<input type="text" name="notice_want_name" id="recruitment_title_0" class="inpTypo sizeL recruitment_tite" placeholder="예) R&D, 경영지원" maxlength="30" />
+									</div>
+
+									<span class="division_collect" style="float: left;">
+										<input type="text" name="notice_want_many" id="collect_cnt_0" class="inpTypo sizeL collect_cnt _filter" maxlength="6" title="모집인원" placeholder="ex) 00명" />
+									</span>
+
+								</div>
+							</div>
+							<!-- 모집분야명 items end -->
+
+							<div class="items">
+								<div class="area_tit"><strong class="tit">경력여부</strong></div>
+								<div class="area_data type_txt">
+									<span class="inpChk career_cd_0">
+										<!-- <input type="checkbox" value="0_1" id="career_cd_0_1" class="chkB" /> -->
+										<button type="button" class="btnSizeL" id="newbie5">
+										<label class="lbl" for="career_cd_0_1">신입</label></button>
+									</span>
+									<span class="inpChk career_cd_0">
+										<!-- <input type="checkbox" id="career_cd_0_2" value="0_2"> -->
+										<button type="button" class="btnSizeL" id="career5">
+										<label class="lbl" for="career_cd_0_2">경력</label></button>
+									</span>
+
+									<!-- 경력 체크시 노출되는 부분 -->
+									<div class="career_check career_cd_sub_2_0" id="career_prd5" data-sub-for="0_2" style="display: flex;">
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_min_0" name="notice_want_mincar" data-seq="0">
+												<option value="">선택</option>
+												<option value="1">1년 이상</option>
+												<option value="2">2년 이상</option>
+												<option value="3">3년 이상</option>
+												<option value="4">4년 이상</option>
+												<option value="5">5년 이상</option>
+												<option value="6">6년 이상</option>
+												<option value="7">7년 이상</option>
+												<option value="8">8년 이상</option>
+												<option value="9">9년 이상</option>
+												<option value="10">10년 이상</option>
+												<option value="11">11년 이상</option>
+												<option value="12">12년 이상</option>
+												<option value="13">13년 이상</option>
+												<option value="14">14년 이상</option>
+												<option value="15">15년 이상</option>
+												<option value="16">16년 이상</option>
+												<option value="17">17년 이상</option>
+												<option value="18">18년 이상</option>
+												<option value="19">19년 이상</option>
+												<option value="20">20년 이상</option>
+											</select>
+										</div>
+										<span>~</span>
+										<div class="inpSel sizeL">
+											<select class="career_period" id="career_max_0" name="notice_want_maxcar" data-seq="0" >
+												<option value="">선택</option>
+												<option value="1">1년 이하</option>
+												<option value="2">2년 이하</option>
+												<option value="3">3년 이하</option>
+												<option value="4">4년 이하</option>
+												<option value="5">5년 이하</option>
+												<option value="6">6년 이하</option>
+												<option value="7">7년 이하</option>
+												<option value="8">8년 이하</option>
+												<option value="9">9년 이하</option>
+												<option value="10">10년 이하</option>
+												<option value="11">11년 이하</option>
+												<option value="12">12년 이하</option>
+												<option value="13">13년 이하</option>
+												<option value="14">14년 이하</option>
+												<option value="15">15년 이하</option>
+												<option value="16">16년 이하</option>
+												<option value="17">17년 이하</option>
+												<option value="18">18년 이하</option>
+												<option value="19">19년 이하</option>
+												<option value="20">20년 이하</option>
+											</select>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="items">
+								<div class="area_tit"><strong class="tit">담당업무</strong></div>
+								<div class="area_data">
+									<input type="text" id="assign_task_nm_0" value="" class="inpTypo sizeL assign_task_nm"
+										name="notice_want_task" title="담당업무" placeholder="담당업무를 자세히 기재할수록 지원율이 높아집니다." maxlength="300">
+								</div>
+							</div>
+
+							<div class="subsection">
+								<div class="items">
+									<div class="area_tit">
+										<span class="inpChk">
+											<!-- <input type="checkbox" class="workpost_chk" id="workpost_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="workpost_chk_0" >근무 부서</label>
+										</span>
+									</div>
+									<div class="area_data">
+										<!-- 근무부서 체크시 textfield 나오게 -->
+										<div class="detail_frm" id="workpost_detail_0" style="">
+											<input type="text" id="work_dept_nm_0" name="notice_want_dept" class="inpTypo sizeL work_dept_nm"
+												title="근무부서" placeholder="근무하게 될 부서 또는 근무지를 입력해주세요." maxlength="60">
+										</div>
+									</div>
+								</div>
+								<div class="items">
+									<div class="area_tit">
+										<span class="inpChk">
+											<!-- <input type="checkbox" class="preferential_chk" id="preferential_chk_0" value="0"> -->
+											<label class="lbl ga_data_layer" for="preferential_chk_0">필수/우대조건</label>
+										</span>
+									</div>
+								<div class="area_data type_txt">
+									<!-- 필수/우대조건 체크시 노출 -->
+									<div id="preferential_detail_0" style="">
+										<div class="selected_preference" id="preference_summary_0">
+											<ul class="list_preference" id="require_preference_frm_box_list_0">
+												<!-- 필수 / 우대조건 list -->
+											</ul>
+											<div class="area_bottom">
+
+											<div class="modalWrap modal_division" id="lpop_essential_preference5" data-uilayer="recruit_division_preference"style="display: block;">
+
+											<!-- <h3 class="title" style="margin-left: 15px;">필수/우대조건</h3> -->
+												<div class="modalCont">
+													<div class="area_category_select">
+														<div class="depth1">
+															<div class="area_scroll one_depth_area">
+																<ul class="list_check list_three_depth" style="">
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre003" value="국가유공자"
+																	
+																		data-section="preferential" name="pre003" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre003">국가유공자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre004" value="보훈대상자"
+																		data-section="preferential" name="pre004" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre004">보훈대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre006" value="장애인우대"
+																			data-section="preferential" name="pre006" data-parent-code="pre002">
+																	<label class="lbl" for="layer_three_depth_pre006">장애인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre035" value="외국인우대"
+																		data-section="preferential" name="pre035" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre035">외국인우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre034" value="병역특례"
+																		data-section="preferential" name="pre034" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre034">병역특례</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre029" value="여성우대"
+																		data-section="preferential" name="pre029" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre029">여성우대</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre030" value="주부(전업주부)"
+																		data-section="preferential" name="pre030" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre030">주부(전업주부)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre031" value="고령자(55세이상)"
+																		data-section="preferential" name="pre031" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre031">고령자(55세이상)</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre007" value="취업보호대상자"
+																		data-section="preferential" name="pre007" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre007">취업보호대상자</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre005" value="고용촉진장려금 대상"
+																		data-section="preferential" name="pre005" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre005">고용촉진장려금 대상</label>
+																	</span></li>
+
+																	<li><span class="inpChk sizeM">
+																	<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre061" value="특성화고/마이스터고"
+																		data-section="preferential" name="pre061" data-parent-code="pre002">
+																		<label class="lbl" for="layer_three_depth_pre061">특성화고/마이스터고</label>
+																	</span></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+												<div class="modalBtn">
+													<!-- <button type="button" id="btn_check" class="btnSizeL colorBlue btn_confirm" data-seq="0" data-uilayer-btn="recruit_division_preference">확인</button> -->
+													<button type="button" id="btn_canc" class="btnSizeL colorBlue colorInvert btn_close" 
+														style="float: right; margin-bottom: 10px;">취소</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<!-- 필수 우대조건 체크시 노출되는 div end -->
+
+												</div>
+												<!-- 필수 우대조건 div end -->
+											</div>
+											<!-- div.subsection end -->
+
+
+						</div>
+						<!-- div.fulldata end -->
+					</li></ul>
+
+
+			</div>
+
+
+
+
+			<!-- <input type="submit" id="btn_next" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "/> -->
+			<button type="button" id="btn_next" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "> 다음 페이지 </button>
+
+			</form>
+
 		</div>
 		<!-- 두번째 section end -->
 

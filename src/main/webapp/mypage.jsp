@@ -102,6 +102,113 @@ dl {
 	box-sizing: border-box;
 }
 
+.company.wrap_recomm .list_recomm li {
+	width: 301px;
+	height: 360px;
+}
+
+/* 기다리지말고 어쩌구 */
+.company.wrap_recomm .wrap_info_talent {
+	overflow: hidden;
+	height: 215px;
+}
+
+.company.wrap_recomm .inner_info_talent.on {
+	display: block;
+}
+
+.company.wrap_recomm .wrap_info_talent .my_recom {
+	position: relative;
+	padding: 30px 30px 21px 32px;
+}
+
+.company.wrap_recomm .wrap_info_talent .my_recom span {
+	line-height: 32px;
+}
+
+/* 빠르게 인재 구하기 */
+.company.wrap_recomm .wrap_info_talent .box_link {
+	position: absolute;
+	top: 143px;
+	right: 32px;
+}
+
+.company.wrap_recomm .btn_link_recomm {
+	display: inline-block;
+	padding: 10px 18px 0 19px;
+	width: auto;
+	min-width: 144px;
+	height: 40px;
+	border: 1px solid #4876ef;
+	box-sizing: border-box;
+	color: #4876ef;
+	font-size: 15px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	text-align: center;
+}
+
+/* 법률 상담 */
+.company.wrap_recomm .wrap_other_interview {
+	overflow: hidden;
+	margin-right: 1px;
+	height: 144px;
+	text-align: left;
+	background-color: #f7fbff;
+}
+
+.company.wrap_recomm .wrap_other_interview .inner_other {
+	display: none;
+	padding: 26px 30px 20px 33px;
+}
+
+.company.wrap_recomm .wrap_other_interview .txt {
+	padding-top: 6px;
+	color: #49536b;
+	font-size: 14px;
+	letter-spacing: -1px;
+	line-height: 20px;
+}
+
+.company.wrap_recomm .wrap_other_interview .inner_other.on {
+	display: block;
+}
+
+.company.wrap_recomm .wrap_other_interview .tit {
+	display: block;
+	margin-top: 2px;
+	color: #49536b;
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+
+.company.wrap_recomm .wrap_other_interview .txt {
+	padding-top: 6px;
+	color: #49536b;
+	font-size: 14px;
+	letter-spacing: -1px;
+	line-height: 20px;
+}
+
+/* 상담하러 가기 */
+.company.wrap_recomm .wrap_other_interview .btn_other_link {
+	display: inline-block;
+	margin-top: 17px;
+	height: 18px;
+	color: #49536b;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+
+/* 배너 section */
+.wrap_banner {
+	float: left;
+	margin: 34px 20px 0 0;
+	width: 108px;
+	height: 360px;
+}
+
 .company.wrap_recomm .wrap_recomm_count.on {
 	display: block;
 }
@@ -141,7 +248,7 @@ dl {
 }
 
 .company.wrap_recomm .area_total_recom {
-	padding: 20px 39px 0 52px;
+	padding: 20px 39px 0 40px;
 }
 
 .company.wrap_recomm .area_total_recom li:first-child {
@@ -253,7 +360,7 @@ dl {
 
 .wrap_my {
 	overflow: hidden;
-	float: right; /* float 어느 방향으로 할지 아직... 중간에 뭘 채울 지 고민 */
+	float: left;
 	position: relative;
 	margin-top: 34px;
 	padding: 0;
@@ -434,6 +541,108 @@ dl {
 	width: 1260px;
 }
 
+/* HR 매거진 창 */
+.wrap_more {
+	float: left;
+	position: relative;
+	margin-top: 20px;
+	border: 1px solid #eaeaea;
+	box-sizing: border-box;
+}
+
+.wrap_more .tab_more {
+	overflow: hidden;
+	height: 42px;
+}
+
+.wrap_more .tab_more li.on {
+	float: left;
+	width: 240px;
+}
+
+.wrap_more .tab_more li {
+	float: right;
+	position: relative;
+	/* z-index: 1; */
+	width: auto;
+	height: 100%;
+}
+
+.info_more {
+	width: 362px;
+	height: 136px;
+	border-top: 1px solid #eaeaea;
+	box-sizing: border-box;
+}
+
+.info_more.info_thema .list_more {
+	padding: 0 14px;
+}
+
+.info_more li:first-child {
+	padding-top: 10px;
+}
+
+.info_more .link_thema {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	padding: 8px 70px 6px 10px;
+}
+
+.info_more .tags {
+	display: block;
+	overflow: hidden;
+	margin-bottom: 4px;
+	width: 100%;
+	height: 17px;
+	font-size: 13px;
+	line-height: 17px;
+}
+
+.info_more .tags .txt_tags:first-child {
+	margin-left: 0;
+}
+
+.info_more.info_thema .link_more {
+	top: 14px;
+	left: 83px;
+}
+
+.info_more .txt_thema {
+	display: block;
+	overflow: hidden;
+	color: #444;
+	line-height: 20px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.info_more li .link_hrmagazine {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	padding: 8px 10px 6px 10px;
+}
+
+/* 버튼 */
+.wrap_more .tab_more li.on button {
+	padding-left: 24px;
+	color: #444;
+	font-weight: bold;
+	text-align: left;
+}
+
+.wrap_more .tab_more li button {
+	padding: 0 22px 0 19px;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	color: #959595;
+	font-size: 14px;
+	letter-spacing: -1px;
+}
+
 fieldset, img {
 	border: 0;
 }
@@ -477,7 +686,7 @@ a {
 		<div class="wrap_recomm company">
 			<div class="tit_recomm">
 				<h2 class="blind">인재추천</h2>
-				<strong class="tit_txt">꼭 필요하고 <span class="txt_emph">적합한
+				<strong class="tit_txt" style="padding-left: 50px;">꼭 필요하고 <span class="txt_emph">적합한
 						인재</span>를 찾을 수 있도록!
 				</strong>
 			</div>
@@ -526,12 +735,67 @@ a {
 							
 						</div>
 					</li>
-					
+
+					<li>
+						<div class="wrap_info_talent">
+							<div class="inner_info_talent on">
+								<div class="my_recom recom_txt"> 기다리지 말고 먼저 찾아보세요~<span>
+									<strong class="txt">유능한 인재들이<br>입사제의를 기다리고 있습니다.
+									</strong></span>
+								</div>
+								<div class="box_link">
+									<a href="#" target="_blank" class="btn_link_recomm" onmousedown="try{n_trackEvent('main', 'comp_banner_click' , 'search_talent3');}catch(e){}">
+									빠르게 인재 구하기</a>
+								</div>
+							</div>
+						</div>
+						<div class="wrap_other_interview"
+							data-gtm-vis-recent-on-screen-6226168_981="71"
+							data-gtm-vis-first-on-screen-6226168_981="71"
+							data-gtm-vis-total-visible-time-6226168_981="100"
+							data-gtm-vis-has-fired-6226168_981="1">
+							<div class="inner_other other2 ">
+								<strong class="tit">회원가입 혜택 놓치지 마세요!</strong>
+								<p class="txt">
+									S-포인트 1만점 / 첫 결제시 100% 페이백<br>30% 할인쿠폰 / 첫 공고 효과 증폭
+								</p>
+								<a href="/zf_user/member/registration/join?ut=c"
+									class="btn_other_link" title="회원가입하고 혜택 받으러 가기">가입하러 가기</a>
+							</div>
+							<div class="inner_other other3 on">
+								<strong class="tit">근로계약 / 급여 / 보험 등</strong>
+								<p class="txt">
+									골치 아픈 인사문제를<br> 해결해드립니다.
+								</p>
+								<a href="/zf_user/cms/labor-counsel/list" target="_blank"
+									class="btn_other_link"
+									onmousedown="try{n_trackEvent('main', 'comp_banner_click' , 'labor_counsel');}catch(e){}"
+									title="전문 노무사에게 무료 법률상담 하러 가기">전문 노무사 <strong>무료</strong>
+									법률 상담
+								</a>
+							</div>
+						</div>
+					</li>
+
 				</ul>
 			</div>
 		</div>
 		
+		<!-- 배너 광고 section -->
+		<div id="div-gpt-ad-1533172458701-0" class="wrap_banner">
 		
+			<div id="google_ads_iframe_/61280259/Main-Big_108x360_0__container__" style="border: 0pt none;">
+				<iframe id="google_ads_iframe_/61280259/Main-Big_108x360_0"
+					title="3rd party ad content"
+					name="google_ads_iframe_/61280259/Main-Big_108x360_0" width="108"
+					height="360" scrolling="no" marginwidth="0" marginheight="0"
+					frameborder="0" srcdoc="" data-google-container-id="1"
+					style="border: 0px; vertical-align: bottom;"
+					data-load-complete="true"></iframe>
+			</div>
+		</div>
+
+
 		<!-- 로그인 안되어있을 때 -->
 		
 <!-- 
@@ -647,7 +911,69 @@ a {
 				</fieldset>
 			</form>
 		</div>
+		<!-- logout div ends -->
+
+		<div class="wrap_more">
+			<ul class="tab_more">
+				<li class="theme_recruit_li on" style="display: none">
+					<button data-noticetype="theme-recruit">큐레이션</button>
+				</li>
+				<li class="hr_magazine_li on" style="display: block">
+					<button data-noticetype="hr-magazine">HR매거진</button>
+				</li>
+				<li class="notice_li">
+					<button data-noticetype="notice">
+						공지사항 <span class="img_main ico_new"><span class="blind">new</span></span>
+					</button>
+				</li>
+			</ul>
+			<!-- 큐레이션 -->
+			<div class="info_more info_thema recruit" style="display: none">
+				<strong class="blind">큐레이션</strong>
+				<ul class="list_more">
+					<li class="thema4"><a
+						href="/zf_user/jobs/list/curation?curation_seq=190"
+						class="link_thema" onmousedown="trackEvent('list')"> <span
+							class="tags"><strong class="txt_tags">#외국계기업</strong></span> <span
+							class="txt_thema">연봉 5,000 이상 외국계</span>
+					</a></li>
+					<li class="thema14"><a
+						href="/zf_user/jobs/list/curation?curation_seq=245"
+						class="link_thema" onmousedown="trackEvent('list')"> <span
+							class="tags"><strong class="txt_tags">#특별채용</strong></span> <span
+							class="txt_thema">사람인이 추천하는 HOT공고</span>
+					</a></li>
+				</ul>
+				<a href="/zf_user/curation" class="link_more"
+					onmousedown="trackEvent('more')">더보기</a>
+			</div>
+			<!-- 큐레이션 end -->
+			
+			<div class="info_more info_thema hr_magazine" style="">
+				<strong class="blind">HR매거진</strong>
+				<ul class="list_more">
+					<li><a href="/zf_user/hr-magazine/view?hr_idx=586"
+						class="link_hrmagazine"> <span class="tags"> <strong
+								class="txt_tags">#인사기획</strong>
+						</span> <span class="txt_thema">고령인력 임금, 연공성은 빼고 숙련성은 고려하라</span>
+					</a></li>
+					<li><a href="/zf_user/hr-magazine/view?hr_idx=585"
+						class="link_hrmagazine"> <span class="tags"> <strong
+								class="txt_tags">#인사기획</strong>
+						</span> <span class="txt_thema">주 52시간제 근무, 솔루션 관리를 통한 다양한 이슈</span>
+					</a></li>
+				</ul>
+				<a href="/zf_user/hr-magazine/list" target="_blank"
+					class="link_more has_new">더보기</a>
+			</div>
+			<!-- HR 매거진 end -->
+			
+			<div class="info_more info_notice has_new" style="display: none"></div>
+		</div>
+
+
 	</div>
+	<!-- section contents ends --> 
 	
 	
 	
@@ -656,7 +982,7 @@ a {
 	
 	<!-- 플래티넘 -->
 		<div class="sri_product" id="section_banner">
-			<div class="cont_product cont_platinum">
+			<div class="cont_product container cont_platinum">
 				<div class="row justify-content-center mb-5">
 					<div class="col-md-7 heading-section text-center ftco-animate">
 						<span class="subheading">Job Categories</span>
