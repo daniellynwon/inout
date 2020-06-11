@@ -52,100 +52,115 @@
 			}
 		});
 		
-		$('.industry_all_list').hide();
+		$('#industry_all_list').hide();
 		$('.depth2').hide();
 		$('.depth3').hide();
 		
-		jQuery('.on').change(function() {
-			var state = jQuery('.on option:selected').val();
-			if (state == '100') {
-				jQuery('#100').show();
-			} else if (state == '200') {
-				jQuery('#200').show();
-			} else if (state == '300'){
-				jQuery('#300').show();
-			} else if (state == '400'){
-				jQuery('#400').show();
-			} else if (state == '500'){
-				jQuery('#500').show();
-			} else if (state == '1000'){
-				jQuery('#1000').show();
+		
+		
+		
+		/* 업종 카테고리 분류별로 보여지게 하기 */
+		/* depth2 클래스의 버튼들 클래스 class="btn_depth2" */
+		$('.on').click(function() {
+			var state = this.value;
+			console.log('state', state);
+			if(state && $('#'+state).length > 0){
+				$('.depth2').hide();
+				$('#'+state).show();
 			}
+
 		});
 		
+		
+
+		$('#wrap_layer_cat').hide();
 		/* 공고 대표 직무 추가하기 */
 		$('#btn_add').click(function() {
-			$('.wrap_layer_cat').toggle();
+			console.log("click");
+			$('#wrap_layer_cat').toggle();
 		});
-		
+
 		$('#btn_chk').click(function() {
-			$('.wrap_layer_cat').toggle();
+			$('#wrap_layer_cat').toggle();
 		});
-		
+
 		$('#btn_canc').click(function() {
 			/* 키워드 삭제하기 */
 			$('#cat_add').val("");
+			$('#wrap_layer_cat').toggle();
 		});
-		
+
 		/* 대표 직무 분야 버튼 값 가져오기 */
 		$('.btn_cat').click(function() {
 			var cat = $(this).attr('value');
 			console.log(cat);
-			
+
 			/* textfield에 value 넣기 */
 			$('#cat_add').val(cat);
-			
+
+			var val = $(this).attr("id");
+			console.log(val);
+			if (val == '1') {
+				$('#1').show();
+			}
+
 		});
-		
+
 		/* 업종 버튼 수정 추가하기 */
 		$('#btn_cat_area').click(function() {
 			$('#industry_all_list').toggle();
+
 		});
 
 		$('#btn_chk_area').click(function() {
 			$('#industry_all_list').toggle();
 		});
-		
+
+		/* 취소, 확인 버튼 누르면 업종 div 사라지게 */
+		$('.close_layer').click(function() {
+			$('#industry_all_list').toggle();
+		});
+
+		$('.confirm_layer').click(function() {
+			$('#industry_all_list').toggle();
+		});
+
 		$('#probation_term_wrap').hide();
 		$('#contract_term_wrap').hide();
 		$('#internship_term_wrap').hide();
 		$('#dispatch_term_wrap').hide();
-		
-		
+
 		/* 근무 형태 체크박스 */
 		/* 정규직 */
-		$('#prob').click(function(){
+		$('#prob').click(function() {
 			console.log("정규");
 			$('#probation_term_wrap').toggle();
 		});
-		
+
 		/* 계약직 */
-		$('#cont').click(function(){
+		$('#cont').click(function() {
 			console.log("계약");
 			$('#contract_term_wrap').toggle();
 		});
-		
+
 		/* 인턴직 */
-		$('#intern').click(function(){
+		$('#intern').click(function() {
 			console.log("인턴");
 			$('#internship_term_wrap').toggle();
 		});
-		
+
 		/* 파견직 */
-		$('#dispt').click(function(){
+		$('#dispt').click(function() {
 			console.log("파견");
 			$('#dispatch_term_wrap').toggle();
 		});
-		
-		
+
 	});
-	
 </script>
 <style type="text/css">
-.step_recruit{
+/* .step_recruit{
 	border: 1px solid black;
-}
-
+} */
 .wrap_recruit_frm {
 	padding-top: 175px;
 }
@@ -191,10 +206,10 @@
 	box-sizing: border-box;
 }
 
-.area_tit{
+/* .area_tit{
 	border: 1px solid black;
 }
-
+ */
 .step_recruit .area_tit {
 	float: left;
 	padding: 13px 10px 0 0;
@@ -289,12 +304,12 @@ input.inpTypo {
 
 .step_recruit .wrap_layer {
 	position: relative;
-	z-index: 5;
+	/* z-index: 5; */
 }
 
 .step_recruit .wrap_layer .layer_frm {
-	display: none;
-	position: absolute;
+	/* display: none;
+	position: absolute; */
 	top: 0;
 	width: 100%;
 	border-radius: 5px;
@@ -358,7 +373,6 @@ input.inpTypo {
 	display: table-cell;
 	vertical-align: top;
 }
-
 
 .area_category_select .list_check {
 	padding: 18px 0 4px 30px;
@@ -448,12 +462,11 @@ span.inpRdo>.lbl, span.inpChk>.lbl {
 	display: block;
 }
 
-.step_recruit .frm_body .items {
+/* .step_recruit .frm_body .items {
 	padding: 10px 60px;
 	width: 100%;
 	box-sizing: border-box;
-}
-
+} */
 .frm_division .list_division .division_name {
 	display: inline-block;
 	position: relative;
@@ -474,6 +487,74 @@ span.inpRdo>.lbl, span.inpChk>.lbl {
 .frm_division .list_division li.expand .fulldata {
 	display: block;
 }
+
+/* 정규직 등 근무 형태 */
+.step_recruit .optional_item {
+	/* position: relative; */
+	margin-top: 20px;
+	padding: 0 20px;
+	border-radius: 6px;
+	background: #fafbfc;
+}
+
+.step_recruit .optional_item dl {
+	padding: 20px 10px;
+	border-top: 1px solid #eaeaea;
+	line-height: 24px;
+}
+
+.step_recruit .optional_item dt {
+	float: left;
+	font-weight: bold;
+}
+
+.step_recruit .optional_item dd {
+	margin-left: 119px;
+}
+
+.toolTipWrap {
+	display: inline-block;
+	position: relative;
+}
+
+.recruit_add .toolTipWrap>button, .modalDrawer .toolTipWrap>button {
+	overflow: hidden;
+	width: 19px;
+	height: 17px;
+	vertical-align: middle;
+}
+
+.frm_condition .optional_item .toolTip {
+	width: 479px;
+}
+
+.toolTipWrap .toolTip .tail_top_left {
+	top: -9px;
+	left: 25px;
+	width: 15px;
+	height: 9px;
+}
+
+.frm_condition .optional_item .tit_tooltip {
+	display: block;
+	font-size: 16px;
+	line-height: 18px;
+}
+
+.frm_condition .optional_item .desc_tooltip {
+	margin-top: 10px;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 20px;
+}
+
+.step_recruit .list_checkbox input:checked+.lbl {
+    /* z-index: 2; */
+    border-color: #2365f2;
+    color: #2365f2;
+}
+
+
 
 /* 지원자 학력 */
 .frm_condition .condition_edu .inpSel {
@@ -577,8 +658,8 @@ span.inpRdo>.lbl, span.inpChk>.lbl {
 	line-height: 20px;
 	text-align: center;
 	background: #fff;
-	border-radius: 5px;
-	margin-right: 15px;
+	/* border-radius: 5px;
+	margin-right: 15px; */
 }
 
 /* 근무 요일 */
@@ -648,7 +729,7 @@ body {
 }
 
 .job_type_check {
-	width : 100px;
+	width: 100px;
 	height: 50px;
 	left: -10px;
 	top: -10px;
@@ -658,6 +739,7 @@ body {
 <body>
 	
 	<div class="wrap_recruit_frm">
+		<form action="./newNoticeStep1.do" method="post">
 		<div class="step_recruit" id="frmManager">
 			<div id="manager">
 				<!-- 제목 -->
@@ -665,7 +747,6 @@ body {
 					<h2 class="tit_step">담당자 정보</h2>
 					<p class="subhead">먼저 인사담당자님과 기업 정보가 맞는지 확인해주세요</p>
 				</div>
-				
 				<div class="frm_body frm_manager">
 					<div class="items">
 						<div class="area_tit">
@@ -673,10 +754,10 @@ body {
 						</div>
 						<div class="area_data">
 							<span class="manager_name">
-								<input type="text" name="manager_nm" id="manager_nm" class="inpTypo sizeL" title="담당자명 입력" placeholder="담당자명 입력" maxlength="30" style="width: 300px;"/>
+								<input type="text" name="notice_man" id="manager_nm" class="inpTypo sizeL" title="담당자명 입력" placeholder="담당자명 입력" maxlength="30" style="width: 300px;"/>
 							</span>
 							<span class="manager_part">
-								<input type="text" name="manager_dept" id="manager_dept" class="inpTypo sizeL" title="담당자 부서명 입력" placeholder="담당자 부서명" maxlength="30" style="width: 300px;"/>
+								<input type="text" name="notice_man_dept" id="manager_dept" class="inpTypo sizeL" title="담당자 부서명 입력" placeholder="담당자 부서명" maxlength="30" style="width: 300px;"/>
 							</span>
 						</div>
 					</div>
@@ -687,13 +768,13 @@ body {
 						</div>
 						<div class="area_data">
 							<span class="manager_phone">
-								<input type="text" id="tel1" name="tel1" class="inpTypo sizeL _filter" title="전화번호 첫번째 자리 입력" maxlength="3" placeholder="070">
+								<input type="text" id="tel1" name="notice_man_tel1" class="inpTypo sizeL _filter" title="전화번호 첫번째 자리 입력" maxlength="3" placeholder="070">
 							</span>
 							<span class="manager_phone"> <p class="dash">-</p>
-								<input type="text" id="tel2" name="tel2" class="inpTypo sizeL _filter" title="전화번호 두번째 자리 입력" maxlength="4" placeholder="1234">							
+								<input type="text" id="tel2" name="notice_man_tel2" class="inpTypo sizeL _filter" title="전화번호 두번째 자리 입력" maxlength="4" placeholder="1234">							
 							</span>
 							<span class="manager_phone"> <p class="dash">-</p>
-								<input type="text" id="tel3" name="tel3" class="inpTypo sizeL _filter" title="전화번호 세번째 자리 입력" maxlength="4" placeholder="5678">							
+								<input type="text" id="tel3" name="notice_man_tel3" class="inpTypo sizeL _filter" title="전화번호 세번째 자리 입력" maxlength="4" placeholder="5678">							
 							</span>
 						</div>
 					</div>
@@ -704,13 +785,13 @@ body {
 						</div>
 						<div class="area_data">
 							<span class="manager_phone">
-								<input type="text" name="cell1" id="cell1" class="inpTypo sizeL" title="휴대폰 첫번째 자리 입력" maxlength="3" placeholder="010"/>
+								<input type="text" name="cell1" id="notice_man_mp1" class="inpTypo sizeL" title="휴대폰 첫번째 자리 입력" maxlength="3" placeholder="010"/>
 							</span>
 							<span class="manager_phone"> <p class="dash">-</p>
-								<input type="text" name="cell2" id="cell2" class="inpTypo sizeL" title="휴대폰 두번째 자리 입력" maxlength="4" placeholder="1234"/>
+								<input type="text" name="cell2" id="notice_man_mp2" class="inpTypo sizeL" title="휴대폰 두번째 자리 입력" maxlength="4" placeholder="1234"/>
 							</span>
 							<span class="manager_phone"> <p class="dash">-</p>
-								<input type="text" name="cell3" id="cell3" class="inpTypo sizeL" title="휴대폰 세번째 자리 입력" maxlength="4" placeholder="5678"/>
+								<input type="text" name="cell3" id="notice_man_mp3" class="inpTypo sizeL" title="휴대폰 세번째 자리 입력" maxlength="4" placeholder="5678"/>
 							</span>
 						</div>
 					</div>
@@ -719,7 +800,7 @@ body {
 						<div class="area_tit"><strong class="tit">이메일 주소</strong></div>
 						<div class="area_data">
 							<div class="manager_email">
-								<input type="text" id="email" name="email" class="inpTypo sizeL" title="이메일 주소 입력" placeholder="이메일 주소를 입력해주세요.">
+								<input type="text" id="email" name="notice_man_email" class="inpTypo sizeL" title="이메일 주소 입력" placeholder="이메일 주소를 입력해주세요.">
 							</div>
 						</div>
 					</div>
@@ -729,9 +810,9 @@ body {
 						<div class="area_data" id="industry">
 							<div class="selected_item" id="industry_summary">
 								<!-- <p class="txt_placeholder">업종은 최대 1개 선택할 수 있습니다.</p> -->
-								<ul class="list_selected_item frm_box_list" data-help_target="industry">
-									
-								</ul>
+								<!-- <ul class="list_selected_item frm_box_list" data-help_target="industry"> -->
+								<input type="text" name="" id="list_selected_item frm_box_list" class="inpTypo sizeL inp_keyword"
+									style="border: none;" title="업종명" placeholder="업종명을 입력하세요">
 								<button type="button" class="btn_add btn btn-link btn_more_ly" id="btn_cat_area" >수정·추가하기</button>
 							</div>
 							
@@ -739,31 +820,30 @@ body {
 								<div class="layer_frm layer_add_industry" id="industry_all_list">
 									<div class="area_keyword">
 										<div class="wrap_search" id="industry_auto_complete_wrap">
-											<input type="text" id="industry_search_input" class="inpTypo sizeL inp_keyword" title="업종명" placeholder="업종명을 입력하세요">
 										</div>
 									</div>
 									
 									<div class="area_category_select">
 										<div class="depth1">
 											<div class="area_scroll category_step">
-												<ul class="list_category">
-													<li class="on" data-depth="0" data-mcode="1" id="100" >
+												<ul class="list_category" id="ul_cat_list">
+													<li class="on" data-depth="0" value="100" >
 													<button type="button" class="btn btn-default">서비스업</button></li>
 
-													<li class="on" data-depth="0" data-mcode="2" id="200">
+													<li class="on" data-depth="0" value="200" >
 													<button type="button" class="btn btn-default">제조·화학</button></li>
 
-													<li class="on" data-depth="0" data-mcode="3" id="300" >
+													<li class="on" data-depth="0" value="300">
 													<button type="button" class="btn btn-default">IT·웹·통신</button></li>
 
-													<li class="on" data-depth="0" data-mcode="4" id="400" >
-													<button type="button" class="btn btn-default">은행·금융업</button></li>
+													<li class="on" data-depth="0" value="400">
+													<button type="button" class="btn btn-default" >은행·금융업</button></li>
 
-													<li class="on" data-depth="0" data-mcode="5" id="500">
+													<li class="on" data-depth="0" value="500">
 													<button type="button" class="btn btn-default">미디어·디자인</button></li>
 													
-													<li class="on" data-depth="0" data-mcode="10" id="1000" >
-													<button type="button" class="btn btn-default">기관·협회</button></li>
+													<li class="on" data-depth="0" value="1000" >
+													<button type="button" class="btn btn-default" >기관·협회</button></li>
 												</ul>
 											</div>
 										</div>
@@ -772,32 +852,32 @@ body {
 										<div class="depth2" id="100" style="display: table-cell;">
 											<div class="area_scroll category_step">
 												<ul class="list_category">
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="108">
-													<button type="button">호텔·여행·항공</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="108" value="108">
+													<button type="button" class="btn_depth2" value="호텔·여행·항공">호텔·여행·항공</button></li>
 
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="109">
-													<button type="button">외식업·식음료</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="109" value="109">
+													<button type="button" class="btn_depth2" value="외식업·식음료">외식업·식음료</button></li>
 
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="111">
-													<button type="button">시설관리·경비·용역</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="111" value="111">
+													<button type="button" class="btn_depth2" value="시설관리·경비·용역">시설관리·경비·용역</button></li>
 
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="115">
-													<button type="button">레저·스포츠·여가</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="115" value="115">
+													<button type="button" class="btn_depth2" value="레저·스포츠·여가">레저·스포츠·여가</button></li>
 
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="118">
-													<button type="button">AS·카센터·주유</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="118" value="118">
+													<button type="button" class="btn_depth2" value="AS·카센터·주유">AS·카센터·주유</button></li>
 
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="119">
-													<button type="button">렌탈·임대</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="119" value="119">
+													<button type="button" class="btn_depth2" value="렌탈·임대">렌탈·임대</button></li>
 
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="120">
-													<button type="button">웨딩·장례·이벤트</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="120" value="120">
+													<button type="button" class="btn_depth2" value="웨딩·장례·이벤트">웨딩·장례·이벤트</button></li>
 
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="121">
-													<button type="button">기타서비스업</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="121" value="121">
+													<button type="button" class="btn_depth2" value="기타서비스업">기타서비스업</button></li>
 
-													<li class="on" data-depth="1" data-mcode="1" data-bcode="122">
-													<button type="button">뷰티·미용</button></li>
+													<li class="on" data-depth="1" data-mcode="1" data-bcode="122" value="122">
+													<button type="button" class="btn_depth2" value="뷰티·미용">뷰티·미용</button></li>
 												</ul>
 											</div>
 										</div>
@@ -805,59 +885,59 @@ body {
 										<div class="depth2" id="200" style="display: table-cell;">
 											<div class="area_scroll category_step">
 												<ul class="list_category">
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="201">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="201" value="201">
 														<button type="button">전기·전자·제어</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="202">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="202" value="202">
 														<button type="button">기계·설비·자동차</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="204">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="204" value="204">
 														<button type="button">석유·화학·에너지</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="205">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="205" value="205">
 														<button type="button">섬유·의류·패션</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="207">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="207" value="207">
 														<button type="button">화장품·뷰티</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="208">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="208" value="208">
 														<button type="button">생활용품·소비재·사무</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="209">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="209" value="209">
 														<button type="button">가구·목재·제지</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="210">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="210" value="210">
 														<button type="button">농업·어업·광업·임업</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="211">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="211" value="211">
 														<button type="button">금속·재료·철강·요업</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="212">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="212" value="212">
 														<button type="button">조선·항공·우주</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="213">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="213" value="213">
 														<button type="button">기타제조업</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="214">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="214" value="214">
 														<button type="button">식품가공·개발</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="215">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="215" value="215">
 														<button type="button">반도체·광학·LCD</button>
 													</li>
 
-													<li class="on" data-depth="1" data-mcode="2" data-bcode="216">
+													<li class="on" data-depth="1" data-mcode="2" data-bcode="216" value="216">
 														<button type="button">환경</button>
 													</li>
 												</ul>
@@ -1034,13 +1114,13 @@ body {
 							<!-- 근무지역 input -->
 							<div class="input_address internal">
 								<span class="manager_address">
-									<input type="text" class="inpTypo sizeL address01 _inputWrapper" id="address_depth1" name="address" data-help_target="company_address" title="주소 입력" placeholder="서울특별시 구로구 구로3동 시흥대로 ">
+									<input type="text" class="inpTypo sizeL address01 _inputWrapper" id="address_depth1" name="notice_comp_adrs1" data-help_target="company_address" title="주소 입력" placeholder="서울특별시 구로구 구로3동 시흥대로 ">
 								</span>
 								<span class="manager_address2">
-									<input type="text" class="inpTypo sizeL address02 _inputWrapper" id="address_depth2" name="address_detail" data-help_target="company_address" title="상세주소 입력" placeholder="상세주소 : 예) 187-10 코오롱싸이언스밸리">
+									<input type="text" class="inpTypo sizeL address02 _inputWrapper" id="address_depth2" name="notice_comp_adrs1_detail" data-help_target="company_address" title="상세주소 입력" placeholder="상세주소 : 예) 187-10 코오롱싸이언스밸리">
 								</span>
 								<span class="manager_address3">
-									<input type="text" class="inpTypo sizeL address02 _inputWrapper" id="address_depth3" name="address_detail" data-help_target="company_address" title="인근 지역" placeholder="인근지역: 예) 관악구">
+									<input type="text" class="inpTypo sizeL address02 _inputWrapper" id="address_depth3" name="notice_comp_adrs2" data-help_target="company_address" title="인근 지역" placeholder="인근지역: 예) 관악구">
 								</span>
 							</div>
 						</div>
@@ -1070,7 +1150,7 @@ body {
 					<div class="area_data">
 						<div class="condition_edu">
 							<div class="inpSel sizeL">
-								<select id="edu_select" title="학력">
+								<select id="edu_select" name="notice_req_edu" title="학력">
 									<option value="irr">학력무관</option>
 
 									<option value="_6">고등학교졸업이상</option>
@@ -1084,8 +1164,8 @@ body {
 									<option value="_5">박사졸업</option>
 								</select>
 							</div>
-							<input type="text" id="etc_education" class="inpTypo sizeL" 
-								title="(선택) 기타 학력사항 입력" placeholder="(선택) 기타 학력사항" maxlength="20">
+							<!-- <input type="text" id="etc_education" class="inpTypo sizeL" 
+								title="(선택) 기타 학력사항 입력" placeholder="(선택) 기타 학력사항" maxlength="20"> -->
 						</div>
 					</div>
 				</div>
@@ -1098,53 +1178,20 @@ body {
 							<div class="inpSel sizeL">
 								<select id="salary_category" title="연봉/급여">
 									<option value="100">연봉</option>
-
-									<option value="101">월급</option>
-
-									<option value="102">주급</option>
-
-									<option value="103">일급</option>
-
-									<option value="104">시급</option>
-
-									<option value="105">건당</option>
 								</select>
 							</div>
 							<div class="inpSel sizeL" id="select_salary_cd">
-								<select class="sal_list" id="salary_cd" title="급여 상세">
+								<select class="sal_list" name="notice_req_sal" id="salary_cd" title="급여 상세">
 									<option value="">급여를 선택하세요</option>
-									<option value="3">1,400 만원 이하</option>
-									<option value="4">1,400~1,600만원</option>
-									<option value="5">1,600~1,800만원</option>
-									<option value="6">1,800~2,000만원</option>
-									<option value="7">2,000~2,200만원</option>
-									<option value="8">2,200~2,400만원</option>
-									<option value="9">2,400~2,600만원</option>
-									<option value="10">2,600~2,800만원</option>
-									<option value="11">2,800~3,000만원</option>
-									<option value="12">3,000~3,200만원</option>
-									<option value="13">3,200~3,400만원</option>
-									<option value="14">3,400~3,600만원</option>
-									<option value="15">3,600~3,800만원</option>
-									<option value="16">3,800~4,000만원</option>
-									<option value="17">4,000~5,000만원</option>
-									<option value="18">5,000~6,000만원</option>
-									<option value="19">6,000~7,000만원</option>
-									<option value="20">7,000~8,000만원</option>
-									<option value="21">8,000~9,000만원</option>
-									<option value="22">9,000~1억원</option>
-									<option value="23">1억원 이상</option>
-									<option value="99">면접 후 결정</option>
 									<option value="0">회사내규에 따름</option>
-									<option value="98">직접입력</option>
+									<option value="1">2,000~3,000만원</option>
+									<option value="2">3,000~4,000만원</option>
+									<option value="3">4,000~5,000만원</option>
+									<option value="4">5,000~6,000만원</option>
+									<option value="5">6,000만원 이상</option>
+									<option value="99">면접 후 결정</option>
 								</select>
 							</div>
-							<!-- 급여 직접입력 -->
-							<span class="salary_directly" id="input_salary" style="display: none;">
-								<input type="text" id="salary_ipt" name="salary" class="inpTypo sizeL _filter"
-									data-filter="numeric" maxlength="6" title="급여 직접 입력">
-								<span class="txt" id="salary_unit">만원</span>
-							</span>
 							<p class="noti_salary">
 								<strong id="salary_msg">최저시급 8,590원, 주 40시간 기준 최저연봉 약 21,543,720원</strong>
 								<a href="http://www.minimumwage.go.kr/index.jsp" target="_blank" class="link_info" title="새창으로 이동">최저임금제도 안내</a><br>
@@ -1183,19 +1230,19 @@ body {
 								</li>
 
 							</ul>
-							<div class="optional_item" id="term">
-								<dl id="probation_term_wrap">
-									<dt>정규직</dt>
-									<dt>수습기간</dt>
-									<dd>
-										 <input type="text" class="inpTypo sizeS _filter"
-											id="probation_term" data-filter="numeric" maxlength="2"
-											title="수습기간 입력" style="margin-right: 5px;">개월
-									</dd>
+							
+							<div class="optional_item" id="term" >
+								<dl id="probation_term_wrap" style="margin-top: 370px; margin-left: 150px; display: flex;">
+									
+									<span style="margin-right: 15px;">정규직 수습기간</span>
+									<div style="/* background-color: gray; */">
+										<input type="text" class="inpTypo sizeS _filter" id="probation_term" data-filter="numeric" maxlength="2"
+											name="notice_req_jgj_susb" title="수습기간 입력" style=" float: left;">
+										<span style="float: left; margin-left: 20px;">개월</span>
+									</div>
 								</dl>
-								<dl id="contract_term_wrap">
-									<dt>계약직</dt>
-										
+								<dl id="contract_term_wrap" style="margin-top: 370px; margin-left: 40px;"/>
+									<!-- <dt>
 										<div class="toolTipWrap over">
 											<button type="button">
 												<span class="blind">도움말</span>
@@ -1204,7 +1251,7 @@ body {
 												<span class="tail tail_top_left"></span>
 												<div class="tooltipCont">
 													<strong class="tit_tooltip">기간제법 주요내용</strong>
-													<p class="desc_tooltip">
+													<p class="desc_tooltip" >
 														'기간제근로자'란 근로기간이 정해져 있는 근로 계약을 체결한 근로자를 말합니다. <a
 															href="http://www.law.go.kr/LSW/LsiJoLinkP.do?docType=JO&amp;lsNm=%EA%B8%B0%EA%B0%84%EC%A0%9C+%EB%B0%8F+%EB%8B%A8%EC%8B%9C%EA%B0%84%EA%B7%BC%EB%A1%9C%EC%9E%90+%EB%B3%B4%ED%98%B8+%EB%93%B1%EC%97%90+%EA%B4%80%ED%95%9C+%EB%B2%95%EB%A5%A0&amp;joNo=000200000&amp;languageType=KO&amp;paras=1"
 															target="_blank" class="link" title="새창으로 이동">(기간제 및
@@ -1214,25 +1261,22 @@ body {
 													</p>
 												</div>
 											</div>
-										</div>
-								<!-- 	</dt> -->
+										</div> 
+									</dt> -->
 									<dd>
-										계약기간 <input type="text" class="inpTypo sizeS _filter"
-											id="contract_term" data-filter="numeric" maxlength="2"
-											title="계약기간 입력">개월 <span class="optional_inpchk">
-											<span class="inpChk"><input type="checkbox"
-												id="chk_term_jt_10" value="10"><label class="lbl"
-												for="chk_term_jt_10">정규직 전환 가능</label></span> <span class="inpChk"><input
-												type="checkbox" id="chk_term_jt_16" value="16"><label
-												class="lbl" for="chk_term_jt_16">기간제</label></span> <span
-											class="inpChk"><input type="checkbox"
-												id="chk_term_jt_17" value="17"><label class="lbl"
-												for="chk_term_jt_17">무기계약직</label></span>
+										<span style="font-family: 나눔스퀘어;">계약기간</span>
+										<input type="text" class="inpTypo sizeS _filter" id="contract_term" data-filter="numeric" maxlength="2"
+											name="notice_req_gyj_gigan" title="계약기간 입력">개월 
+										<span class="optional_inpchk">
+											<span class="inpChk">
+												<input type="checkbox" id="chk_term_jt_10" name="notice_req_gyj_tojgj" value="1">
+												<label class="lbl" for="chk_term_jt_10" style="margin-left: 20px;">정규직 전환 가능</label>
+											</span>
 										</span>
 									</dd>
 								</dl>
-								<dl id="internship_term_wrap">
-									<dt>
+								<dl id="internship_term_wrap" style="margin-top: 370px; margin-left: 40px;">
+									<!-- <dt>
 										인턴직
 										<div class="toolTipWrap over">
 											<button type="button">
@@ -1253,19 +1297,20 @@ body {
 												</div>
 											</div>
 										</div>
-									</dt>
+									</dt> -->
 									<dd>
-										계약기간 <input type="text" class="inpTypo sizeS _filter"
-											id="internship_term" data-filter="numeric" maxlength="2"
-											title="계약기간 입력">개월 <span class="optional_inpchk">
-											<span class="inpChk"><input type="checkbox"
-												id="chk_term_jt_11" value="11"><label class="lbl"
-												for="chk_term_jt_11">정규직 전환 가능</label></span>
+										계약기간 <input type="text" class="inpTypo sizeS _filter" id="internship_term" data-filter="numeric" maxlength="2"
+											name="notice_req_int_gigan" title="계약기간 입력">개월 
+										<span class="optional_inpchk">
+											<span class="inpChk">
+												<input type="checkbox" id="chk_term_jt_11" name="notice_req_int_tojgj" value="1">
+												<label class="lbl" for="chk_term_jt_11">정규직 전환 가능</label>
+											</span>
 										</span>
 									</dd>
 								</dl>
-								<dl id="dispatch_term_wrap">
-									<dt>
+								<dl id="dispatch_term_wrap" style="margin-top: 370px; margin-left: 40px;">
+									<!-- <dt>
 										파견직
 										<div class="toolTipWrap over">
 											<button type="button">
@@ -1285,14 +1330,15 @@ body {
 												</div>
 											</div>
 										</div>
-									</dt>
+									</dt> -->
 									<dd>
-										계약기간 <input type="text" class="inpTypo sizeS _filter"
-											id="dispatch_term" data-filter="numeric" maxlength="2"
-											title="계약기간 입력">개월 <span class="optional_inpchk">
-											<span class="inpChk"><input type="checkbox"
-												id="chk_term_jt_23" value="23"><label class="lbl"
-												for="chk_term_jt_23">정규직 전환 가능</label></span>
+										계약기간 <input type="text" class="inpTypo sizeS _filter" id="dispatch_term" data-filter="numeric" maxlength="2"
+											name="notice_req_pgj_gigan" title="계약기간 입력">개월 
+										<span class="optional_inpchk">
+											<span class="inpChk">
+											<input type="checkbox" id="chk_term_jt_23" name="notice_req_pgj_tojgj" value="1">
+											<label class="lbl" for="chk_term_jt_23">정규직 전환 가능</label>
+										</span>
 										</span>
 									</dd>
 								</dl>
@@ -1308,38 +1354,40 @@ body {
 				<!-- items job_type end -->
 				
 				<div class="items" id="work_shift_part">
-					<div class="area_tit"><strong class="tit">근무요일</strong></div>
+					
 					<div class="area_data">
+					<div class="area_tit"><strong class="tit">근무요일</strong></div>
 						<div class="condition_day">
 							<div class="inpSel sizeL">
 								<select id="work_shift_cd" name="work_shift_cd" style="width: 300px;" title="근무요일">
 									<option value="">선택</option>
-									<option value="wsh010">주 5일(월~금)</option>
-									<option value="wsh020">토요일 격주휴무(월~토)</option>
-									<option value="wsh030">주 6일(월~토)</option>
-									<option value="wsh040">주 3일(격일제)</option>
-									<option value="wsh050">탄력적근무제</option>
-									<option value="wsh060">2교대</option>
-									<option value="wsh070">3교대</option>
-									<option value="wsh080">4교대</option>
+									<option value="주 5일(월~금)">주 5일(월~금)</option>
+									<option value="토요일 격주휴무(월~토)">토요일 격주휴무(월~토)</option>
+									<option value="주 6일(월~토)">주 6일(월~토)</option>
+									<option value="주 3일(격일제)">주 3일(격일제)</option>
+									<option value="탄력적근무제">탄력적근무제</option>
+									<option value="2교대">2교대</option>
+									<option value="3교대">3교대</option>
+									<option value="4교대">4교대</option>
 									<option value="wsh999">직접입력</option>
 								</select>
 							</div>
 							<!-- 직접입력  선택 시 나옴 -->
-							<input type="text" id="work_shift_value" name="work_shift_value" maxlength="30" class="inpTypo sizeL" title="근무요일 직접입력" placeholder="예) 월 4회 휴일, 주5일(매주 금요일 휴일) 등" style="display: none;">
+							<input type="text" id="work_shift_value" name="notice_req_workday" maxlength="30" class="inpTypo sizeL" title="근무요일 직접입력" placeholder="예) 월 4회 휴일, 주5일(매주 금요일 휴일) 등" style="display: none;">
 							
 						</div> <!-- condition_day end -->
 					</div>	<!-- area_data end -->
 				</div>
 				
 				<div class="items" id="work_shift_time_part">
-					<div class="area_tit"><strong class="tit">근무시간</strong></div>
+					
 					<div class="area_data">
+					<div class="area_tit"><strong class="tit">근무시간</strong></div>
 						<!-- 근무시간 체크시 노출 -->
 						<div class="condition_day">
 							<div class="condition_day">
 								<div class="inpSel sizeL">
-									<select id="work_shift_time_cd" name="work_shift_time_cd" style="width: 300px;" title="근무시간">
+									<select id="work_shift_time_cd" name="notice_req_worktime" style="width: 300px;" title="근무시간">
 										<option value="">선택</option>
 										<option value="1">오전 9시~오후 6시</option>
 										<option value="2">오전 8시 30분~오후 5시 30분</option>
@@ -1357,14 +1405,15 @@ body {
 				
 				<!-- 성별 -->
 				<div class="items" id="genderItem">
-					<div class="area_tit"><strong class="tit">성별</strong></div>
+					
 					<div class="area_data">
+					<div class="area_tit"><strong class="tit">성별</strong></div>
 						<div class="condition_day" id="applicant_sex_part">
 							<div class="inpSel sizeL">
-								<select id="sex" title="성별" style="width: 300px;">
+								<select id="sex" title="성별" name="notice_req_gender" style="width: 300px;">
 									<option value="irr">성별무관</option>
-									<option value="male">남성</option>
-									<option value="female">여성</option>
+									<option value="남성">남성</option>
+									<option value="여성">여성</option>
 								</select>
 							</div>
 						</div>
@@ -1373,10 +1422,11 @@ body {
 				
 				<!-- 연령 -->
 				<div class="items" id="ageItem">
-					<div class="area_tit">
-						<strong class="tit">연령</strong>
-					</div>
+					
 					<div class="area_data">
+						<div class="area_tit">
+							<strong class="tit">연령</strong>
+						</div>
 						<div class="condition_day" id="age_section">
 							<div class="inpSel sizeL">
 								<select id="age" title="연령" style="width: 300px;">
@@ -1386,11 +1436,11 @@ body {
 							</div>
 							<div class="age_limit">
 								<div class="inpSel sizeL">
-									<input type="text" class="inpTypo sizeL max_age" name="max_age" id="max_age" title="최소 나이" placeholder="최소나이 만나이로 작성하세요. 예) 만 20세" />
+									<input type="text" class="inpTypo sizeL max_age" name="notice_req_maxage" id="max_age" title="최소 나이" placeholder="출생년도로  입력하세요. 예) 2000" />
 								</div>
 								<span class="txt">~</span>
 								<div class="inpSel sizeL">
-									<input type="text" class="inpTypo sizeL min_age" name="min_age" id="min_age" title="최대 나이" placeholder="최대나이 만나이로 작성하세요. 예) 만 20세" />
+									<input type="text" class="inpTypo sizeL min_age" name="notice_req_minage" id="min_age" title="최대 나이" placeholder="출생년도로  입력하세요. 예) 1950" />
 								</div>
 							</div>
 						</div>
@@ -1409,41 +1459,140 @@ body {
 				<div class="items" id="jobCategory">
 					<div class="area_tit"><strong class="tit">공고 대표 직무</strong></div>
 					<div class="area_data">
-						<input type="text" id="cat_add" class="inpTypo sizeL add-part" placeholder="대표 직종/직업을 선택하세요" />
+						<input type="text" id="cat_add" name="notice_prcs_job" class="inpTypo sizeL add-part" placeholder="대표 직종/직업을 선택하세요" />
 						<button type="button" id="btn_add" class="btn btn-primary">추가하기</button>
 					</div>
 					
-					<div class="wrap_layer wrap_layer_cat" style="display: none;">
+					<div class="wrap_layer_cat wrap_layer" id="wrap_layer_cat" style="">
 						<div class="layer_frm layer_add_job">
 							<div class="area_category_select" id="job_category_all_list">
 								<div class="depth1">
 									<div class="area_scroll">
-										<ul class="list_category" style="display: block;">
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="경영·사무">경영·사무</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="영업·고객상담">영업·고객상담</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="생산·제조">생산·제조</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="IT·인터넷">IT·인터넷</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="전문직">전문직</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="교육">교육</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="미디어">미디어</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="특수계층·공공">특수계층·공공</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="건설">건설</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="유통·무역">유통·무역</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="서비스">서비스</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="디자인">디자인</button></li>
-											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" value="의료">의료</button></li>
+										<ul class="list_category" style="">
+											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" id="1" value="경영·사무">경영·사무</button></li>
+											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" id="2" value="영업·고객상담">영업·고객상담</button></li>
+											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" id="3" value="생산·제조">생산·제조</button></li>
+											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" id="4" value="IT·인터넷">IT·인터넷</button></li>
+											
+											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" id="11" value="서비스">서비스</button></li>
+											<li class="cat_list"><button type="button" class="btn_cat" data-depth="0" id="12" value="디자인">디자인</button></li>
 										</ul>
 									</div>
 								</div>
-								<div class="depth2" style="display: none;">
-									<div class="area_scroll">
-										<ul class="list_category" style="display: none;"></ul>
+								<div class="depth2">
+									<div class="area_scroll" id="1">
+										<!-- 리스트 카테고리 경영 사무 -->
+										<ul class="list_category" style="display: block;" id="1" >
+											<li class="on"><button type="button" data-depth="1" data-code="101">기획·전략·경영</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="102">총무·법무·사무</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="103">경리·출납·결산</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="104">홍보·PR·사보</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="107">비서·안내·수행원</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="108">사무보조·문서작성</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="113">인사·교육·노무</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="114">회계·재무·세무·IR</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="119">마케팅·광고·분석</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="120">전시·컨벤션·세미나</button></li>
+										</ul>
 									</div>
+									
+									<div class="area_scroll" id="2">
+										<!-- 영업 고객상담 리스트 카테고리 -->
+										<ul class="list_category" style="display: block;" id="2">
+											<li class=""><button type="button" data-depth="1" data-code="202">일반영업</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="203">판매·매장관리</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="205">IT·솔루션영업</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="206">금융·보험영업</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="207">광고영업</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="208">기술영업</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="209">영업기획·관리·지원</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="210">TM·아웃바운드</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="211">TM·인바운드</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="212">고객센터·CS</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="213">QA·CS강사·수퍼바이저</button></li>
+										</ul>
+									</div>
+										
+									<div class="area_scroll" id="3">	
+										<!-- 생산 제조 -->
+										<ul class="list_category" style="display: block;" id="3">
+											<li class=""><button type="button" data-depth="1" data-code="301">금속·금형</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="302">기계·기계설비</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="303">화학·에너지</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="304">섬유·의류·패션</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="308">전기·전자·제어</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="309">생산관리·품질관리</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="314">반도체·디스플레이·LCD</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="315">생산·제조·포장·조립</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="316">비금속·요업·신소재</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="317">바이오·제약·식품</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="318">설계·CAD·CAM</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="319">안경·렌즈·광학</button></li>
+										</ul>
+									</div>
+										
+									<div class="area_scroll" id="4">
+										<!-- IT 인터넷  -->
+										<ul class="list_category" style="display: block;" id="4">
+											<li class=""><button type="button" data-depth="1" data-code="401">웹마스터·QA·테스터</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="402">서버·네트워크·보안</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="403">웹기획·PM</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="404">웹개발</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="405">게임·Game</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="406">컨텐츠·사이트운영</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="407">응용프로그램개발</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="408">시스템개발</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="409">ERP·시스템분석·설계</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="410">통신·모바일</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="411">하드웨어·소프트웨어</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="412">웹디자인</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="413">퍼블리싱·UI개발</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="414">동영상·편집·코덱</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="415">IT·디자인·컴퓨터교육</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="416">데이터베이스·DBA</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="417">인공지능(AI)·빅데이터</button></li>
+										</ul>
+									</div>
+									
+									<div class="area_scroll" id="11">	
+										<!-- 서비스 -->
+										<ul class="list_category" style="display: block;" id="11">
+											<li class=""><button type="button" data-depth="1" data-code="1101">웨딩·행사·이벤트</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1102">안내·도우미·나레이터</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1103">보안·경호·안전</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1104">주차·세차·주유</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1105">AS·서비스·수리</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1107">외식·식음료</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1108">호텔·카지노·콘도</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1109">여행·관광·항공</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1110">레저·스포츠</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1111">미용·피부관리·애견</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1112">요리·제빵사·영양사</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1113">가사·청소·육아</button></li>
+										</ul>
+									</div>
+										
+									
+									<div class="area_scroll" id="12">
+										<!-- 디자인 -->
+										<ul class="list_category" style="display: block;" id="12">
+											<li class=""><button type="button" data-depth="1" data-code="1201">그래픽디자인·CG</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1202">출판·편집디자인</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1203">제품·산업디자인</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1204">캐릭터·만화·애니</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1205">의류·패션·잡화디자인</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1207">디자인기타</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1208">전시·공간디자인</button></li>
+											<li class=""><button type="button" data-depth="1" data-code="1209">광고·시각디자인</button></li>
+										</ul>
+									</div>
+
+
 								</div>
 								<div class="depth_check">
 									<div class="area_scroll">
 										<!-- <p class="txt_noti">← 직종을 선택해주세요</p> -->
-										<ul class="list_check" style="display: none;"></ul>
+										<ul class="list_check" ></ul>
 									</div>
 								</div>
 							</div>
@@ -1460,21 +1609,21 @@ body {
 				<div class="items" id="applyPeriod">
 					<div class="area_tit"><strong class="tit">지원 접수 기간</strong></div>
 					<div class="area_data">
-						<input type="date" class="inpTypo sizeL type_calendar" name="apply_start_date" title="접수시작" /> ~ 
-						<input type="date" class="inpTypo sizeL type_calendar" name="apply_end_date" title="접수마감" />
+						<input type="date" class="inpTypo sizeL type_calendar" name="notice_prcs_start" title="접수시작" /> ~ 
+						<input type="date" class="inpTypo sizeL type_calendar" name="notice_prcs_end" title="접수마감" />
 					</div>
 				</div>
 				
 			</div>
 		</div>
-		
-
-		
+		<button type="button" id="btn_next" class="btn btn-primary btn-lg" style="float: right;"> 다음 페이지 </button>
 		
 		
 		
 		
 		
+		
+		</form>
 	</div>
 	<!-- wrap_recruit_frm end -->
 	
