@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Job Post New Last - Last</title>
-
+<title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
 	
@@ -96,6 +95,13 @@
 		$('#file_direct').click(function() {
 			console.log('직접입력');
 			$('.inpTarea').toggle();
+		});
+		
+		/* 수정하기 버튼 누르면 창 없어지면서 데이터가 post_edit.jsp로 들어가게 함 */
+		$('#btn_edit').click(function(){
+			
+			/* 창 닫기 */
+			window.close();
 		});
 
 	});
@@ -491,12 +497,12 @@ ol, ul, li {
 </style>
 </head>
 <body>
-
+	
 	<!-- 채용 절차 section -->
 	
 	<div class="step_recruit" id="frm_hiring">
 		<div class="frm_header">
-			<h2 class="tit_step">채용절차</h2>
+			<h2 class="tit_step">채용절차 수정하기</h2>
 			<p class="subhead">채용절차는 어떻게 되나요?</p>
 		</div>
 		
@@ -966,9 +972,9 @@ ol, ul, li {
 
 		</div> <!-- frm_body end -->
 		<!-- <button type="button" id="btn_next" class="btn btn-primary btn-lg btn-block" style="float: right; border: none; background-color: white;"> 채용 공고 끝 </button> -->
-		<input type="submit" value="다음 페이지" id="btn_next" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "/>
+		<input type="submit" value="수정완료" id="btn_edit" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "/>
 		</form>
 	</div>
-
+	
 </body>
 </html>

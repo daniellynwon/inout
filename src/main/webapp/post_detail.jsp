@@ -481,7 +481,8 @@ body, div, dl, dt, dd, ul, ol, li, p, button {
 		<div class="wrap_jview">
 			<div class="jview">
 				<div class="wrap_jv_cont">
-					<input type="hidden" name="track_url" /> 
+					<input type="hidden" class="track_url" /> 
+					<input type="hidden" class="logging_url" /> 
 					
 					<!-- 헤더. 채용 공고 제목, 회사 이름, 등등 -->
 					<div class="wrap_jv_header">
@@ -764,6 +765,7 @@ body, div, dl, dt, dd, ul, ol, li, p, button {
 					</div>
 					
 				</div>
+				<!-- wrap_jv_cont end -->
 			</div>
 		</div>
 		

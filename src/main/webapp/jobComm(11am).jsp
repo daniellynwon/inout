@@ -55,17 +55,6 @@
 			$('#section_5').show();
 		});
 		
-		$('#qu_2').hide();
-		$('#btn_add_1').hide();
-		
-		
-		/* 자유 질문 추가 */
-		$('.btn_add_q').click(function(){
-			$('#qu_2').toggle();
-			$('#btn_add_1').toggle();
-		});
-		
-		
 		
 	});
 	
@@ -115,12 +104,12 @@
 	vertical-align: top;
 }
 
-/* .recruit_add */
+/* .recruit_add */ 
 .desc_template {
 	margin-top: 12px;
 }
 
-/* .recruit_add */
+/* .recruit_add */ 
 .tabList {
 	margin-top: 21px;
 }
@@ -128,7 +117,7 @@
 /* [class*="tabList"] {
 	width: 100%;
 } */
-/* .recruit_add */
+/* .recruit_add */ 
 .tabList>li:first-child {
 	border-radius: 5px 0 0 0;
 }
@@ -181,19 +170,17 @@
 	letter-spacing: -1px;
 }
 
-/* .recruit_add */
-.tabList>li:last-child {
+.recruit_add .tabList>li:last-child {
 	border-radius: 0 5px 0 0;
 }
 
-/* .recruit_add */
-.wrap_cont {
+.recruit_add .wrap_cont {
 	position: relative;
+	border: 1px solid #dedede;
 	border-top: 0;
 }
 
-/* .recruit_add */
-.question_prefix .radio label {
+.recruit_add .question_prefix .radio label {
 	display: inline-block;
 	position: relative;
 	padding: 0 18px;
@@ -207,8 +194,8 @@
 	vertical-align: top;
 }
 
-/* .recruit_add */
-.cont_tab {
+.recruit_add .cont_tab {
+	overflow-y: auto;
 	position: relative;
 	padding: 0 50px 43px 50px;
 	height: 440px;
@@ -216,15 +203,13 @@
 	background: #fff;
 }
 
-/* .recruit_add */
-.cont_tab .title {
+.recruit_add .cont_tab .title {
 	height: 112px;
 	line-height: 104px;
 	text-align: center;
 }
 
-/* .recruit_add */
-.cont_tab .title>p {
+.recruit_add .cont_tab .title>p {
 	display: inline-block;
 	color: #222;
 	font-size: 17px;
@@ -232,36 +217,31 @@
 	vertical-align: middle;
 }
 
-/* .recruit_add */
-.question_prefix dl:first-child {
+.recruit_add .question_prefix dl:first-child {
 	margin-top: 0;
 }
 
-/* .recruit_add */
-.question_prefix dl {
+.recruit_add .question_prefix dl {
 	display: table;
 	margin-top: 9px;
 	height: 40px;
 	font-size: 0;
 }
 
-/* .recruit_add */
-.question_prefix dd {
+.recruit_add .question_prefix dd {
 	display: table-cell;
 	padding-right: 9px;
 	vertical-align: top;
 }
 
-/* .recruit_add */
-.question_prefix .radio {
+.recruit_add .question_prefix .radio {
 	display: inline-block;
 	position: relative;
 	vertical-align: top;
 	user-select: none;
 }
 
-/* .recruit_add */
-.question_prefix dt {
+.recruit_add .question_prefix dt {
 	float: left;
 	padding-right: 30px;
 	color: #666;
@@ -272,8 +252,7 @@
 	white-space: nowrap;
 }
 
-/* .recruit_add */
-.question_prefix .radio input[type="radio"] {
+.recruit_add .question_prefix .radio input[type="radio"] {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute;
 	top: 0;
@@ -286,23 +265,19 @@
 	opacity: 0;
 }
 
-/* .recruit_add */
-.btn_tab.prev {
+.recruit_add .btn_tab.prev {
 	left: 0;
 }
 
-/* .recruit_add */
-.btn_tab.next {
+.recruit_add .btn_tab.next {
 	right: 0;
 }
 
-/* .recruit_add */
-.btn_tab.on {
+.recruit_add .btn_tab.on {
 	display: block;
 }
 
-/* .recruit_add */
-.btn_tab {
+.recruit_add .btn_tab {
 	display: none;
 	position: absolute;
 	top: 50%;
@@ -312,7 +287,7 @@
 	color: #979797;
 }
 
-.cont_user .btn_del_a, .cont_user .btn_add_a {
+.recruit_add .cont_user .btn_del_a, .recruit_add .cont_user .btn_add_a {
 	display: inline-block;
 	position: relative;
 	margin: 8px 7px 0 0;
@@ -324,11 +299,11 @@
 	background: #fff;
 }
 
-.question_user {
+.recruit_add .question_user {
 	margin-top: 9px;
 }
 
-.question_user .question {
+.recruit_add .question_user .question {
 	position: relative;
 	z-index: 1;
 	margin-top: -1px;
@@ -338,18 +313,19 @@
 	background: #fff;
 }
 
-.question_user .question dl {
+.recruit_add .question_user .question dl {
 	position: relative;
+	z-index: 1;
 }
 
-.question_user .question dt {
+.recruit_add .question_user .question dt {
 	display: block;
 	position: relative;
 	padding-left: 145px;
 	height: 40px;
 }
 
-.question_user .question label {
+.recruit_add .question_user .question label {
 	position: absolute;
 	top: 0;
 	left: 80px;
@@ -360,12 +336,12 @@
 	line-height: 38px;
 }
 
-.question_user input[type="text"] {
+.recruit_add .question_user input[type="text"] {
 	margin-right: 20px;
 	width: 400px;
 }
 
-.cont_user .btn_del_a, .cont_user .btn_add_a {
+.recruit_add .cont_user .btn_del_a, .recruit_add .cont_user .btn_add_a {
 	display: inline-block;
 	position: relative;
 	margin: 8px 7px 0 0;
@@ -377,12 +353,12 @@
 	background: #fff;
 }
 
-.cont_user .btn_del_q:hover {
+.recruit_add .cont_user .btn_del_q:hover {
 	border-color: #e1e1e1;
 }
 
 /* 질문 삭제 */
-.cont_user .btn_del_q {
+.recruit_add .cont_user .btn_del_q {
 	position: absolute;
 	top: -1px;
 	right: -1px;
@@ -399,7 +375,7 @@
 }
 
 /* 질문 추가 */
-.cont_user .btn_add_q {
+.recruit_add .cont_user .btn_add_q {
 	display: inline-block;
 	margin: 23px 0 0 80px;
 	height: 24px;
@@ -410,7 +386,7 @@
 	letter-spacing: -1px;
 }
 
-.question_user .guide {
+.recruit_add .question_user .guide {
 	display: none;
 	position: relative;
 	z-index: 1;
@@ -422,30 +398,6 @@
 	line-height: 90px;
 	text-align: center;
 	background: #fff;
-}
-
-input.inpTypo {
-	padding: 0 13px 2px;
-	height: 40px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	box-sizing: border-box;
-	color: #222;
-	font-family: "나눔스퀘어", gulim, dotum, sans-serif;
-	font-size: 14px;
-	letter-spacing: -1px;
-	line-height: 36px;
-	vertical-align: middle;
-	background-color: #fff;
-}
-
-.blind, .hidden, caption, legend {
-	visibility: hidden;
-	overflow: hidden;
-	position: absolute;
-	margin-left: -1px;
-	width: 1px;
-	height: 1px;
 }
 
 ol, ul, li {
@@ -461,7 +413,6 @@ button {
 body {
 	font-family: "나눔스퀘어";
 }
-
 </style>
 </head>
 <body>
@@ -478,77 +429,55 @@ body {
 				</div>
 				
 				<div class="area_data" style="padding-left: 10px;">
+					<p>인사통 질문 리스트 입니다.</p>
 					
 					<!-- 인사통 탭리스트 -->
 
 					<div class="wrap_cont">
 						<div id="insatong_cont">
-						
-							<div class="cont_tab cont_user" id="section_cmfree" style="display: block;">
-								<div class="title">
-									<p>
-										<strong>Q. 질문을 직접 입력</strong>하고 싶으신가요?<br>
-										<span class="sub">공고 또는 기업에 대해 추가로 어필하고 싶은 점을 Q&amp;A 형식으로 작성해보세요.</span>
-									</p>
+
+								<div class="cont_tab cont_user" id="section_cmfree" style="display: block;">
+									<div class="title">
+										<p>
+											<strong>Q. 질문을 직접 입력</strong>하고 싶으신가요?<br>
+											<span class="sub">공고 또는 기업에 대해 추가로 어필하고 싶은 점을 Q&amp;A 형식으로 작성해보세요.</span>
+										</p>
+									</div>
+									<div class="question_user">
+
+										<div class="question required" contents-idx="" data-index="0">
+											<dl>
+												<dt>
+													<label for="insatong_q_0">질문1</label> <input
+														id="insatong_q_0" data-question-code="0"
+														class="inpTypo cmfree_question" type="text"
+														placeholder="질문형 최대 28자 (ex. 분위기는 어떤가요?)" value=""
+														maxlength="28">
+												</dt>
+
+												<dd class="required required">
+													<label for="insatong_a_0_0">답변1</label> <input type="text"
+														id="insatong_a_0_0" class="inpTypo cmfree_answer"
+														name="0_0" placeholder="단답형 최대 28자 (ex. 자유로움)" value=""
+														maxlength="28">
+													<button type="button" class="btn_del_a">
+														<span class="blind">답변삭제</span>
+													</button>
+													<button type="button" class="btn_add_a">
+														<span class="blind">답변추가</span>
+													</button>
+												</dd>
+
+											</dl>
+											<button type="button" class="btn_del_q">- 질문삭제</button>
+										</div>
+
+										<div class="guide">
+											<p>질문 및 답변 추가를 원하시면, '자유질문 추가' 버튼을 눌러주세요.</p>
+										</div>
+									</div>
+									<button type="button" class="btn_add_q">+ 자유질문 추가</button>
 								</div>
-								<div class="question_user" id="qu_1">
-								
-									<div class="question required" id="qr_1">
-										<dl>
-											<dt>
-												<label for="insatong_q_0">질문</label>
-												<input id="insatong_q_0" data-question-code="0" class="inpTypo cmfree_question" type="text"
-													name="notice_qna_q" placeholder="질문형 최대 28자 (ex. 분위기는 어떤가요?)" value="" maxlength="28">
-											</dt>
-
-											<dd class="required required" style="margin-left: 145px;">
-												<label for="insatong_a_0_0" style="padding-top:41px;">답변</label>
-												<input type="text" id="insatong_a_0_0" class="inpTypo cmfree_answer"
-													name="notice_qna_a" placeholder="단답형 최대 28자 (ex. 자유로움)" value="" maxlength="28">
-												<button type="button" class="btn_del_a"> -<span class="blind">답변삭제</span> </button>
-												<button type="button" class="btn_add_a"> +<span class="blind">답변추가</span> </button>
-											</dd>
-
-										</dl>
-										<button type="button" class="btn_del_q">- 질문삭제</button>
-									</div>
-									
-									<div class="guide">
-										<p>질문 및 답변 추가를 원하시면, '자유질문 추가' 버튼을 눌러주세요.</p>
-									</div>
-								</div>
-								<button type="button" class="btn_add_q">+ 자유질문 추가</button>
-								
-								<div class="question_user" id="qu_2">
-
-									<div class="question required" id="qr_2">
-										<dl>
-											<dt>
-												<label for="insatong_q_0">질문</label>
-												<input id="insatong_q_0" data-question-code="0" class="inpTypo cmfree_question" type="text"
-													name="notice_qna_q" placeholder="질문형 최대 28자 (ex. 분위기는 어떤가요?)" value="" maxlength="28">
-											</dt>
-
-											<dd class="required required" style="margin-left: 145px;">
-												<label for="insatong_a_0_0" style="padding-top:41px;">답변</label>
-												<input type="text" id="insatong_a_0_0" class="inpTypo cmfree_answer"
-													name="notice_qna_a" placeholder="단답형 최대 28자 (ex. 자유로움)" value="" maxlength="28">
-												<button type="button" class="btn_del_a"> -<span class="blind">답변삭제</span> </button>
-												<button type="button" class="btn_add_a"> +<span class="blind">답변추가</span> </button>
-											</dd>
-
-										</dl>
-										<button type="button" class="btn_del_q">- 질문삭제</button>
-									</div>
-
-									<div class="guide">
-										<p>질문 및 답변 추가를 원하시면, '자유질문 추가' 버튼을 눌러주세요.</p>
-									</div>
-								</div>
-								<button type="button" class="btn_add_q" id="btn_add_1" >+ 자유질문 추가</button>
-								
-							</div>
-							<!-- cont_tab / cont_user div 끝 -->
 
 							</div>
 						<!-- 인사통 div end -->
@@ -567,7 +496,7 @@ body {
 			</div>
 			<!-- .items insatong end -->
 			
-			<button type="button" id="btn_next" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "> 공고 등록하기 </button>
+			<button type="button" id="btn_next" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "> 다음 페이지 </button>
 			
 			<!-- 폼태그 -->
 			</form>
@@ -577,6 +506,5 @@ body {
 		
 	</div>
 	<!-- step_recruit end -->
-	
 </body>
 </html>

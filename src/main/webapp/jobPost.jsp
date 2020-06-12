@@ -9,6 +9,7 @@
 <script type="text/javascript">
 	$(function(){
 		
+		$('.age_limit').hide();
 		jQuery('#age').change(function(){
 			var state = jQuery('#age option:selected').val();
 			if(state=='limit'){
@@ -1295,29 +1296,8 @@ input[type=checkbox]:checked + label{
 									</div>
 								</dl>
 								<dl id="contract_term_wrap" style="margin-top: 370px; margin-left: 40px;"/>
-									<!-- <dt>
-										<div class="toolTipWrap over">
-											<button type="button">
-												<span class="blind">도움말</span>
-											</button>
-											<div class="toolTip">
-												<span class="tail tail_top_left"></span>
-												<div class="tooltipCont">
-													<strong class="tit_tooltip">기간제법 주요내용</strong>
-													<p class="desc_tooltip" >
-														'기간제근로자'란 근로기간이 정해져 있는 근로 계약을 체결한 근로자를 말합니다. <a
-															href="http://www.law.go.kr/LSW/LsiJoLinkP.do?docType=JO&amp;lsNm=%EA%B8%B0%EA%B0%84%EC%A0%9C+%EB%B0%8F+%EB%8B%A8%EC%8B%9C%EA%B0%84%EA%B7%BC%EB%A1%9C%EC%9E%90+%EB%B3%B4%ED%98%B8+%EB%93%B1%EC%97%90+%EA%B4%80%ED%95%9C+%EB%B2%95%EB%A5%A0&amp;joNo=000200000&amp;languageType=KO&amp;paras=1"
-															target="_blank" class="link" title="새창으로 이동">(기간제 및
-															단시간근로자. 보호 등에 관한 법률)</a><br> 따라서, 계약직, 임시직, 일용직, 촉박직 등
-														명칭에 관계없이 기간의 정함이 있는 근로계약을 체결한 근로자는 모두 기간제 근로자에 해당합니다.<br>
-														2년 이상 근로계약시에는 무기근로계약으로 체결해야 합니다.
-													</p>
-												</div>
-											</div>
-										</div> 
-									</dt> -->
 									<dd>
-										<span style="font-family: 나눔스퀘어;">계약기간</span>
+										<span style="font-family: 나눔스퀘어;">정규직 <br />계약기간</span>
 										<input type="text" class="inpTypo sizeS _filter" id="contract_term" data-filter="numeric" maxlength="2"
 											name="notice_req_gyj_gigan" title="계약기간 입력">개월 
 										<span class="optional_inpchk">
@@ -1330,30 +1310,9 @@ input[type=checkbox]:checked + label{
 									</dd>
 								</dl>
 								<dl id="internship_term_wrap" style="margin-top: 370px; margin-left: 40px;">
-									<!-- <dt>
-										인턴직
-										<div class="toolTipWrap over">
-											<button type="button">
-												<span class="blind">도움말</span>
-											</button>
-											<div class="toolTip">
-												<span class="tail tail_top_left"></span>
-												<div class="tooltipCont">
-													<strong class="tit_tooltip">기간제법 주요내용</strong>
-													<p class="desc_tooltip">
-														'기간제근로자'란 근로기간이 정해져 있는 근로 계약을 체결한 근로자를 말합니다. <a
-															href="http://www.law.go.kr/LSW/LsiJoLinkP.do?docType=JO&amp;lsNm=%EA%B8%B0%EA%B0%84%EC%A0%9C+%EB%B0%8F+%EB%8B%A8%EC%8B%9C%EA%B0%84%EA%B7%BC%EB%A1%9C%EC%9E%90+%EB%B3%B4%ED%98%B8+%EB%93%B1%EC%97%90+%EA%B4%80%ED%95%9C+%EB%B2%95%EB%A5%A0&amp;joNo=000200000&amp;languageType=KO&amp;paras=1"
-															target="_blank" class="link" title="새창으로 이동">(기간제 및
-															단시간근로자. 보호 등에 관한 법률)</a><br> 따라서, 계약직, 임시직, 일용직, 촉박직 등
-														명칭에 관계없이 기간의 정함이 있는 근로계약을 체결한 근로자는 모두 기간제 근로자에 해당합니다.<br>
-														2년 이상 근로계약시에는 무기근로계약으로 체결해야 합니다.
-													</p>
-												</div>
-											</div>
-										</div>
-									</dt> -->
 									<dd>
-										계약기간 <input type="text" class="inpTypo sizeS _filter" id="internship_term" data-filter="numeric" maxlength="2"
+									<span style="font-family: 나눔스퀘어;">인턴직 <br />계약기간</span>
+										<input type="text" class="inpTypo sizeS _filter" id="internship_term" data-filter="numeric" maxlength="2"
 											name="notice_req_int_gigan" title="계약기간 입력">개월 
 										<span class="optional_inpchk">
 											<span class="inpChk">
@@ -1365,29 +1324,9 @@ input[type=checkbox]:checked + label{
 									</dd>
 								</dl>
 								<dl id="dispatch_term_wrap" style="margin-top: 370px; margin-left: 40px;">
-									<!-- <dt>
-										파견직
-										<div class="toolTipWrap over">
-											<button type="button">
-												<span class="blind">도움말</span>
-											</button>
-											<div class="toolTip">
-												<span class="tail tail_top_left"></span>
-												<div class="tooltipCont">
-													<strong class="tit_tooltip">파견법 주요내용</strong>
-													<p class="desc_tooltip">
-														'파견근로자'란 파견사업주가 고용한 근로자로서 근로자파견의 대상이 되는 자를 말합니다. (「파견근로자보호
-														등에 관한 법률」 제2조제5호) 근로자 파견의 기간은 <a
-															href="http://www.law.go.kr/LSW/LsiJoLinkP.do?docType=JO&amp;lsNm=%ED%8C%8C%EA%B2%AC%EA%B7%BC%EB%A1%9C%EC%9E%90%EB%B3%B4%ED%98%B8+%EB%93%B1%EC%97%90+%EA%B4%80%ED%95%9C+%EB%B2%95%EB%A5%A0&amp;joNo=000600000&amp;languageType=KO&amp;paras=1"
-															target="_blank" class="link" title="새창으로 이동">제 5조 제2항</a>에
-														해당하는 경우를 제외하고는 1년을 초과해서는 아니 됩니다.
-													</p>
-												</div>
-											</div>
-										</div>
-									</dt> -->
 									<dd>
-										계약기간 <input type="text" class="inpTypo sizeS _filter" id="dispatch_term" data-filter="numeric" maxlength="2"
+										<span style="font-family: 나눔스퀘어;">파견직<br />계약기간</span>
+										<input type="text" class="inpTypo sizeS _filter" id="dispatch_term" data-filter="numeric" maxlength="2"
 											name="notice_req_pgj_gigan" title="계약기간 입력">개월 
 										<span class="optional_inpchk">
 											<span class="inpChk">

@@ -65,6 +65,13 @@
 			$('#btn_add_1').toggle();
 		});
 		
+		/* 추가하기 버튼 누르면 창 없어지면서 데이터가 post_edit.jsp로 들어가게 함 */
+		$('#btn_add').click(function(){
+			
+			/* 창 닫기 */
+			window.close();
+		});
+		
 		
 		
 	});
@@ -474,7 +481,7 @@ body {
 				<input type="hidden" name="insatong_page_action" value="add" id="insatong_page_action">
 
 				<div class="area_tit" style="padding-left: 10px;">
-					<strong class="tit">인사통</strong>
+					<strong class="tit">인사통 추가하기</strong>
 				</div>
 				
 				<div class="area_data" style="padding-left: 10px;">
@@ -486,10 +493,10 @@ body {
 						
 							<div class="cont_tab cont_user" id="section_cmfree" style="display: block;">
 								<div class="title">
-									<p>
+									<!-- <p>
 										<strong>Q. 질문을 직접 입력</strong>하고 싶으신가요?<br>
 										<span class="sub">공고 또는 기업에 대해 추가로 어필하고 싶은 점을 Q&amp;A 형식으로 작성해보세요.</span>
-									</p>
+									</p> -->
 								</div>
 								<div class="question_user" id="qu_1">
 								
@@ -505,59 +512,21 @@ body {
 												<label for="insatong_a_0_0" style="padding-top:41px;">답변</label>
 												<input type="text" id="insatong_a_0_0" class="inpTypo cmfree_answer"
 													name="notice_qna_a" placeholder="단답형 최대 28자 (ex. 자유로움)" value="" maxlength="28">
-												<button type="button" class="btn_del_a"> -<span class="blind">답변삭제</span> </button>
-												<button type="button" class="btn_add_a"> +<span class="blind">답변추가</span> </button>
 											</dd>
 
 										</dl>
 										<button type="button" class="btn_del_q">- 질문삭제</button>
 									</div>
 									
-									<div class="guide">
+									<!-- <div class="guide">
 										<p>질문 및 답변 추가를 원하시면, '자유질문 추가' 버튼을 눌러주세요.</p>
-									</div>
+									</div> -->
 								</div>
-								<button type="button" class="btn_add_q">+ 자유질문 추가</button>
-								
-								<div class="question_user" id="qu_2">
-
-									<div class="question required" id="qr_2">
-										<dl>
-											<dt>
-												<label for="insatong_q_0">질문</label>
-												<input id="insatong_q_0" data-question-code="0" class="inpTypo cmfree_question" type="text"
-													name="notice_qna_q" placeholder="질문형 최대 28자 (ex. 분위기는 어떤가요?)" value="" maxlength="28">
-											</dt>
-
-											<dd class="required required" style="margin-left: 145px;">
-												<label for="insatong_a_0_0" style="padding-top:41px;">답변</label>
-												<input type="text" id="insatong_a_0_0" class="inpTypo cmfree_answer"
-													name="notice_qna_a" placeholder="단답형 최대 28자 (ex. 자유로움)" value="" maxlength="28">
-												<button type="button" class="btn_del_a"> -<span class="blind">답변삭제</span> </button>
-												<button type="button" class="btn_add_a"> +<span class="blind">답변추가</span> </button>
-											</dd>
-
-										</dl>
-										<button type="button" class="btn_del_q">- 질문삭제</button>
-									</div>
-
-									<div class="guide">
-										<p>질문 및 답변 추가를 원하시면, '자유질문 추가' 버튼을 눌러주세요.</p>
-									</div>
-								</div>
-								<button type="button" class="btn_add_q" id="btn_add_1" >+ 자유질문 추가</button>
 								
 							</div>
 							<!-- cont_tab / cont_user div 끝 -->
 
 							</div>
-						<!-- 인사통 div end -->
-						<!-- <button type="button" class="btn_tab prev">
-							<span class="blind">이전</span>
-						</button>
-						<button type="button" class="btn_tab next on">
-							<span class="blind">다음</span>
-						</button> -->
 					</div>
 					<!-- wrap_cont div end -->
 
@@ -567,16 +536,12 @@ body {
 			</div>
 			<!-- .items insatong end -->
 			
-			<button type="button" id="btn_next" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "> 공고 등록하기 </button>
+			<button type="button" id="btn_add" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "> 인사통 추가 완료</button>
 			
 			<!-- 폼태그 -->
 			</form>
 			
 		</div>
 		<!-- .frm_body end -->
-		
-	</div>
-	<!-- step_recruit end -->
-	
 </body>
 </html>
