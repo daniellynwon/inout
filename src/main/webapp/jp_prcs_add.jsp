@@ -99,7 +99,7 @@
 		
 		/* 추가하기 버튼 누르면 창 없어지면서 데이터가 post_edit.jsp로 들어가게 함 */
 		$('#btn_add').click(function(){
-			
+			frm.submit();
 			/* 창 닫기 */
 			window.close();
 		});
@@ -505,7 +505,7 @@ ol, ul, li {
 			<p class="subhead">채용절차는 어떻게 되나요?</p>
 		</div>
 		
-		<form action="./newNoticeStep3.do" method="post">
+		<form id="frm" action="./newNoticeStep3.do" method="post">
 		<div class="frm_body frm_hiring">
 			<div class="items" id="hiringProcedure">
 				<div class="area_tit"><strong class="tit">채용절차</strong></div>

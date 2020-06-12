@@ -97,6 +97,10 @@
 			console.log('직접입력');
 			$('.inpTarea').toggle();
 		});
+		
+		$('#btn_next').click(function(){
+			frm.submit();
+		});
 
 	});
 </script>
@@ -500,7 +504,7 @@ ol, ul, li {
 			<p class="subhead">채용절차는 어떻게 되나요?</p>
 		</div>
 		
-		<form action="./newNoticeStep3.do" method="post">
+		<form id="frm" action="./newNoticeStep3.do" method="post">
 		<div class="frm_body frm_hiring">
 			<div class="items" id="hiringProcedure">
 				<div class="area_tit"><strong class="tit">채용절차</strong></div>

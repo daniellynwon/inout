@@ -14,10 +14,14 @@
 		
 		/* 최소 최대 경력 보여주기 */
 		$('#career1').click(function(){
+			$('#newbie1').attr('selected', 'false');
+			$('#career1').attr('selected', 'true');
 			$('#career_prd1').show();
 		});
 		/* 신입 클릭시 경력 안보이기 */
 		$('#newbie1').click(function(){
+			$('#newbie1').attr('selected', 'true');
+			$('#career1').attr('selected', 'false');
 			$('#career_prd1').hide();
 		});
 		
@@ -29,6 +33,8 @@
 		/* 수정하기 버튼 누르면 창 없어지면서 데이터가 post_edit.jsp로 들어가게 함 */
 		$('#btn_edit').click(function(){
 			
+			frm.submit();
+			console.log("submit?");
 			/* 창 닫기 */
 			window.close();
 		});
@@ -493,7 +499,7 @@ body {
 			<p class="subhead">어떤일을 담당할 직원을 찾으시나요?</p>
 		</div>
 		
-		<form action="#" method="post">
+		<form id="frm" action="post_edit.jsp" method="post">
 		<div class="frm_body frm_division">
 			<ul class="list_division list_recruit_frm" id="list_recruit_division">
 				<li class="recruit_division_line_detail expand" id="line_detail_0">
@@ -520,12 +526,12 @@ body {
 							<div class="area_data type_txt">
 								<span class="inpChk career_cd_0">
 									<!-- <input type="checkbox" value="0_1" id="career_cd_0_1" class="chkB" /> -->
-									<button type="button" class="btnSizeL" id="newbie1">
+									<button type="button" class="btnSizeL" id="newbie1" name="newb" selected="false">
 									<label class="lbl" for="career_cd_0_1">신입</label></button>
 								</span>
 								<span class="inpChk career_cd_0">
 									<!-- <input type="checkbox" id="career_cd_0_2" value="0_2"> -->
-									<button type="button" class="btnSizeL" id="career1">
+									<button type="button" class="btnSizeL" id="career1" name="car" selected="false">
 										<label class="lbl" for="career_cd_0_2">경력</label>
 									</button>
 								</span>
@@ -733,7 +739,7 @@ body {
 			</div>
 			</form>
 			
-			<input type="submit" value="수정하기" id="btn_edit" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "/>
+			<input type="submit" name="result" value="수정하기" id="btn_edit" class="btn btn-primary btn-lg" style="border: none; background-color: white; margin: 0 auto; width:100%; "/>
 		
 	</div>
 	<!-- step_recruit end -->

@@ -86,6 +86,11 @@
 		$('#add_cat_layer4').click(function(){
 			$('#extr_cat_layer4').toggle();
 		});
+		
+		/* submit(); */
+		$('#btn_next').click(function(){
+			frm.submit();
+		});
 
 	});
 </script>
@@ -548,7 +553,7 @@ body {
 			<p class="subhead">어떤일을 담당할 직원을 찾으시나요?</p>
 		</div>
 
-		<form action="./newNoticeStep2.do" method="post">
+		<form id="frm" action="./newNoticeStep2.do" method="post">
 		<div class="frm_body frm_division">
 			<ul class="list_division list_recruit_frm" id="list_recruit_division">
 				<li class="recruit_division_line_detail expand" id="line_detail_0">

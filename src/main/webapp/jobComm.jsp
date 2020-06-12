@@ -65,6 +65,11 @@
 			$('#btn_add_1').toggle();
 		});
 		
+		/* submit(); */
+		$('#btn_next').click(function(){
+			frm.submit();
+		});
+		
 		
 		
 	});
@@ -468,7 +473,7 @@ body {
 	<div class="step_recruit" id="frmTemplate">
 		<div class="frm_body frm_template">
 			<!-- 인사통 -->
-			<form action="./newNoticeOk" method="post">
+			<form id="frm" action="./newNoticeOk" method="post">
 			
 			<div class="items" id="insatong">
 				<input type="hidden" name="insatong_page_action" value="add" id="insatong_page_action">

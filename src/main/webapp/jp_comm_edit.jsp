@@ -67,7 +67,7 @@
 		
 		/* 수정하기 버튼 누르면 창 없어지면서 데이터가 post_edit.jsp로 들어가게 함 */
 		$('#btn_edit').click(function(){
-			
+			frm.submit();
 			/* 창 닫기 */
 			window.close();
 		});
@@ -475,7 +475,7 @@ body {
 	<div class="step_recruit" id="frmTemplate">
 		<div class="frm_body frm_template">
 			<!-- 인사통 -->
-			<form action="./newNoticeOk" method="post">
+			<form id="frm" action="./newNoticeOk" method="post">
 			
 			<div class="items" id="insatong">
 				<input type="hidden" name="insatong_page_action" value="add" id="insatong_page_action">

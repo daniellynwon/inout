@@ -90,7 +90,7 @@
 		
 		/* 추가하기 버튼 누르면 창 없어지면서 데이터가 post_edit.jsp로 들어가게 함 */
 		$('#btn_add').click(function(){
-			
+			frm.submit();
 			/* 창 닫기 */
 			window.close();
 		});
@@ -555,7 +555,7 @@ body {
 			<p class="subhead">어떤일을 담당할 직원을 찾으시나요?</p>
 		</div>
 
-		<form action="./newNoticeStep2.do" method="post">
+		<form id="frm" action="./newNoticeStep2.do" method="post">
 		<div class="frm_body frm_division">
 			<ul class="list_division list_recruit_frm" id="list_recruit_division">
 				<li class="recruit_division_line_detail expand" id="line_detail_0">

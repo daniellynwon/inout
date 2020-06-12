@@ -5,7 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Job Post Edit Page</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
 
+</script>
 <style type="text/css">
 body {
 	margin: 0;
@@ -1255,11 +1258,26 @@ ol, ul, li {
 </style>
 </head>
 <body>
+	<%
+		String notice_want_name = request.getParameter("notice_want_name");
+		String notice_want_many = request.getParameter("notice_want_many");
+		
+		String newb = request.getParameter("newb");
+		String car = request.getParameter("car");
+
+
+		out.println(request);
+		out.println("======================");
+		out.println(notice_want_name);
+		out.println(notice_want_many);
+		
+		
+	%>
 
 	<div id="sri_section">
 		<div id="sri_wrap">
 			<div id="content">
-
+				
 				<div class="wrap_jview">
 					<div class="jview">
 						<div class="wrap_jv_cont">
@@ -1429,8 +1447,9 @@ ol, ul, li {
 																								<table class="tbl_list">
 																									<tbody>
 																										<tr>
+																										
 																											<td id="recruit_name">ㆍ모집분야명 :
-																												{모집 분야명}<font color="#08ffa7"></font>
+																												<%=notice_want_name %><font color="#08ffa7"></font>
 																											</td>
 																										</tr>
 																										<tr>

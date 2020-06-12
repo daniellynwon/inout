@@ -173,6 +173,11 @@
 			$('#dispatch_term_wrap').toggle();
 		});
 		
+		/* submit(); */
+		$('#btn_next').click(function(){
+			frm.submit();
+		});
+		
 
 	});
 </script>
@@ -769,7 +774,7 @@ input[type=checkbox]:checked + label{
 <body>
 	
 	<div class="wrap_recruit_frm">
-		<form action="./newNoticeStep1.do" method="post">
+		<form id="frm" action="./newNoticeStep1.do" method="post">
 		<div class="step_recruit" id="frmManager">
 			<div id="manager">
 				<!-- 제목 -->
