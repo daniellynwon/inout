@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page isELIgnored="false" 
+	language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.Enumeration" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +9,6 @@
 <title>Job Post Edit Page</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
-
 </script>
 <style type="text/css">
 body {
@@ -1259,19 +1260,50 @@ ol, ul, li {
 </head>
 <body>
 	<%
-		String notice_want_name = request.getParameter("notice_want_name");
-		String notice_want_many = request.getParameter("notice_want_many");
-		
-		String newb = request.getParameter("newb");
-		String car = request.getParameter("car");
+		request.setCharacterEncoding("UTF-8"); // To handle Korean lang 
 
+		// Get Form values
+		// For Log
+		Enumeration<String> e = request.getParameterNames();
+		while(e.hasMoreElements()){
+			String name = e.nextElement();
+			String[] data = request.getParameterValues(name);
+			if(data!=null){
+				for(String eachdata : data){
+					out.println(name + "=" + eachdata +  " ");
+				}
+			}
+		}
 
-		out.println(request);
-		out.println("======================");
-		out.println(notice_want_name);
-		out.println(notice_want_many);
+		String notice_want_name = request.getParameter("notice_want_name"); // 모집분야명
+		if(notice_want_name == null || notice_want_name.isEmpty()){ notice_want_name = "-"; }
+		out.println("noticeName : " + notice_want_name);
+
+		String notice_want_many = request.getParameter("notice_want_many"); //모집인원
+		if(notice_want_many == null || notice_want_many.isEmpty()){ notice_want_many = "-"; }
 		
+		String careerStr = "무관";
+		String careerYN = request.getParameter("careerYN"); //N=신입, Y=경력직
+		String notice_want_mincar = request.getParameter("notice_want_mincar"); //경력조건 min
+		if(notice_want_mincar == null || notice_want_mincar.isEmpty()){ notice_want_mincar = "무관"; }
+		String notice_want_maxcar = request.getParameter("notice_want_maxcar"); //경력조건 max
+		if(notice_want_maxcar == null || notice_want_maxcar.isEmpty()){ notice_want_maxcar = "무관"; }
 		
+		if(careerYN == "Y"){ careerStr = "경력직(" + notice_want_mincar + "~" + notice_want_maxcar + ")"; }
+		else if(careerYN == "N"){ careerStr="신입"; }
+
+		String notice_want_task = request.getParameter("notice_want_task"); //담당업무
+		if(notice_want_task == null || notice_want_task.isEmpty()){ notice_want_task = "-"; }
+		
+		String notice_want_dept = request.getParameter("notice_want_dept"); //근무부서
+		if(notice_want_dept == null || notice_want_dept.isEmpty()){ notice_want_dept = "-"; }
+				
+		String[] pre = request.getParameterValues("pre");
+		if(pre == null){ 
+			out.println(pre);
+			pre=new String[0];
+			out.println(pre);
+			} 
 	%>
 
 	<div id="sri_section">
@@ -1447,29 +1479,41 @@ ol, ul, li {
 																								<table class="tbl_list">
 																									<tbody>
 																										<tr>
-																										
 																											<td id="recruit_name">ㆍ모집분야명 :
 																												<%=notice_want_name %><font color="#08ffa7"></font>
 																											</td>
 																										</tr>
 																										<tr>
+																											<td id="recruit_name">ㆍ모집인원 :
+																												<%=notice_want_many %>
+																												<font color="#08ffa7"></font>
+																											</td>
+																										</tr>
+																										<tr>
 																											<td id="career_no">ㆍ경력 여부 : 
-																												{신입or경력}<font color="#2969a8"></font>
+																												<%=careerStr %>
+																												<font color="#2969a8"></font>
 																											</td>
 																										</tr>
 																										<tr>
 																											<td id="respons">ㆍ담당업무 : 
-																												{담당업무}<font color="#2969a8"></font>
+																												<%=notice_want_task %>
+																												<font color="#2969a8"></font>
 																											</td>
 																										</tr>
 																										<tr>
 																											<td id="dept">ㆍ근무부서 : 
-																												{근무부서}<font color="#2969a8"></font>
+																												<%=notice_want_dept %>
+																												<font color="#2969a8"></font>
 																											</td>
 																										</tr>
 																										<tr>
 																											<td id="preference">ㆍ필수우대조건 : 
-																												{필수우대조건}<font color="#2969a8"></font>
+																												<% 
+																													for(int i=0;i<pre.length;i++){
+																														out.println(pre[i] + " / ");
+																													}
+																												%><font color="#2969a8"></font>
 																											</td>
 																										</tr>
 																									</tbody>
