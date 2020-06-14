@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>jp_want_edit 모집분야 수정 / 추가하기</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script type="text/javascript">
 	$(function(){
 		

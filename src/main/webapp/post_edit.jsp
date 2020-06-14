@@ -8,6 +8,51 @@
 <meta charset="UTF-8">
 <title>Job Post Edit Page</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<%
+		request.setCharacterEncoding("UTF-8"); // To handle Korean lang 
+		HashMap<String, Object> requestMap = new HashMap<String, Object>();
+		// Get Form values
+		String notice_want_name = request.getParameter("notice_want_name"); // 모집분야명
+		if(notice_want_name == null || notice_want_name.isEmpty()){ notice_want_name = "-"; }
+		requestMap.put("notice_want_name", notice_want_name);
+
+		String notice_want_many = request.getParameter("notice_want_many"); //모집인원
+		if(notice_want_many == null || notice_want_many.isEmpty()){ notice_want_many = "-"; }
+		requestMap.put("notice_want_many", notice_want_many);
+
+		String careerStr = "무관";
+		String careerYN = request.getParameter("careerYN"); //N=신입, Y=경력직
+		String notice_want_mincar = request.getParameter("notice_want_mincar"); //경력조건 min
+		if(notice_want_mincar == null || notice_want_mincar.isEmpty()){ notice_want_mincar = "무관"; }
+		String notice_want_maxcar = request.getParameter("notice_want_maxcar"); //경력조건 max
+		if(notice_want_maxcar == null || notice_want_maxcar.isEmpty()){ notice_want_maxcar = "무관"; }
+		
+		if(careerYN == "Y"){ careerStr = "경력직(" + notice_want_mincar + "~" + notice_want_maxcar + ")"; }
+		else if(careerYN == "N"){ careerStr="신입"; }
+		requestMap.put("careerStr", careerStr);
+
+		String notice_want_task = request.getParameter("notice_want_task"); //담당업무
+		if(notice_want_task == null || notice_want_task.isEmpty()){ notice_want_task = "-"; }
+		requestMap.put("notice_want_task", notice_want_task);
+
+		String notice_want_dept = request.getParameter("notice_want_dept"); //근무부서
+		if(notice_want_dept == null || notice_want_dept.isEmpty()){ notice_want_dept = "-"; }
+		requestMap.put("notice_want_dept", notice_want_dept);
+
+		String[] pre = request.getParameterValues("pre");
+		if(pre == null){ 
+			out.println(pre);
+			pre=new String[0];
+			out.println(pre);
+		} 
+		requestMap.put("pre", pre);
+		Set<Map.Entry<String, Object>> entries = requestMap.entrySet();
+		Iterator<Map.Entry<String, Object>> it = entries.iterator();
+		while(it.hasNext()){
+			Map.Entry<String, Object> entry = it.next();
+		}
+		
+	%>
 <script type="text/javascript">
 $(function () {
 	window.name = "myPostEdit";
@@ -18,11 +63,23 @@ $(function () {
 })
 
 function addRecurit(){
-	var lastNo = $('#common_table_td table:last').attr('id').replace('data', '');
+	var name = '<%= notice_want_name %>'; 
+	var many = '<%= notice_want_many %>';
+	var careerStr = '<%= careerStr %>';
+	var task = '<%= notice_want_task %>';
+	var dept = '<%= notice_want_dept %>';
+	var lastNo = $('#common_table_td table:last').attr('id').replace("data","");
 	console.log('lastNo : ' + lastNo);
 	var cloned = $('#common_table_td table:first').clone();
-	cloned.attr('id', 'data' + (parseInt(lastNo) + 1));
-	$('#common_table').append(cloned);
+	//cloned.attr('id', 'data' + (parseInt(lastNo) + 1));
+	// 값을 mapping
+	cloned.find('#name').text(name);
+	cloned.find('#many').text(many);
+	cloned.find('#careerStr').text(careerStr);
+	cloned.find('#task').text(task);
+	cloned.find('#dept').text(dept);
+	
+	$('#common_table_td').append(cloned);
 }
 
 
@@ -1276,53 +1333,6 @@ ol, ul, li {
 </style>
 </head>
 <body>
-	<%
-		request.setCharacterEncoding("UTF-8"); // To handle Korean lang 
-		HashMap<String, Object> requestMap = new HashMap<String, Object>();
-		
-		// Get Form values
-		String notice_want_name = request.getParameter("notice_want_name"); // 모집분야명
-		if(notice_want_name == null || notice_want_name.isEmpty()){ notice_want_name = "-"; }
-		out.println("noticeName : " + notice_want_name);
-		requestMap.put("notice_want_name", notice_want_name);
-
-		String notice_want_many = request.getParameter("notice_want_many"); //모집인원
-		if(notice_want_many == null || notice_want_many.isEmpty()){ notice_want_many = "-"; }
-		requestMap.put("notice_want_many", notice_want_many);
-
-		String careerStr = "무관";
-		String careerYN = request.getParameter("careerYN"); //N=신입, Y=경력직
-		String notice_want_mincar = request.getParameter("notice_want_mincar"); //경력조건 min
-		if(notice_want_mincar == null || notice_want_mincar.isEmpty()){ notice_want_mincar = "무관"; }
-		String notice_want_maxcar = request.getParameter("notice_want_maxcar"); //경력조건 max
-		if(notice_want_maxcar == null || notice_want_maxcar.isEmpty()){ notice_want_maxcar = "무관"; }
-		
-		if(careerYN == "Y"){ careerStr = "경력직(" + notice_want_mincar + "~" + notice_want_maxcar + ")"; }
-		else if(careerYN == "N"){ careerStr="신입"; }
-		requestMap.put("careerStr", careerStr);
-
-		String notice_want_task = request.getParameter("notice_want_task"); //담당업무
-		if(notice_want_task == null || notice_want_task.isEmpty()){ notice_want_task = "-"; }
-		requestMap.put("notice_want_task", notice_want_task);
-
-		String notice_want_dept = request.getParameter("notice_want_dept"); //근무부서
-		if(notice_want_dept == null || notice_want_dept.isEmpty()){ notice_want_dept = "-"; }
-		requestMap.put("notice_want_dept", notice_want_dept);
-
-		String[] pre = request.getParameterValues("pre");
-		if(pre == null){ 
-			out.println(pre);
-			pre=new String[0];
-			out.println(pre);
-		} 
-		requestMap.put("pre", pre);
-		Set<Map.Entry<String, Object>> entries = requestMap.entrySet();
-		Iterator<Map.Entry<String, Object>> it = entries.iterator();
-		while(it.hasNext()){
-			Map.Entry<String, Object> entry = it.next();
-		}
-		
-	%>
 		<script>addRecurit()</script>
 	<%
 
@@ -1503,24 +1513,24 @@ ol, ul, li {
 																								<table id="data1" class="tbl_list">
 																									<tbody>
 																										<tr>
-																											<td id="recruit_name">ㆍ모집분야명 :
-																												<%=notice_want_name %><font color="#08ffa7"></font>
+																											<td id="name">ㆍ모집분야명 :
+																												""<font color="#08ffa7"></font>
 																											</td>
 																										</tr>
 																										<tr>
-																											<td id="recruit_name">ㆍ모집인원 :
+																											<td id="many">ㆍ모집인원 :
 																												<%=notice_want_many %>
 																												<font color="#08ffa7"></font>
 																											</td>
 																										</tr>
 																										<tr>
-																											<td id="career_no">ㆍ경력 여부 : 
+																											<td id="careerStr">ㆍ경력 여부 : 
 																												<%=careerStr %>
 																												<font color="#2969a8"></font>
 																											</td>
 																										</tr>
 																										<tr>
-																											<td id="respons">ㆍ담당업무 : 
+																											<td id="task">ㆍ담당업무 : 
 																												<%=notice_want_task %>
 																												<font color="#2969a8"></font>
 																											</td>
