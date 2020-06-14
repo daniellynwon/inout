@@ -1,7 +1,7 @@
 <%@ page isELIgnored="false" 
 	language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.Enumeration" %>
+<%@ page import="java.util.Enumeration, java.util.Map, java.util.HashMap, java.util.Set, java.util.Iterator" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,23 @@
 <title>Job Post Edit Page</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
+$(function () {
+	window.name = "myPostEdit";
+	$('#recurit_add_btn').on('click', function(){
+		// 모집분야 추가시 입력 페이지 open
+		window.open("jp_want_edit.jsp", "popupAddRecurit");
+	});
+})
+
+function addRecurit(){
+	var lastNo = $('#common_table_td table:last').attr('id').replace('data', '');
+	console.log('lastNo : ' + lastNo);
+	var cloned = $('#common_table_td table:first').clone();
+	cloned.attr('id', 'data' + (parseInt(lastNo) + 1));
+	$('#common_table').append(cloned);
+}
+
+
 </script>
 <style type="text/css">
 body {
@@ -1261,27 +1278,18 @@ ol, ul, li {
 <body>
 	<%
 		request.setCharacterEncoding("UTF-8"); // To handle Korean lang 
-
+		HashMap<String, Object> requestMap = new HashMap<String, Object>();
+		
 		// Get Form values
-		// For Log
-		Enumeration<String> e = request.getParameterNames();
-		while(e.hasMoreElements()){
-			String name = e.nextElement();
-			String[] data = request.getParameterValues(name);
-			if(data!=null){
-				for(String eachdata : data){
-					out.println(name + "=" + eachdata +  " ");
-				}
-			}
-		}
-
 		String notice_want_name = request.getParameter("notice_want_name"); // 모집분야명
 		if(notice_want_name == null || notice_want_name.isEmpty()){ notice_want_name = "-"; }
 		out.println("noticeName : " + notice_want_name);
+		requestMap.put("notice_want_name", notice_want_name);
 
 		String notice_want_many = request.getParameter("notice_want_many"); //모집인원
 		if(notice_want_many == null || notice_want_many.isEmpty()){ notice_want_many = "-"; }
-		
+		requestMap.put("notice_want_many", notice_want_many);
+
 		String careerStr = "무관";
 		String careerYN = request.getParameter("careerYN"); //N=신입, Y=경력직
 		String notice_want_mincar = request.getParameter("notice_want_mincar"); //경력조건 min
@@ -1291,19 +1299,33 @@ ol, ul, li {
 		
 		if(careerYN == "Y"){ careerStr = "경력직(" + notice_want_mincar + "~" + notice_want_maxcar + ")"; }
 		else if(careerYN == "N"){ careerStr="신입"; }
+		requestMap.put("careerStr", careerStr);
 
 		String notice_want_task = request.getParameter("notice_want_task"); //담당업무
 		if(notice_want_task == null || notice_want_task.isEmpty()){ notice_want_task = "-"; }
-		
+		requestMap.put("notice_want_task", notice_want_task);
+
 		String notice_want_dept = request.getParameter("notice_want_dept"); //근무부서
 		if(notice_want_dept == null || notice_want_dept.isEmpty()){ notice_want_dept = "-"; }
-				
+		requestMap.put("notice_want_dept", notice_want_dept);
+
 		String[] pre = request.getParameterValues("pre");
 		if(pre == null){ 
 			out.println(pre);
 			pre=new String[0];
 			out.println(pre);
-			} 
+		} 
+		requestMap.put("pre", pre);
+		Set<Map.Entry<String, Object>> entries = requestMap.entrySet();
+		Iterator<Map.Entry<String, Object>> it = entries.iterator();
+		while(it.hasNext()){
+			Map.Entry<String, Object> entry = it.next();
+		}
+		
+	%>
+		<script>addRecurit()</script>
+	<%
+
 	%>
 
 	<div id="sri_section">
@@ -1463,20 +1485,22 @@ ol, ul, li {
 																				<button type="button" title="수정하기" class="spr_jview btn_jview btn_modify"
 																					style="margin: 0 auto; width: 100%; border: none;">
 																					<span>모집분야 수정</span></button></a>
-																				<a href="jp_want_add.jsp" target="_blank">
 																				<button type="button" title="추가하기" class="spr_jview btn_jview btn_modify"
-																					style="margin: 0 auto; width: 100%; border: none;">
+																					style="margin: 0 auto; width: 100%; border: none;" id="recurit_add_btn" >
 																					<span>모집분야 추가</span></button></a>
 																			</div>
 																			<h2 class="tit_template" id="template_divisions_title">
 																				<span class="ico"></span>모집분야
 																			</h2>
+
+
+																	
 																			<div class="wrap_tbl_template">
 																				<table class="tbl_template txt_type" id="divisionTable">
 																					<tbody>
 																						<tr id="common_table">
-																							<td>
-																								<table class="tbl_list">
+																							<td id="common_table_td">
+																								<table id="data1" class="tbl_list">
 																									<tbody>
 																										<tr>
 																											<td id="recruit_name">ㆍ모집분야명 :
@@ -1519,92 +1543,6 @@ ol, ul, li {
 																									</tbody>
 																								</table>
 																							</td>
-																						</tr>
-																						<tr class="display_hiring_process_list">
-																							<td>
-																								<div class="btns">
-																									<a href="jp_prcs_edit.jsp" target="_blank">
-																									<button type="button" title="수정하기" class="spr_jview btn_jview btn_modify"
-																										style="margin: 0 auto; width: 100%; border: none;">
-																										<span>전형절차 수정</span></button></a>
-																									<a href="jp_prcs_add.jsp" target="_blank">
-																									<button type="button" title="추가하기" class="spr_jview btn_jview btn_modify"
-																										style="margin: 0 auto; width: 100%; border: none;">
-																										<span>전형절차 추가</span></button></a>
-																								</div>
-																								<h2 class="tit_template" id="template_step_title">
-																									<span class="ico"></span>전형절차
-																								</h2>
-																								<ol class="step_template_type step_template_type2" d="template_step_hiring_process_list">
-																									<li><div class="cont_step">
-																											<div class="inner">
-																												<strong class="tit_step"> 서류전형</strong>
-																												<span class="txt_step">{ 서류전형 }</span>
-																											</div>
-																										</div></li>
-																									<li><div class="cont_step">
-																											<div class="inner">
-																												<strong class="tit_step"> 1차면접 </strong>
-																												<span class="txt_step">{ 1차면접 }</span>
-																											</div>
-																										</div></li>
-																									<li><div class="cont_step">
-																										<div class="inner">
-																											<strong class="tit_step"> 2차면접 </strong>
-																											<span class="txt_step">{ 2차면접 }</span>
-																										</div>
-																										</div></li>
-																									<li><div class="cont_step">
-																											<div class="inner">
-																												<strong class="tit_step"> 최종합격</strong>
-																												<span class="txt_step">{ 최종합격 }</span>
-																											</div>
-																										</div></li>
-																								</ol></td>
-																						</tr>
-																						<tr>
-																							<td>
-																								<div class="btns">
-																									<a href="jp_comm_edit.jsp" target="_blank">
-																									<button type="button" title="수정하기" class="spr_jview btn_jview btn_modify"
-																										style="margin: 0 auto; width: 100%; border: none;">
-																										<span>인사통 수정</span></button></a>
-																									<a href="jp_comm_add.jsp" target="_blank">
-																									<button type="button" title="추가하기" class="spr_jview btn_jview btn_modify"
-																										style="margin: 0 auto; width: 100%; border: none;">
-																										<span>인사통 추가</span></button></a>
-																								</div>
-																								<h2 class="tit_template" id="template_insatong">
-																									<span class="ico"></span>인사통
-																								</h2>
-																								<div class="wrap_list_template">
-																									<table class="list_template">
-																										<tbody>
-																											<tr>
-																												<td>
-																													<span class="tit" id="template_insa_q">질문</span>
-																													<span class="colon">:</span>
-																													<span class="txt" id="template_insa_a">{ 인사통 질문 답변 }</span>
-																												</td>
-																											</tr>
-																											<tr>
-																												<td>
-																													<span class="tit" id="template_insa_q">질문</span>
-																													<span class="colon">:</span>
-																													<span class="txt" id="template_insa_a">{ 인사통 질문 답변 }</span>
-																												</td>
-																											</tr>
-																											<tr>
-																												<td>
-																													<span class="tit" id="template_insa_q">질문</span>
-																													<span class="colon">:</span>
-																													<span class="txt" id="template_insa_a">{ 인사통 질문 답변 }</span>
-																												</td>
-																											</tr>
-																											
-																										</tbody>
-																									</table>
-																								</div></td>
 																						</tr>
 																					</tbody>
 																				</table>

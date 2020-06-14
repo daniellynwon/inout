@@ -29,10 +29,12 @@
 		/* 수정하기 버튼 누르면 창 없어지면서 데이터가 post_edit.jsp로 들어가게 함 */
 		$('#btn_edit').click(function(){
 			
+			window.opener.name = "myPostEdit";
+			frm.target = "myPostEdit";
 			frm.submit();
 			console.log("submit?");
 			/* 창 닫기 */
-			//window.close();
+			self.close();
 		});
 		
 	});
@@ -748,7 +750,7 @@ body {
 												</div>
 											</div>
 										</div>
-
+										<input name="id" type="hidden"> <!-- for add by id -->
 										<div class="modalBtn">
 											<!-- <button type="button" id="btn_check" class="btnSizeL colorBlue btn_confirm" data-seq="0" data-uilayer-btn="recruit_division_preference">확인</button> -->
 											<button type="button" id="btn_canc" class="btnSizeL colorBlue colorInvert btn_close" 
