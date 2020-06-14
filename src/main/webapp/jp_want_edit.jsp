@@ -13,15 +13,11 @@
 		$('#career_prd1').hide();
 		
 		/* 최소 최대 경력 보여주기 */
-		$('#career1').click(function(){
-			$('#newbie1').attr('selected', 'false');
-			$('#career1').attr('selected', 'true');
+		$('#car').click(function(){
 			$('#career_prd1').show();
 		});
 		/* 신입 클릭시 경력 안보이기 */
-		$('#newbie1').click(function(){
-			$('#newbie1').attr('selected', 'true');
-			$('#career1').attr('selected', 'false');
+		$('#newbie').click(function(){
 			$('#career_prd1').hide();
 		});
 		
@@ -36,7 +32,7 @@
 			frm.submit();
 			console.log("submit?");
 			/* 창 닫기 */
-			window.close();
+			//window.close();
 		});
 		
 	});
@@ -433,13 +429,6 @@ span.inpRdo>.lbl, span.inpChk>.lbl {
 	text-decoration: underline;
 }
 
-/* 체크박스? */
-.inpChk input+.lbl .chkB {
-	width: 24px;
-	height: 24px;
-	background-position-x: -120px;
-}
-
 /* 필수 우대조건 */
 .modal_division .area_category_select .list_check {
 	padding: 10px 0 16px 20px;
@@ -475,6 +464,55 @@ input[type=checkbox]+label {
 input[type=checkbox]:checked+label {
 	background-color: #bcbcbc;
 }
+
+/* 라디오 버튼 CSS - TODO:*/
+/*radio버튼 (동그라미) 숨기기 */
+
+/* 체크박스? */
+.inpChk input+.lbl .chkB {
+	width: 24px;
+	height: 24px;
+	background-position-x: -120px;
+}
+
+.inpChk {
+	display : inline-block;
+}
+
+input[type=radio] {
+	display:none;
+}
+input[type=radio] + label {
+	display:inline-block;
+	margin:-2px;
+	padding: 4px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+	vertical-align: middle;
+	cursor: pointer;
+	background-color: #f5f5f5;
+	background-image: linear-gradient(to bottom,#fff,#e6e6e6);
+	background-repeat: repeat-x;
+	border: 1px solid #ccc;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+	border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+	border-bottom-color: #b3b3b3;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
+}
+
+input[type=radio]:checked + label {
+   background-image: none;
+	outline: 0;
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+	background-color:#e0e0e0;
+}
+
 
 ol, ul, li {
 	list-style: none;
@@ -524,17 +562,14 @@ body {
 						<div class="items">
 							<div class="area_tit"><strong class="tit">경력여부</strong></div>
 							<div class="area_data type_txt">
-								<span class="inpChk career_cd_0">
-									<!-- <input type="checkbox" value="0_1" id="career_cd_0_1" class="chkB" /> -->
-									<button type="button" class="btnSizeL" id="newbie1" name="newb" selected="false">
-									<label class="lbl" for="career_cd_0_1">신입</label></button>
-								</span>
-								<span class="inpChk career_cd_0">
-									<!-- <input type="checkbox" id="career_cd_0_2" value="0_2"> -->
-									<button type="button" class="btnSizeL" id="career1" name="car" selected="false">
-										<label class="lbl" for="career_cd_0_2">경력</label>
-									</button>
-								</span>
+								<div class="inpChk career_cd_0">							
+									<input type="radio" name="careerYN" id="newbie" value="N">
+									<label for="newbie">신입</label>
+								</div>
+								<div class="inpChk career_cd_0">							
+									<input class="btnSizeL lbl" type="radio" name="careerYN" id="car" value="Y">
+									<label for="car">경력</label>
+								</div>
 
 								<!-- 경력 체크시 노출되는 부분 -->
 								<div class="career_check career_cd_sub_2_0" id="career_prd1" data-sub-for="0_2" style="display: flex;">
@@ -644,67 +679,67 @@ body {
 															<ul class="list_check list_three_depth" style="">
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre003" value="국가유공자"
-																	data-section="preferential" name="pre003" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																<label class="lbl" for="layer_three_depth_pre003">국가유공자</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre004" value="보훈대상자"
-																	data-section="preferential" name="pre004" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																<label class="lbl" for="layer_three_depth_pre004">보훈대상자</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre006" value="장애인우대"
-																		data-section="preferential" name="pre006" data-parent-code="pre002">
+																		data-section="preferential" name="pre" data-parent-code="pre002">
 																<label class="lbl" for="layer_three_depth_pre006">장애인우대</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre035" value="외국인우대"
-																	data-section="preferential" name="pre035" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																	<label class="lbl" for="layer_three_depth_pre035">외국인우대</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre034" value="병역특례"
-																	data-section="preferential" name="pre034" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																	<label class="lbl" for="layer_three_depth_pre034">병역특례</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre029" value="여성우대"
-																	data-section="preferential" name="pre029" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																	<label class="lbl" for="layer_three_depth_pre029">여성우대</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre030" value="주부(전업주부)"
-																	data-section="preferential" name="pre030" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																	<label class="lbl" for="layer_three_depth_pre030">주부(전업주부)</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre031" value="고령자(55세이상)"
-																	data-section="preferential" name="pre031" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																	<label class="lbl" for="layer_three_depth_pre031">고령자(55세이상)</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre007" value="취업보호대상자"
-																	data-section="preferential" name="pre007" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																	<label class="lbl" for="layer_three_depth_pre007">취업보호대상자</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre005" value="고용촉진장려금 대상"
-																	data-section="preferential" name="pre005" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																	<label class="lbl" for="layer_three_depth_pre005">고용촉진장려금 대상</label>
 																</span></li>
 
 																<li><span class="inpChk sizeM">
 																<input type="checkbox" class="three_depth_preferential" id="layer_three_depth_pre061" value="특성화고/마이스터고"
-																	data-section="preferential" name="pre061" data-parent-code="pre002">
+																	data-section="preferential" name="pre" data-parent-code="pre002">
 																	<label class="lbl" for="layer_three_depth_pre061">특성화고/마이스터고</label>
 																</span></li>
 															</ul>
